@@ -13,7 +13,7 @@ public class plane : MonoBehaviour
     public float startYpos = 5f; // Y coordinate from the player for spawning point
     public float goAwayAtY = -0f; // Y global coordinate that's automatically makes the plane to fly away (like an area collision with the player)
     public bool leftSide = false; // The initial side of the plane when it attacks for the first time
-    public bool targetFollowLimit = true; // Limits the plane, so it can't rotate to the ground during following the player
+    public bool targetFollowLimit = false; // Limits the plane, so it can't rotate to the ground during following the player
     
     private GameObject target;
     private bool goAway = false;
