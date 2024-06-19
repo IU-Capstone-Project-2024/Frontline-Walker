@@ -30,17 +30,16 @@ public class plane : MonoBehaviour
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player");
+        var position = target.transform.position;
         if (!leftSide)
         {
             transform.eulerAngles = new Vector3(0, 0, startAngle);
-            transform.position = new Vector2(target.transform.position.x+ startXpos, target.transform.position.y+ startYpos);
-        }
-
-        if (leftSide)
+            transform.position = new Vector2(position.x + startXpos, position.y + startYpos);
+        } else
         {
             transform.eulerAngles = new Vector3(0, 0, 540 - startAngle);
-            transform.position = new Vector2(target.transform.position.x - startXpos, target.transform.position.y + startYpos);
-        }
+            transform.position = new Vector2(position.x - startXpos, position.y + startYpos);
+        } 
     }
 
     private void Update()
@@ -56,9 +55,7 @@ public class plane : MonoBehaviour
                 {
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationForwardSpeed * Time.deltaTime);
                 }
-            }
-
-            if (goAway)
+            } else
             {
                 Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angleAway));
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationAwaySpeed * Time.deltaTime);
@@ -77,9 +74,7 @@ public class plane : MonoBehaviour
                 {
                     transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationForwardSpeed * Time.deltaTime);
                 }
-            }
-
-            if (goAway)
+            } else
             {
                 Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, 180-angleAway));
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationAwaySpeed * Time.deltaTime);
@@ -93,12 +88,14 @@ public class plane : MonoBehaviour
 
         if (transform.position.y > startYpos && goAway)
         {
+            var position = target.transform.position;
+            
             if (leftSide)
             {
                 leftSide = false;
                 goAway = false;
                 transform.eulerAngles = new Vector3(0, 0, startAngle);
-                transform.position = new Vector2(target.transform.position.x + startXpos, target.transform.position.y + startYpos);
+                transform.position = new Vector2(position.x + startXpos, position.y + startYpos);
 
             }
             else
@@ -106,7 +103,7 @@ public class plane : MonoBehaviour
                 leftSide = true;
                 goAway = false;
                 transform.eulerAngles = new Vector3(0, 0, 540 - startAngle);
-                transform.position = new Vector2(target.transform.position.x - startXpos, target.transform.position.y + startYpos);
+                transform.position = new Vector2(position.x - startXpos, position.y + startYpos);
             }
         }
 
