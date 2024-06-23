@@ -10,8 +10,10 @@ public class TestBullet : Projectile
     private Rigidbody2D _rigidbody;
     void Start()
     {
+        var direction = new Vector2(transform.right.x, transform.right.y);
+        Debug.Log(transform.right);
         _rigidbody = gameObject.GetComponent<Rigidbody2D>();
-        _rigidbody.velocity += new Vector2(Mathf.Cos(Mathf.Deg2Rad * _rigidbody.rotation), Mathf.Sin(Mathf.Deg2Rad *  _rigidbody.rotation)) * speed;
+        _rigidbody.velocity += direction * speed;
         Destroy(gameObject, 5);
     }
 

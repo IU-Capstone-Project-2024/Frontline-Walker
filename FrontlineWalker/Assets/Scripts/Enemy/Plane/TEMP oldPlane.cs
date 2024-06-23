@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class plane : MonoBehaviour
+public class TEMPoldPlane : MonoBehaviour
 {
     public float rotationForwardSpeed = 200.0f; // Speed of the plane rotation during following the player 
     public float rotationAwaySpeed = 100.0f; // Speed of the plane rotation during flying away
@@ -62,8 +62,7 @@ public class plane : MonoBehaviour
             }
         }
 
-
-        if (leftSide)
+        else
         {
             if (!goAway)
             {
