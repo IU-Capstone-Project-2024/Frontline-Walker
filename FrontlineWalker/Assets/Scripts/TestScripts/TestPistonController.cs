@@ -13,12 +13,12 @@ public class TestPistonController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.Q))
         {
             _piston.Up();
-        } else if (Input.GetKey(KeyCode.S))
+        } else if (Input.GetKey(KeyCode.E))
         {
             _piston.Down();
         }

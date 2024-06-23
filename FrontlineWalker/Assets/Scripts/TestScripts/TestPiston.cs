@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,42 +8,44 @@ public class TestPiston : MonoBehaviour
 
     [SerializeField] private GameObject _base;
     [SerializeField] private GameObject _piston;
-    
-    [SerializeField] private float _max_y_position;
-    private float _min_y_position; 
-    private float _current_y_position;
+    [SerializeField] private float _max_force;
+    [SerializeField] private float _min_force;
+    [SerializeField] private float _force_to_add;
+    private float _force;
 
     private Rigidbody2D _piston_rb;
     
     // Start is called before the first frame update
     void Start()
     {
-        _current_y_position = _piston.transform.localPosition.y;
-        _min_y_position = _piston.transform.localPosition.y;
-        _max_y_position += _piston.transform.localPosition.y;
-
-        Debug.Log(_min_y_position + " " + _max_y_position);
-        
         _piston_rb = _piston.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        //Debug.Log(_force);
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        ClampForce();
+        _piston_rb.AddForce(new Vector2(0, _force));
     }
 
     public void Up()
     {
-        Debug.Log(_max_y_position + " " + _current_y_position);
-
-        _base.GetComponent<DistanceJoint2D>().distance += 0.1f * Time.deltaTime;
+        _force += _force_to_add;
     }
     
     public void Down()
     {
-        Debug.Log(_min_y_position + " " + _current_y_position);
-        
-        _base.GetComponent<DistanceJoint2D>().distance -= 0.1f * Time.deltaTime;
+        _force -= _force_to_add;
+    }
+
+    private void ClampForce()
+    {
+        if (_force < _min_force) _force = _min_force;
+        if (_force > _max_force) _force = _max_force;
     }
 }
