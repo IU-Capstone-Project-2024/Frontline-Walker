@@ -29,9 +29,9 @@ Transform:
   m_GameObject: {fileID: 1642608447652439338}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.464641, y: -10.0277, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -161,3 +161,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99542b6aa8b17144caad446ee5432464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionForce: 10
+  explosionRadius: 10
+  damage: 10
+  hit_layer:
+    serializedVersion: 2
+    m_Bits: 64
+  wall_layer:
+    serializedVersion: 2
+    m_Bits: 8
