@@ -8,7 +8,6 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     public float stepSize = 0.15f;
     public int smoothness = 8;
     public float stepHeight = 0.15f;
-    public float stepCooldown = 0.5f;
     public bool bodyOrientation = true;
 
     public float raycastRange = 1.5f;
@@ -70,6 +69,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
         }
         legTargets[index].position = targetPoint;
         lastLegPositions[index] = legTargets[index].position;
+        stepCooled = true;
     }
 
 
@@ -114,7 +114,6 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
                 ((Vector2)transform.parent.up + velocity * 10).normalized);
 
             stepCooled = false;
-            Invoke("CooldownStep", stepCooldown);
             
             if (positionAndNormalFwd[1] == Vector2.zero)
             {
@@ -138,11 +137,6 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(transform.parent.forward, up);
             lastBodyUp = transform.up;
         }
-    }
-
-    void CooldownStep()
-    {
-        stepCooled = true;
     }
 
     private void OnDrawGizmos()

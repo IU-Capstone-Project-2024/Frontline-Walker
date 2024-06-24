@@ -5,7 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class TestController : MonoBehaviour
 {
-    public float _speed = 1f;
+    public float speed = 1f;
+    public KeyCode right;
+    public KeyCode left;
+
+    private float _current_y;
     private Rigidbody2D _rb;
 
     // Start is called before the first frame update
@@ -17,13 +21,13 @@ public class TestController : MonoBehaviour
 
     void FixedUpdate()
     {
-       if(Mathf.Abs(_rb.velocity.x) < _speed)
+       if(Mathf.Abs(_rb.velocity.x) < speed)
         {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(right))
             {
                 _rb.AddForce(Vector2.right * 50f);
             }
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(left))
             {
                 _rb.AddForce(- Vector2.right * 50f);
             }
