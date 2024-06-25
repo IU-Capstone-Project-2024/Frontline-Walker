@@ -1,18 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class TestProceduralWalkerAnimation : MonoBehaviour
 {
+    public GameObject[] foots;
     public Transform[] legTargets;
-    public float stepSize = 0.15f;
-    public int smoothness = 8;
-    public float stepHeight = 0.15f;
+    public float foots_rotation_speed = 5f; 
+    public float stepSize = 1.3f;
+    public int step_smoothness = 20;
+    public float stepHeight = 0.5f;
     public bool bodyOrientation = true;
 
     public float raycastRange = 1.5f;
+    public LayerMask layerMask;
+    
     private Vector2[] defaultLegPositions;
     private Vector2[] lastLegPositions;
+    private Vector2[] _foots_normals;
     private Vector2 lastBodyUp;
     private bool stepCooled;
     private int nbLegs;
@@ -28,8 +35,8 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
         Vector2[] res = new Vector2[2];
         res[1] = Vector3.zero;
         RaycastHit2D hit;
-        hit = Physics2D.Raycast(point + halfRange * up / 2f, -up, 2f * halfRange);
-        Debug.DrawRay(point + halfRange * up / 2f, - up * 2f * halfRange, Color.red, smoothness * Time.deltaTime);
+        hit = Physics2D.Raycast(point + halfRange * up / 2f, -up, 2f * halfRange, layerMask);
+        Debug.DrawRay(point + halfRange * up / 2f, - up * 2f * halfRange, Color.red, step_smoothness * Time.deltaTime);
         if (hit.collider)
         {
             res[0] = hit.point;
@@ -44,6 +51,18 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     
     void Start()
     {
+        if (foots.Length != legTargets.Length)
+        {
+            Debug.Log("Number of foots doesn't match number of legs!");
+            foots = Array.Empty<GameObject>();
+        }
+
+        _foots_normals = new Vector2[foots.Length];
+        for (int i = 0; i < _foots_normals.Length; i++) 
+        {
+            _foots_normals[i] = new Vector2(0, 1);
+        }
+        
         lastBodyUp = transform.up;
 
         nbLegs = legTargets.Length;
@@ -61,10 +80,10 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     IEnumerator PerformStep(int index, Vector3 targetPoint)
     {
         Vector3 startPos = lastLegPositions[index];
-        for(int i = 1; i <= smoothness; ++i)
+        for(int i = 1; i <= step_smoothness; ++i)
         {
-            legTargets[index].position = Vector3.Lerp(startPos, targetPoint, i / (float)(smoothness + 1f));
-            legTargets[index].position += transform.up * Mathf.Sin(i / (float)(smoothness + 1f) * Mathf.PI) * stepHeight;
+            legTargets[index].position = Vector3.Lerp(startPos, targetPoint, i / (float)(step_smoothness + 1f));
+            legTargets[index].position += transform.up * Mathf.Sin(i / (float)(step_smoothness + 1f) * Mathf.PI) * stepHeight;
             yield return new WaitForFixedUpdate();
         }
         legTargets[index].position = targetPoint;
@@ -76,7 +95,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     void FixedUpdate()
     {
         velocity = (Vector2)transform.position - lastBodyPos;
-        velocity = (velocity + smoothness * lastVelocity) / (smoothness + 1f);
+        velocity = (velocity + step_smoothness * lastVelocity) / (step_smoothness + 1f);
 
         if (velocity.magnitude < 0.000025f)
             velocity = lastVelocity;
@@ -118,13 +137,26 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
             if (positionAndNormalFwd[1] == Vector2.zero)
             {
                 StartCoroutine(PerformStep(indexToMove, positionAndNormalBwd[0]));
+                _foots_normals[indexToMove] = positionAndNormalBwd[1];
             }
             else
             {
                 StartCoroutine(PerformStep(indexToMove, positionAndNormalFwd[0]));
+                _foots_normals[indexToMove] = positionAndNormalFwd[1];
             }
         }
-
+        
+        //rotating foot
+        for (int i = 0; i < foots.Length; i++)
+        {
+            
+            var _forward = new Vector2(_foots_normals[i].y, -_foots_normals[i].x);
+            var _new_z = -Vector2.SignedAngle(_forward, new Vector2(1,0));
+            var target_rotation = Quaternion.Euler(0,0, _new_z);
+            foots[i].transform.rotation = Quaternion.Lerp(foots[i].transform.rotation, target_rotation, foots_rotation_speed * Time.deltaTime);
+        }
+        
+        //
         lastBodyPos = transform.position;
         if (nbLegs > 1 && bodyOrientation)
         {
@@ -132,7 +164,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
             
             Vector3 v2 = Vector3.back;
             Vector3 normal = Vector3.Cross(v1, v2).normalized;
-            Vector3 up = Vector3.Lerp(lastBodyUp, normal, 1f / (float)(smoothness + 1));
+            Vector3 up = Vector3.Lerp(lastBodyUp, normal, 1f / (float)(step_smoothness + 1));
             transform.up = up;
             transform.rotation = Quaternion.LookRotation(transform.parent.forward, up);
             lastBodyUp = transform.up;

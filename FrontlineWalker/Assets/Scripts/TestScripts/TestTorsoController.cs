@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class TestTorsoController : MonoBehaviour
 {
-
-    public KeyCode up;
-    public KeyCode down;
     public float maxY = 0.5f;
     public float minY = -0.5f;
     public float speed = 0.1f;
@@ -21,30 +18,12 @@ public class TestTorsoController : MonoBehaviour
         _initialY = transform.localPosition.y;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (Input.GetKey(up))
-        {
-            _currentY += speed * Time.deltaTime;
-        }
-
-        if (Input.GetKey(down))
-        {
-            _currentY -= speed * Time.deltaTime;
-        }
-        
-        Clamp();
-        setTorsoY();
-    }
-
     void Clamp()
     {
         if (_currentY > maxY)
         {
             _currentY = maxY;
         }
-
         if (_currentY < minY)
         {
             _currentY = minY;
@@ -53,7 +32,20 @@ public class TestTorsoController : MonoBehaviour
 
     void setTorsoY()
     {
-        Debug.Log(_initialY + " " + _currentY);
         transform.localPosition = new Vector3(transform.localPosition.x, _initialY + _currentY, transform.localPosition.z);
+    }
+
+    public void Up()
+    {
+        _currentY += speed * Time.deltaTime;
+        Clamp();
+        setTorsoY();
+    }
+
+    public void Down()
+    {
+        _currentY -= speed * Time.deltaTime;
+        Clamp();
+        setTorsoY();
     }
 }
