@@ -522,19 +522,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf237dc27e8860f44be6bde5fb045d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  keyOff: 304
+  keyHigh: 113
+  keyLow: 101
   maxZoom: 15
   minZoom: 10
   activateSpeed: 20
-  zoomSpeed: 3
   returnSpeed: 10
-  keyHigh: 113
-  keyLow: 101
-  keyOff: 304
+  zoomSpeed: 3
   moveSpeed: 5
   cameraInit: {fileID: 519420033}
   startZoom: 0
-  endZoom: 0
   returnBinoculars: 0
+  endZoom: 0
 --- !u!1001 &1054186476
 PrefabInstance:
   m_ObjectHideFlags: 0
