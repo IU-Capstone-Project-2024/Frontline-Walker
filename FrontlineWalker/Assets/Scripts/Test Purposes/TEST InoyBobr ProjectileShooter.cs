@@ -29,7 +29,7 @@ public class TESTInoyBobrProjectileShooter : MonoBehaviour
     private void Update()
     {
         _timer += Time.deltaTime;
-        if (_timer > 1)
+        if (_timer > 0.3)
         {
             _timer = 0;
             Shoot();
