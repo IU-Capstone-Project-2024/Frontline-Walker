@@ -16,7 +16,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     public bool bodyOrientation = true;
     [Header("Torso")] 
     public TestTorsoController torsoController;
-    public float shakeHeight = 0.1f;
+    public float shakeHeight = 0.01f;
     public bool shakeTorso = true;
 
     [Header("Calculations")]

@@ -250,7 +250,7 @@ MonoBehaviour:
   maxY: 0.2
   minY: -0.4
   speed: 0.5
-  animating: 0
+  targetY: 0
 --- !u!1 &20879763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,6 +1525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1444d2b69e5c49345b564f0155ecbcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  proceduralWalkerAnimation: {fileID: 16552635}
+  torsoController: {fileID: 16552636}
   forward_speed: 2
   backward_speed: 1
   forward_force: 50
@@ -1604,7 +1606,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 1140179346}
-  torsoController: {fileID: 16552636}
   up: 273
   down: 274
   right: 275

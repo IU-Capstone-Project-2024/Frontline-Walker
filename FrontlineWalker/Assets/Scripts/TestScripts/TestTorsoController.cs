@@ -9,6 +9,8 @@ public class TestTorsoController : MonoBehaviour
     public float minY = -0.5f;
     public float speed = 0.05f;
 
+    public float targetY;
+    
     private float _currentY;
     private float _initialY;
 
@@ -18,6 +20,7 @@ public class TestTorsoController : MonoBehaviour
     void Start()
     {
         _currentY = 0;
+        targetY = 0;
         _initialY = transform.localPosition.y;
 
         _moving_to_initial_height = false;
@@ -25,6 +28,15 @@ public class TestTorsoController : MonoBehaviour
 
     void Clamp()
     {
+        if (targetY > maxY)
+        {
+            targetY = maxY;
+        }
+        if (targetY < minY)
+        {
+            targetY = minY;
+        }
+        
         if (_currentY > maxY)
         {
             _currentY = maxY;
@@ -44,10 +56,10 @@ public class TestTorsoController : MonoBehaviour
     {
         if (_moving_to_initial_height)
         {
-            if (_currentY > 0.1f)
+            if (_currentY > 0.02f)
             { 
                 Down();      
-            } else if (_currentY < -0.1f)
+            } else if (_currentY < -0.02f)
             {
                 Up();        
             }
@@ -100,5 +112,11 @@ public class TestTorsoController : MonoBehaviour
     public bool isMovingToInitialHeight()
     {
         return _moving_to_initial_height;
+    }
+
+    public float GetCurrentYRatio()
+    {
+        Debug.Log(( Math.Abs(_currentY - minY) / Math.Abs(maxY - minY) ) * 0.7f + 0.3f );
+        return ( Math.Abs(_currentY - minY) / Math.Abs(maxY - minY) ) * 0.7f + 0.3f;
     }
 }
