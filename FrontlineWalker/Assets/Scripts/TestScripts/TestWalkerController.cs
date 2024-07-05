@@ -6,6 +6,8 @@ public class TestWalkerController : MonoBehaviour
 {
     public TestController controller;
 
+    public KeyCode upCannon;
+    public KeyCode downCannon;
     public KeyCode up;
     public KeyCode down;
     public KeyCode right;
@@ -22,6 +24,14 @@ public class TestWalkerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Input.GetKey(upCannon))
+        {
+            controller.mainCannonController.Up();
+        }
+        if (Input.GetKey(downCannon))
+        {
+            controller.mainCannonController.Down();
+        }
         if (Input.GetKey(up))
         {
             controller.torsoController.Up();
