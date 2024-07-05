@@ -5,22 +5,23 @@ using UnityEngine;
 
 public class TestTorsoController : MonoBehaviour
 {
-    public float maxY = 0.5f;
-    public float minY = -0.5f;
-    public float speed = 0.05f;
-
-    public float targetY;
+    public float maxY = 0.2f;
+    public float minY = -0.4f;
+    public float speed = 0.5f;
+    public float dropSpeed = 0.7f;
+    public float walkerTorsoBottomDropHeight;
     
     private float _currentY;
     private float _initialY;
 
+    public  bool _distabilazed;
+    public bool _stabilazing;
     private bool _moving_to_initial_height;
     
     // Start is called before the first frame update
     void Start()
     {
         _currentY = 0;
-        targetY = 0;
         _initialY = transform.localPosition.y;
 
         _moving_to_initial_height = false;
@@ -28,14 +29,6 @@ public class TestTorsoController : MonoBehaviour
 
     void Clamp()
     {
-        if (targetY > maxY)
-        {
-            targetY = maxY;
-        }
-        if (targetY < minY)
-        {
-            targetY = minY;
-        }
         
         if (_currentY > maxY)
         {
@@ -54,7 +47,7 @@ public class TestTorsoController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_moving_to_initial_height)
+        if (_moving_to_initial_height && !_distabilazed)
         {
             if (_currentY > 0.02f)
             { 
@@ -68,6 +61,33 @@ public class TestTorsoController : MonoBehaviour
                 _currentY = 0;
                 _moving_to_initial_height = false;
             }
+        }
+
+        if (_distabilazed)
+        {
+            if (_currentY > -walkerTorsoBottomDropHeight + 0.02f)
+            {
+                _currentY -= dropSpeed * Time.deltaTime;
+            }
+            else
+            {
+                _currentY = -walkerTorsoBottomDropHeight;
+            }
+            setTorsoY();
+        }
+
+        if (_stabilazing && !_distabilazed)
+        {
+            if (_currentY < -0.02f)
+            {
+                _currentY += speed * Time.deltaTime;
+            }
+            else
+            {
+                _currentY = 0;
+                _stabilazing = false;
+            }
+            setTorsoY();
         }
     }
 
@@ -87,16 +107,22 @@ public class TestTorsoController : MonoBehaviour
 
     public void Up()
     {
-        _currentY += speed * Time.deltaTime;
-        Clamp();
-        setTorsoY();    
+        if (isStabilized())
+        {
+            _currentY += speed * Time.deltaTime;
+            Clamp();
+            setTorsoY();
+        }  
     }
 
     public void Down()
     {
-        _currentY -= speed * Time.deltaTime;
-        Clamp();
-        setTorsoY();
+        if (isStabilized())
+        {
+            _currentY -= speed * Time.deltaTime;
+            Clamp();
+            setTorsoY();
+        }
     }
 
     public void StartMovingToInitialHeight()
@@ -116,7 +142,27 @@ public class TestTorsoController : MonoBehaviour
 
     public float GetCurrentYRatio()
     {
-        Debug.Log(( Math.Abs(_currentY - minY) / Math.Abs(maxY - minY) ) * 0.7f + 0.3f );
         return ( Math.Abs(_currentY - minY) / Math.Abs(maxY - minY) ) * 0.7f + 0.3f;
+    }
+
+    public bool isDistabilazed()
+    {
+        return _distabilazed;
+    }
+
+    public bool isStabilized()
+    {
+        return !_stabilazing && !_distabilazed;
+    }
+
+    public void Distabilaze()
+    {
+        _distabilazed = true;
+    }
+
+    public void Stabilize()
+    {
+        _distabilazed = false;
+        _stabilazing = true;
     }
 }

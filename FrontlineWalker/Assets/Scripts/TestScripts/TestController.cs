@@ -25,21 +25,32 @@ public class TestController : MonoBehaviour
 
     public void Right()
     {
-        var _forward_speed = torsoController.GetCurrentYRatio() * forward_speed;
-        if (Mathf.Abs(_rb.velocity.x) < _forward_speed)
+        if (AbleToMove())
         {
-            _rb.AddForce(Vector2.right * forward_force);
-            proceduralWalkerAnimation.shakeHeight = 0.01f * _forward_speed;
+            var _forward_speed = torsoController.GetCurrentYRatio() * forward_speed;
+            if (Mathf.Abs(_rb.velocity.x) < _forward_speed)
+            {
+                _rb.AddForce(Vector2.right * forward_force);
+                proceduralWalkerAnimation.shakeHeight = 0.01f * _forward_speed;
+            }
         }
     }
 
     public void Left()
     {
-        var _backward_speed = torsoController.GetCurrentYRatio() * backward_speed;
-        if (Mathf.Abs(_rb.velocity.x) < _backward_speed)
+        if (AbleToMove())
         {
-            _rb.AddForce(-Vector2.right * backward_force);
-            proceduralWalkerAnimation.shakeHeight = 0.01f * _backward_speed;
+            var _backward_speed = torsoController.GetCurrentYRatio() * backward_speed;
+            if (Mathf.Abs(_rb.velocity.x) < _backward_speed)
+            {
+                _rb.AddForce(-Vector2.right * backward_force);
+                proceduralWalkerAnimation.shakeHeight = 0.01f * _backward_speed;
+            }
         }
+    }
+
+    private bool AbleToMove()
+    {
+        return torsoController.isStabilized();
     }
 }

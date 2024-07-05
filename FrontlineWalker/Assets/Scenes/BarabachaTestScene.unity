@@ -250,7 +250,10 @@ MonoBehaviour:
   maxY: 0.2
   minY: -0.4
   speed: 0.5
-  targetY: 0
+  dropSpeed: 1.4
+  walkerTorsoBottomDropHeight: 1.2
+  _distabilazed: 0
+  _stabilazing: 0
 --- !u!1 &20879763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1611,6 +1614,7 @@ MonoBehaviour:
   right: 275
   left: 276
   setToInitialTorsoHeight: 98
+  distabilize: 32
 --- !u!1 &1185663643
 GameObject:
   m_ObjectHideFlags: 0

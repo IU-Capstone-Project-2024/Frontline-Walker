@@ -11,6 +11,7 @@ public class TestWalkerController : MonoBehaviour
     public KeyCode right;
     public KeyCode left;
     public KeyCode setToInitialTorsoHeight;
+    public KeyCode distabilize;
     
     // Start is called before the first frame update
     void Start()
@@ -38,16 +39,28 @@ public class TestWalkerController : MonoBehaviour
             controller.Left();
         }
 
-        if (Input.GetKeyUp(setToInitialTorsoHeight))
+        if (Input.GetKeyDown(setToInitialTorsoHeight))
         {
-            if (controller.torsoController.isMovingToInitialHeight())
+            if (controller.torsoController.isDistabilazed())
             {
-                controller.torsoController.StopMovingToInitialHeight();
+                controller.torsoController.Stabilize();
             }
             else
             {
-                controller.torsoController.StartMovingToInitialHeight();
+                if (controller.torsoController.isMovingToInitialHeight())
+                {
+                    controller.torsoController.StopMovingToInitialHeight();
+                }
+                else
+                {
+                    controller.torsoController.StartMovingToInitialHeight();
+                }
             }
+        }
+
+        if (Input.GetKeyDown(distabilize))
+        {
+            controller.torsoController.Distabilaze();
         }
     }
 }
