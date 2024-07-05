@@ -140,6 +140,11 @@ public class TestTorsoController : MonoBehaviour
         return _moving_to_initial_height;
     }
 
+    public float getCurrentY()
+    {
+        return _currentY;
+    }
+
     public float GetCurrentYRatio()
     {
         return ( Math.Abs(_currentY - minY) / Math.Abs(maxY - minY) ) * 0.7f + 0.3f;

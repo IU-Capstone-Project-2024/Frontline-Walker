@@ -123,8 +123,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
         float maxDistance = stepSize;
         for (int i = 0; i < _nbLegs; ++i)
         {
-            desiredPositions[i] = transform.TransformPoint(_defaultLegPositions[i]);
-
+            desiredPositions[i] = transform.TransformPoint(new Vector2(_defaultLegPositions[i].x, _defaultLegPositions[i].y - torsoController.getCurrentY()));
             float distance = Vector3.ProjectOnPlane(desiredPositions[i] + _velocity * velocityMultiplier - _lastLegPositions[i], transform.up).magnitude;
             if (distance > maxDistance)
             {
@@ -193,7 +192,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(legTargets[i].position, 0.05f);
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.TransformPoint(_defaultLegPositions[i]), stepSize);
+            Gizmos.DrawWireSphere(transform.TransformPoint(new Vector2(_defaultLegPositions[i].x, _defaultLegPositions[i].y - torsoController.getCurrentY())), stepSize);
         }
     }
 }
