@@ -5,12 +5,12 @@ using UnityEngine;
 public class TestWalkerController : MonoBehaviour
 {
     public TestController controller;
-    public TestTorsoController torsoController;
 
     public KeyCode up;
     public KeyCode down;
     public KeyCode right;
     public KeyCode left;
+    public KeyCode setToInitialTorsoHeight;
     
     // Start is called before the first frame update
     void Start()
@@ -23,11 +23,11 @@ public class TestWalkerController : MonoBehaviour
     {
         if (Input.GetKey(up))
         {
-            torsoController.Up();
+            controller.torsoController.Up();
         }
         if (Input.GetKey(down))
         {
-            torsoController.Down();
+            controller.torsoController.Down();
         }
         if (Input.GetKey(right))
         {
@@ -36,6 +36,18 @@ public class TestWalkerController : MonoBehaviour
         if (Input.GetKey(left))
         {
             controller.Left();
+        }
+
+        if (Input.GetKeyUp(setToInitialTorsoHeight))
+        {
+            if (controller.torsoController.isMovingToInitialHeight())
+            {
+                controller.torsoController.StopMovingToInitialHeight();
+            }
+            else
+            {
+                controller.torsoController.StartMovingToInitialHeight();
+            }
         }
     }
 }
