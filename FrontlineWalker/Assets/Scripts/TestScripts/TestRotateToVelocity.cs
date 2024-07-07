@@ -7,7 +7,7 @@ using UnityEngine;
 public class TestRotateToVelocity : MonoBehaviour
 {
 
-    public float rotation_shift = 90f;
+    public float rotationShift = 90f;
     
     private Rigidbody2D _rb;
 
@@ -19,8 +19,19 @@ public class TestRotateToVelocity : MonoBehaviour
     void FixedUpdate()
     {
         var direction = new Vector2(_rb.velocity.x, _rb.velocity.y).normalized;
-        float rotation = Mathf.Atan2(transform.position.x + direction.x, transform.position.y + direction.y) * Mathf.Rad2Deg;
-        rotation += rotation_shift;
-        transform.eulerAngles = new Vector3(0, 0, rotation);
+        var trajectory =
+            new Vector3(transform.position.x + direction.x, transform.position.y + direction.y, transform.position.z) -
+            transform.position;
+        float rotation = Mathf.Atan2(trajectory.y, trajectory.x) * Mathf.Rad2Deg;
+        rotation += rotationShift;
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, rotation));
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 1000 * Time.deltaTime);
+    }
+
+    private void OnDrawGizmos()
+    {
+        var direction = new Vector2(_rb.velocity.x, _rb.velocity.y).normalized;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(new Vector2(transform.position.x + direction.x, transform.position.y + direction.y), 0.1f);
     }
 }

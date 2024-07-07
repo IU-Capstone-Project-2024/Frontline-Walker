@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
@@ -19,9 +20,11 @@ public class binoculars : MonoBehaviour
     public bool startZoom = false; // Flag for start zooming (don't touch)
     public bool returnBinoculars = false;  // Flag for returning to initial camera position (don't touch)
     public bool endZoom = false; // Flag for end zooming (don't touch)
+    public bool previousPositionSaved = false;
 
     private Vector3 actStartPosition;
     private Vector3 actTargetPosition;
+    private Vector3 previousPosition;
     private float actElapsedTime = 0f;
     public bool activationIsMoving = false;
 
@@ -31,6 +34,7 @@ public class binoculars : MonoBehaviour
     void Start()
     {
         buttonHandler = binocularsManager.GetComponent<buttonHandler>();
+        previousPosition = new Vector3(float.MinValue, 0, -1);
     }
 
     void Update()
@@ -41,7 +45,7 @@ public class binoculars : MonoBehaviour
             if (Camera.main.orthographicSize < binocularsSlider.maxValue && !startZoom && !returnBinoculars)
             {
 
-                Camera.main.orthographicSize = Camera.main.orthographicSize + activateSpeed * Time.deltaTime;
+                Camera.main.orthographicSize += activateSpeed * Time.deltaTime;
                 binocularsSlider.value = binocularsSlider.maxValue;
                 if (Camera.main.orthographicSize >= binocularsSlider.maxValue)
                 {
@@ -49,7 +53,16 @@ public class binoculars : MonoBehaviour
                     startZoom = true;
 
                     actStartPosition = transform.position;
-                    actTargetPosition = actStartPosition + new Vector3(activationMoveDistance, 0, -1);
+                    if (previousPosition.x - transform.position.x <= activationMoveDistance)
+                    {
+                        actTargetPosition = actStartPosition + new Vector3(activationMoveDistance, 0, -1);
+                    }
+                    else
+                    {
+                        actTargetPosition = previousPosition;
+                    }
+                    previousPositionSaved = false;
+
                     actElapsedTime = 0f;
                     activationIsMoving = true;
                 }
@@ -82,6 +95,14 @@ public class binoculars : MonoBehaviour
             // Returning to initial camera position
             if (returnBinoculars && !endZoom)
             {
+                if (!previousPositionSaved)
+                {
+                    previousPosition = transform.position;
+                    previousPositionSaved = true;
+                }
+                
+                actTargetPosition = transform.position;
+                
                 var position = cameraInit.target.transform.position;
                 transform.position = Vector3.Lerp(transform.position, new Vector3(position.x + cameraInit.xPos, position.y + cameraInit.yPos, -1), returnSpeed * Time.deltaTime);
 
@@ -95,7 +116,7 @@ public class binoculars : MonoBehaviour
             // Binoculars deactivation process
             if (endZoom)
             {
-                Camera.main.orthographicSize = Camera.main.orthographicSize - activateSpeed * Time.deltaTime;
+                Camera.main.orthographicSize -= activateSpeed * Time.deltaTime;
                 if (Camera.main.orthographicSize <= cameraInit.cameraZoom)
                 {
                     Camera.main.orthographicSize = cameraInit.cameraZoom;
