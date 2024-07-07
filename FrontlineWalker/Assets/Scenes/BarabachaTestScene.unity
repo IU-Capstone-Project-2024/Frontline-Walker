@@ -136,7 +136,8 @@ GameObject:
   - component: {fileID: 16552633}
   - component: {fileID: 16552635}
   - component: {fileID: 16552636}
-  m_Layer: 9
+  - component: {fileID: 16552637}
+  m_Layer: 10
   m_Name: Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,6 +257,51 @@ MonoBehaviour:
   walkerTorsoBottomDropHeight: 1.2
   _distabilazed: 0
   _stabilazing: 0
+--- !u!61 &16552637
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16552631}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 2047
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.008347452}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.934906, y: 1.4507583}
+  m_EdgeRadius: 0
 --- !u!1 &20879763
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +312,7 @@ GameObject:
   m_Component:
   - component: {fileID: 20879764}
   - component: {fileID: 20879765}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: TestPixalLegPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +395,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 74075688}
-  m_Layer: 9
+  - component: {fileID: 74075689}
+  m_Layer: 10
   m_Name: UpperLegRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,6 +420,51 @@ Transform:
   - {fileID: 144286799}
   m_Father: {fileID: 16552632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+--- !u!61 &74075689
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74075687}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 2047
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005901918, y: -0.4013697}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8150568, y: 1.6059878}
+  m_EdgeRadius: 0
 --- !u!1 &80331308
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 80331309}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: LegEndLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 108298360}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: RightLegTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +536,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 144286799}
-  m_Layer: 9
+  - component: {fileID: 144286800}
+  m_Layer: 10
   m_Name: LowerLegRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,6 +562,51 @@ Transform:
   - {fileID: 1686721128}
   m_Father: {fileID: 74075688}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!61 &144286800
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144286798}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 2047
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0019684732, y: -0.35414898}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8071855, y: 1.5115473}
+  m_EdgeRadius: 0
 --- !u!1 &146766774
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,7 +904,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 481332705}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: LegHint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -882,7 +1020,7 @@ GameObject:
   m_Component:
   - component: {fileID: 602648278}
   - component: {fileID: 602648279}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: MainCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -930,7 +1068,7 @@ GameObject:
   m_Component:
   - component: {fileID: 743482021}
   - component: {fileID: 743482022}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: LeftLegConstraints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -986,7 +1124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 753576689}
   - component: {fileID: 753576690}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: RightLegConstraints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1172,7 +1310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 790405732}
   - component: {fileID: 790405733}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MainCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1256,7 +1394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 946576909}
   - component: {fileID: 946576910}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: LeftLegRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1588,7 +1726,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1059692650}
-  m_Layer: 9
+  - component: {fileID: 1059692651}
+  m_Layer: 10
   m_Name: LowerLegLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1613,6 +1752,51 @@ Transform:
   - {fileID: 80331309}
   m_Father: {fileID: 1999480723}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!61 &1059692651
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059692649}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 2047
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0019684732, y: -0.35414898}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8071855, y: 1.5115473}
+  m_EdgeRadius: 0
 --- !u!1 &1140179342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1892,7 +2076,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1398219100}
   - component: {fileID: 1398219101}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: TestPixalLegPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1975,6 +2159,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1549207805}
+  - component: {fileID: 1549207806}
   m_Layer: 10
   m_Name: FootLeft
   m_TagString: Untagged
@@ -1998,6 +2183,51 @@ Transform:
   - {fileID: 388107501}
   m_Father: {fileID: 1059692650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+--- !u!61 &1549207806
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549207804}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 2047
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005565405, y: -0.008347899}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1112986, y: 0.41568327}
+  m_EdgeRadius: 0
 --- !u!1 &1553953045
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,7 +2238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1553953046}
   - component: {fileID: 1553953047}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: TestPixalLegPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2305,7 +2535,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1686721128}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: LegEndRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2494,6 +2724,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1735870169}
+  - component: {fileID: 1735870170}
   m_Layer: 10
   m_Name: FootRight
   m_TagString: Untagged
@@ -2517,6 +2748,51 @@ Transform:
   - {fileID: 1914231565}
   m_Father: {fileID: 144286799}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+--- !u!61 &1735870170
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735870168}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 2047
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005565405, y: -0.008347899}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.1112986, y: 0.41568327}
+  m_EdgeRadius: 0
 --- !u!1 &1778259605
 GameObject:
   m_ObjectHideFlags: 0
@@ -2527,7 +2803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1778259606}
   - component: {fileID: 1778259607}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: TestPixelTorso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2740,7 +3016,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1803748367}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: AntiAirCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2856,7 +3132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1975239761}
   - component: {fileID: 1975239762}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: TestPixalLegPart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3421,7 +3697,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1999480723}
-  m_Layer: 9
+  - component: {fileID: 1999480724}
+  m_Layer: 10
   m_Name: UpperLegLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3445,6 +3722,51 @@ Transform:
   - {fileID: 1059692650}
   m_Father: {fileID: 16552632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
+--- !u!61 &1999480724
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999480722}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 2047
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.005901918, y: -0.4013697}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8150568, y: 1.6059878}
+  m_EdgeRadius: 0
 --- !u!1 &2019338078
 GameObject:
   m_ObjectHideFlags: 0
@@ -3584,7 +3906,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2048642224}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: LeftLegTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3616,7 +3938,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2142242908}
   - component: {fileID: 2142242909}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: RightLegRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
