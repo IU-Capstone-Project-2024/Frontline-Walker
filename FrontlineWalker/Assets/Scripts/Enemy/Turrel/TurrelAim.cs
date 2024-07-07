@@ -1,29 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TurrelAim : MonoBehaviour
 {
-    private Transform target;
+    
     public float rotationSpeed = 200.0f;
-
+    public float angleOfStartingFire = 5f;
+    
+    private Transform _target;
+    private Quaternion _targetRotation;
+    
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            target = col.transform;
+            _target = col.transform;
         }
     }
     
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (target != null)
+        if (_target != null)
         {
-            Vector3 direction = target.position - transform.position;
+            Vector3 direction = _target.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            _targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, _targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
 
@@ -31,7 +36,22 @@ public class TurrelAim : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            target = null;
+            _target = null;
         }
+    }
+
+    public bool SeeEnemy()
+    {
+        return _target != null;
+    }
+
+    public bool AimOnEnemy()
+    {
+        if (_target == null) return false;
+        if (Math.Abs(Quaternion.Angle(_targetRotation, transform.rotation)) < angleOfStartingFire)
+        {
+            return true;
+        }
+        return false;
     }
 }
