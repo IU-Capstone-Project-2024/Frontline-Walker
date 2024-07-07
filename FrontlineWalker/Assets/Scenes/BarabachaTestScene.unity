@@ -254,7 +254,7 @@ MonoBehaviour:
   minY: -0.4
   speed: 0.5
   dropSpeed: 1.4
-  walkerTorsoBottomDropHeight: 1.2
+  walkerTorsoBottomDropHeight: 1.1
   _distabilazed: 0
   _stabilazing: 0
 --- !u!61 &16552637
@@ -1166,6 +1166,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbc4273fd31102479b7ffbd72339c0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reloadTime: 2
+  maxShells: 20
+  recoilForce: 300
+  forceReceiver: {fileID: 1140179353}
 --- !u!1 &743482020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1917,9 +1921,9 @@ GameObject:
   - component: {fileID: 1140179347}
   - component: {fileID: 1140179350}
   - component: {fileID: 1140179346}
-  - component: {fileID: 1140179349}
-  - component: {fileID: 1140179351}
   - component: {fileID: 1140179352}
+  - component: {fileID: 1140179353}
+  - component: {fileID: 1140179349}
   m_Layer: 9
   m_Name: Walker
   m_TagString: Untagged
@@ -1936,7 +1940,7 @@ Transform:
   m_GameObject: {fileID: 1140179342}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.120001, y: -1.967, z: 0}
+  m_LocalPosition: {x: -75, y: -1.967, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1963,6 +1967,7 @@ MonoBehaviour:
   backward_speed: 1
   forward_force: 50
   backward_force: 50
+  distabilization_speed: 3
 --- !u!50 &1140179347
 Rigidbody2D:
   serializedVersion: 4
@@ -2047,19 +2052,6 @@ MonoBehaviour:
   left: 276
   setToInitialTorsoHeight: 98
   distabilize: 32
---- !u!114 &1140179351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1140179342}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cc62b926c66f8e41a647fb09a2c6837, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forceReceiver: {fileID: 1140179347}
 --- !u!114 &1140179352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2082,6 +2074,20 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+--- !u!114 &1140179353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140179342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b9f6a06b75734c4f90b05561ca01c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceReceiver: {fileID: 1140179347}
+  torsoController: {fileID: 16552636}
 --- !u!1 &1185663643
 GameObject:
   m_ObjectHideFlags: 0
@@ -2621,8 +2627,8 @@ Transform:
   m_GameObject: {fileID: 1658423413}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0058, y: -4.6976, z: 0}
-  m_LocalScale: {x: 75.91825, y: 0.5848, z: 1}
+  m_LocalPosition: {x: -30.5243, y: -4.6976, z: 0}
+  m_LocalScale: {x: 136.95653, y: 0.5848, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

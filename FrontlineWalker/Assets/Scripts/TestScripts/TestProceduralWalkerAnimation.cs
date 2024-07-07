@@ -25,6 +25,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     
     private Vector2[] _defaultLegPositions;
     private Vector2[] _lastLegPositions;
+    private Vector2[] _lastLocalLegTargetPositions;
     private Vector2[] _foots_normals;
     private Vector2 _lastBodyUp;
     private bool _stepCooled;
@@ -34,7 +35,9 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     private Vector2 _lastVelocity;
     private Vector2 _lastBodyPos;
 
-    private float velocityMultiplier = 7f;
+    private float _velocityMultiplier = 7f;
+
+    private bool _animate;
 
     Vector2[] MatchToSurfaceFromAbove(Vector2 point, float halfRange, Vector2 up)
     {
@@ -57,6 +60,8 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     
     void Start()
     {
+        _animate = true;
+        
         if (foots.Length != legTargets.Length)
         {
             Debug.Log("Number of foots doesn't match number of legs!");
@@ -74,6 +79,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
         _nbLegs = legTargets.Length;
         _defaultLegPositions = new Vector2[_nbLegs];
         _lastLegPositions = new Vector2[_nbLegs];
+        _lastLocalLegTargetPositions = new Vector2[_nbLegs];
         _stepCooled = true;
         for (int i = 0; i < _nbLegs; ++i)
         {
@@ -109,79 +115,97 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
 
     void FixedUpdate()
     {
-        _velocity = (Vector2)transform.position - _lastBodyPos;
-        _velocity = (_velocity + step_smoothness * _lastVelocity) / (step_smoothness + 1f);
-
-        if (_velocity.magnitude < 0.000025f)
-            _velocity = _lastVelocity;
-        else
-            _lastVelocity = _velocity;
-        
-        
-        Vector2[] desiredPositions = new Vector2[_nbLegs];
-        int indexToMove = -1;
-        float maxDistance = stepSize;
-        for (int i = 0; i < _nbLegs; ++i)
+        if (_animate)
         {
-            desiredPositions[i] = transform.TransformPoint(new Vector2(_defaultLegPositions[i].x, _defaultLegPositions[i].y - torsoController.getCurrentY()));
-            float distance = Vector3.ProjectOnPlane(desiredPositions[i] + _velocity * velocityMultiplier - _lastLegPositions[i], transform.up).magnitude;
-            if (distance > maxDistance)
-            {
-                maxDistance = distance;
-                indexToMove = i;
-            }
-        }
-        for (int i = 0; i < _nbLegs; ++i)
-            if (i != indexToMove)
-                legTargets[i].position = _lastLegPositions[i];
-        
-        if (indexToMove != -1 && _stepCooled)
-        {
-            Vector2 targetPoint = desiredPositions[indexToMove] + Mathf.Clamp(_velocity.magnitude * velocityMultiplier, 0.0f, 1.5f) * (desiredPositions[indexToMove] - 
-                (Vector2)legTargets[indexToMove].position) + _velocity * velocityMultiplier;
-
-            Vector2[] positionAndNormalFwd = MatchToSurfaceFromAbove(targetPoint + _velocity * velocityMultiplier, raycastRange, 
-                ((Vector2)transform.parent.up - _velocity * 10).normalized);
-
-            Vector2[] positionAndNormalBwd = MatchToSurfaceFromAbove(targetPoint + _velocity * velocityMultiplier, raycastRange*(1f + _velocity.magnitude), 
-                ((Vector2)transform.parent.up + _velocity * 10).normalized);
-
-            _stepCooled = false;
+            _velocity = (Vector2) transform.position - _lastBodyPos;
+            _velocity = (_velocity + step_smoothness * _lastVelocity) / (step_smoothness + 1f);
             
-            if (positionAndNormalFwd[1] == Vector2.zero)
-            {
-                StartCoroutine(PerformStep(indexToMove, positionAndNormalBwd[0]));
-                _foots_normals[indexToMove] = positionAndNormalBwd[1];
-            }
+            if (_velocity.magnitude < 0.000025f)
+                _velocity = _lastVelocity;
             else
+                _lastVelocity = _velocity;
+                    
+                    
+            Vector2[] desiredPositions = new Vector2[_nbLegs];
+            int indexToMove = -1;
+            float maxDistance = stepSize;
+            for (int i = 0; i < _nbLegs; ++i)
             {
-                StartCoroutine(PerformStep(indexToMove, positionAndNormalFwd[0]));
-                _foots_normals[indexToMove] = positionAndNormalFwd[1];
+                desiredPositions[i] = transform.TransformPoint(new Vector2(_defaultLegPositions[i].x, _defaultLegPositions[i].y - torsoController.getCurrentY()));
+                float distance = Vector3.ProjectOnPlane(desiredPositions[i] + _velocity * _velocityMultiplier - _lastLegPositions[i], transform.up).magnitude;
+                if (distance > maxDistance)
+                {
+                    maxDistance = distance;
+                    indexToMove = i;
+                }
+            }
+            for (int i = 0; i < _nbLegs; ++i)
+                if (i != indexToMove)
+                    legTargets[i].position = _lastLegPositions[i];
+                    
+            if (indexToMove != -1 && _stepCooled)
+            {
+                Vector2 targetPoint = desiredPositions[indexToMove] + Mathf.Clamp(_velocity.magnitude * _velocityMultiplier, 0.0f, 1.5f) * (desiredPositions[indexToMove] - 
+                    (Vector2)legTargets[indexToMove].position) + _velocity * _velocityMultiplier;
+            
+                Vector2[] positionAndNormalFwd = MatchToSurfaceFromAbove(targetPoint + _velocity * _velocityMultiplier, raycastRange, 
+                    ((Vector2)transform.parent.up - _velocity * 10).normalized);
+            
+                Vector2[] positionAndNormalBwd = MatchToSurfaceFromAbove(targetPoint + _velocity * _velocityMultiplier, raycastRange*(1f + _velocity.magnitude), 
+                    ((Vector2)transform.parent.up + _velocity * 10).normalized);
+            
+                _stepCooled = false;
+                        
+                if (positionAndNormalFwd[1] == Vector2.zero)
+                {
+                    StartCoroutine(PerformStep(indexToMove, positionAndNormalBwd[0]));
+                    _foots_normals[indexToMove] = positionAndNormalBwd[1];
+                }
+                else
+                {
+                    StartCoroutine(PerformStep(indexToMove, positionAndNormalFwd[0]));
+                    _foots_normals[indexToMove] = positionAndNormalFwd[1];
+                }
+            }
+                    
+            //rotating foot
+            for (int i = 0; i < foots.Length; i++)
+            {
+                        
+                var _forward = new Vector2(_foots_normals[i].y, -_foots_normals[i].x);
+                var _new_z = -Vector2.SignedAngle(_forward, new Vector2(1,0));
+                var target_rotation = Quaternion.Euler(0,0, _new_z);
+                foots[i].transform.rotation = Quaternion.Lerp(foots[i].transform.rotation, target_rotation, foots_rotation_speed * Time.deltaTime);
+            }
+                    
+            //
+            _lastBodyPos = transform.position;
+            if (_nbLegs > 1 && bodyOrientation)
+            {
+                Vector2 v1 = (legTargets[1].position - legTargets[0].position).normalized;
+                        
+                Vector3 v2 = Vector3.back;
+                Vector3 normal = Vector3.Cross(v1, v2).normalized;
+                Vector3 up = Vector3.Lerp(_lastBodyUp, normal, 1f / (float)(step_smoothness + 1));
+                transform.up = up;
+                transform.rotation = Quaternion.LookRotation(transform.parent.forward, up);
+                _lastBodyUp = transform.up;
             }
         }
-        
-        //rotating foot
-        for (int i = 0; i < foots.Length; i++)
+        else
         {
+            _lastBodyPos = transform.position;
             
-            var _forward = new Vector2(_foots_normals[i].y, -_foots_normals[i].x);
-            var _new_z = -Vector2.SignedAngle(_forward, new Vector2(1,0));
-            var target_rotation = Quaternion.Euler(0,0, _new_z);
-            foots[i].transform.rotation = Quaternion.Lerp(foots[i].transform.rotation, target_rotation, foots_rotation_speed * Time.deltaTime);
-        }
-        
-        //
-        _lastBodyPos = transform.position;
-        if (_nbLegs > 1 && bodyOrientation)
-        {
-            Vector2 v1 = (legTargets[1].position - legTargets[0].position).normalized;
-            
-            Vector3 v2 = Vector3.back;
-            Vector3 normal = Vector3.Cross(v1, v2).normalized;
-            Vector3 up = Vector3.Lerp(_lastBodyUp, normal, 1f / (float)(step_smoothness + 1));
-            transform.up = up;
-            transform.rotation = Quaternion.LookRotation(transform.parent.forward, up);
-            _lastBodyUp = transform.up;
+            for (int i = 0; i < _nbLegs; i++)
+            {
+                var centr = new Vector2(transform.position.x, transform.position.y);
+                var offset = new Vector2(_lastLocalLegTargetPositions[i].x, 0);
+                var start = centr + offset;
+                var dir = Vector2.down;
+                var point = Physics2D.Raycast(start, dir, 10, layerMask).point;
+                legTargets[i].position = point;
+                _lastLegPositions[i] = point;
+            }
         }
     }
 
@@ -193,6 +217,20 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
             Gizmos.DrawWireSphere(legTargets[i].position, 0.05f);
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(transform.TransformPoint(new Vector2(_defaultLegPositions[i].x, _defaultLegPositions[i].y - torsoController.getCurrentY())), stepSize);
+        }
+    }
+
+    public void ResumeAnimation()
+    {
+        _animate = true;
+    }
+
+    public void StopAnimation()
+    {
+        _animate = false;
+        for (int i = 0; i < _nbLegs; i++)
+        {
+            _lastLocalLegTargetPositions[i] = legTargets[i].localPosition;
         }
     }
 }

@@ -7,7 +7,7 @@ public class TestForceReceiver : MonoBehaviour
 
     public Rigidbody2D forceReceiver;
 
-    public void ReceiveForce(float force, Vector2 direction)
+    public virtual void ReceiveForce(float force, Vector2 direction)
     {
         forceReceiver.AddForce(direction * force);
     }

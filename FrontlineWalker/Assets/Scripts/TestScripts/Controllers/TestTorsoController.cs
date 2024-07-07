@@ -147,7 +147,14 @@ public class TestTorsoController : MonoBehaviour
 
     public float GetCurrentYRatio()
     {
-        return ( Math.Abs(_currentY - minY) / Math.Abs(maxY - minY) ) * 0.7f + 0.3f;
+        if (isStabilized())
+        {
+           return ( Math.Abs(_currentY - minY) / Math.Abs(maxY - minY) ) * 0.7f + 0.3f; 
+        } else
+        {
+            return 0.3f;
+        }
+        
     }
 
     public bool isDistabilazed()

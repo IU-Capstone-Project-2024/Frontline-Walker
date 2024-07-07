@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,14 +15,29 @@ public class TestController : MonoBehaviour
     public float backward_speed = 1f;
     public float forward_force = 50f;
     public float backward_force = 50f;
+    public float distabilization_speed = 3f;
 
     private float _current_y;
     private Rigidbody2D _rb;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void FixedUpdate()
+    {
+        //Debug.Log(_rb.velocity.magnitude);
+        if (_rb.velocity.magnitude > distabilization_speed)
+        {
+            torsoController.Distabilaze();
+            proceduralWalkerAnimation.StopAnimation();
+        }
+
+        if (torsoController.isStabilized())
+        {
+            proceduralWalkerAnimation.ResumeAnimation();
+        }
     }
 
     public void Right()

@@ -26,7 +26,7 @@ public class TestKeyboardController : MonoBehaviour
         {
             controller.mainCannonController.Down();
         }
-        if (Input.GetKeyDown(FireMainCannon))
+        if (Input.GetKey(FireMainCannon))
         {
             controller.mainCannonController.Fire();    
         }
