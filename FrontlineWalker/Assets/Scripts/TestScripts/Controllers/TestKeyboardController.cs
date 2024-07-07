@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestWalkerController : MonoBehaviour
+public class TestKeyboardController : MonoBehaviour
 {
     public TestController controller;
 
     public KeyCode upCannon;
     public KeyCode downCannon;
+    public KeyCode FireMainCannon;
     public KeyCode up;
     public KeyCode down;
     public KeyCode right;
@@ -15,13 +16,6 @@ public class TestWalkerController : MonoBehaviour
     public KeyCode setToInitialTorsoHeight;
     public KeyCode distabilize;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (Input.GetKey(upCannon))
@@ -31,6 +25,10 @@ public class TestWalkerController : MonoBehaviour
         if (Input.GetKey(downCannon))
         {
             controller.mainCannonController.Down();
+        }
+        if (Input.GetKeyDown(FireMainCannon))
+        {
+            controller.mainCannonController.Fire();    
         }
         if (Input.GetKey(up))
         {

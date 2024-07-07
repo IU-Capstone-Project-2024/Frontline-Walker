@@ -807,13 +807,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382056596}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.70710677, w: 0.7071068}
   m_LocalPosition: {x: 2.362, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 602648278}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &388107500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,6 +1053,7 @@ GameObject:
   - component: {fileID: 602648279}
   - component: {fileID: 602648280}
   - component: {fileID: 602648281}
+  - component: {fileID: 602648282}
   m_Layer: 10
   m_Name: MainCannon
   m_TagString: Untagged
@@ -1149,9 +1150,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ca2802864a1d04a919ce452262c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _usedProjectile: {fileID: 0}
+  _usedProjectile: {fileID: 8320700902301866874, guid: 4e3b5b2d0bde7434e9a7264ea489738e, type: 3}
   _useInitialVelocity: 0
   _shootingPoint: {fileID: 382056597}
+  _rigidbody: {fileID: 1140179347}
+--- !u!114 &602648282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602648277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dbc4273fd31102479b7ffbd72339c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &743482020
 GameObject:
   m_ObjectHideFlags: 0
@@ -1922,7 +1936,7 @@ Transform:
   m_GameObject: {fileID: 1140179342}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.203, y: -1.967, z: 0}
+  m_LocalPosition: {x: -11.120001, y: -1.967, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1944,7 +1958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   proceduralWalkerAnimation: {fileID: 16552635}
   torsoController: {fileID: 16552636}
-  mainCannonController: {fileID: 602648279}
+  mainCannonController: {fileID: 602648282}
   forward_speed: 2
   backward_speed: 1
   forward_force: 50
@@ -2026,6 +2040,7 @@ MonoBehaviour:
   controller: {fileID: 1140179346}
   upCannon: 113
   downCannon: 101
+  FireMainCannon: 102
   up: 273
   down: 274
   right: 275

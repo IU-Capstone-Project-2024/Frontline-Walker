@@ -8,7 +8,7 @@ public class TestController : MonoBehaviour
 {
     public TestProceduralWalkerAnimation proceduralWalkerAnimation;
     public TestTorsoController torsoController;
-    public TestRotatonController mainCannonController;
+    public TestCannon mainCannonController;
     
     public float forward_speed = 2f;
     public float backward_speed = 1f;
