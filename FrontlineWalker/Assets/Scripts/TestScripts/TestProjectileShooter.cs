@@ -8,9 +8,8 @@ public class TestProjectileShooter : MonoBehaviour
 {
     [SerializeField] private Projectile _usedProjectile;
     [SerializeField] private bool _useInitialVelocity;
-    [SerializeField] private Vector2 _shift;
+    [SerializeField] private Transform _shootingPoint;
     private Rigidbody2D _rigidbody;
-    private float _timer = 0;
 
     void Start()
     {
@@ -20,20 +19,10 @@ public class TestProjectileShooter : MonoBehaviour
 
     private void Shoot()
     {
-        Projectile newProjectile = Instantiate(_usedProjectile, transform.position + transform.rotation * _shift, transform.rotation);
+        Projectile newProjectile = Instantiate(_usedProjectile, _shootingPoint.position, _shootingPoint.rotation);
         if (newProjectile.GetComponent<Rigidbody2D>() && _useInitialVelocity)
         {
             newProjectile.GetComponent<Rigidbody2D>().velocity = _rigidbody.velocity;
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        _timer += Time.deltaTime;
-        if (_timer > 0.3)
-        {
-            _timer = 0;
-            Shoot();
         }
     }
 }
