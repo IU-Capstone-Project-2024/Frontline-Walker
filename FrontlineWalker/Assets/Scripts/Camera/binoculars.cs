@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.UI;
 
 public class binoculars : MonoBehaviour
 {
     public float activateSpeed = 10f; // Start zooming speed
     public float returnSpeed = 10f; // End zooming speed
-    public float moveSpeed = 5f; // Moving speed
     public float activationMoveDistance = 5f;
     public float activationMoveDuration = 2f;
     public cameraInit cameraInit; // Camera script
@@ -23,6 +24,9 @@ public class binoculars : MonoBehaviour
     private Vector3 actTargetPosition;
     private float actElapsedTime = 0f;
     public bool activationIsMoving = false;
+
+    [SerializeField] private InputActionReference moveActionToUse;
+    [SerializeField] private float moveSpeed;
 
     void Start()
     {
@@ -66,11 +70,8 @@ public class binoculars : MonoBehaviour
             // Moving binoculars
             if (!returnBinoculars && !activationIsMoving)
             {
-                float moveHorizontal = Input.GetAxis("Horizontal");
-                float moveVertical = Input.GetAxis("Vertical");
-
-                Vector2 movement = new Vector2(moveHorizontal, moveVertical);
-                transform.Translate(movement * moveSpeed * Time.deltaTime);
+                Vector2 moveDirection = moveActionToUse.action.ReadValue<Vector2>();
+                transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
             }
 
             if (startZoom && !returnBinoculars && !activationIsMoving && buttonHandler.activate)
