@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3945740655385833731}
   - component: {fileID: 4669827497047316965}
   - component: {fileID: 457187699174301867}
+  - component: {fileID: 1977652543080525703}
   m_Layer: 0
   m_Name: MainCannonShell
   m_TagString: Untagged
@@ -200,3 +201,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 264
   presicionAngle: 3
+--- !u!114 &1977652543080525703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320700902301866874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b92e8b8e3c83eab4fa3cb61fc0b48697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
