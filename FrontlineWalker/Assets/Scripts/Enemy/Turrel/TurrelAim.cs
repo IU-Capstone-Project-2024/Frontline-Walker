@@ -7,13 +7,14 @@ public class TurrelAim : MonoBehaviour
     private Transform target;
     public float rotationSpeed = 200.0f;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player"))
         {
-            target = collision.transform;
+            target = col.transform;
         }
     }
+    
 
     private void Update()
     {
@@ -26,9 +27,9 @@ public class TurrelAim : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    void OnTriggerExit2D(Collider2D col)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player"))
         {
             target = null;
         }
