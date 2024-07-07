@@ -471,9 +471,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ca2802864a1d04a919ce452262c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedProjectile: {fileID: 9147174918919015208, guid: 232a82a16b6a7694b97b116ceda9c7c7, type: 3}
-  useInitialVelocity: 0
-  shift: {x: 0, y: 2}
+  _usedProjectile: {fileID: 9147174918919015208, guid: 232a82a16b6a7694b97b116ceda9c7c7, type: 3}
+  _useInitialVelocity: 0
+  _shift: {x: 0, y: 0}
 --- !u!70 &755205002
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1043,9 +1043,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ca2802864a1d04a919ce452262c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usedProjectile: {fileID: 9147174918919015208, guid: 232a82a16b6a7694b97b116ceda9c7c7, type: 3}
-  useInitialVelocity: 1
-  shift: {x: 0, y: 1}
+  _usedProjectile: {fileID: 9147174918919015208, guid: 232a82a16b6a7694b97b116ceda9c7c7, type: 3}
+  _useInitialVelocity: 1
+  _shift: {x: 0, y: 0}
 --- !u!70 &1807386995
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
