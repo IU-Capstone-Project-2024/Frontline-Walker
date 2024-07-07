@@ -15,60 +15,71 @@ public class TestKeyboardController : MonoBehaviour
     public KeyCode left;
     public KeyCode setToInitialTorsoHeight;
     public KeyCode distabilize;
-    
+
+    public Camera cameraObject;
+    private cameraInit cameraInit;
+
+    void Start()
+    {
+        cameraInit = cameraObject.GetComponent<cameraInit>();
+    }
+
     void FixedUpdate()
     {
-        if (Input.GetKey(upCannon))
+        if (!cameraInit.binocularsActive)
         {
-            controller.mainCannonController.Up();
-        }
-        if (Input.GetKey(downCannon))
-        {
-            controller.mainCannonController.Down();
-        }
-        if (Input.GetKey(FireMainCannon))
-        {
-            controller.mainCannonController.Fire();    
-        }
-        if (Input.GetKey(up))
-        {
-            controller.torsoController.Up();
-        }
-        if (Input.GetKey(down))
-        {
-            controller.torsoController.Down();
-        }
-        if (Input.GetKey(right))
-        {
-            controller.Right();
-        }
-        if (Input.GetKey(left))
-        {
-            controller.Left();
-        }
-
-        if (Input.GetKeyDown(setToInitialTorsoHeight))
-        {
-            if (controller.torsoController.isDistabilazed())
+            if (Input.GetKey(upCannon))
             {
-                controller.torsoController.Stabilize();
+                controller.mainCannonController.Up();
             }
-            else
+            if (Input.GetKey(downCannon))
             {
-                if (controller.torsoController.isMovingToInitialHeight())
+                controller.mainCannonController.Down();
+            }
+            if (Input.GetKey(FireMainCannon))
+            {
+                controller.mainCannonController.Fire();
+            }
+            if (Input.GetKey(up))
+            {
+                controller.torsoController.Up();
+            }
+            if (Input.GetKey(down))
+            {
+                controller.torsoController.Down();
+            }
+            if (Input.GetKey(right))
+            {
+                controller.Right();
+            }
+            if (Input.GetKey(left))
+            {
+                controller.Left();
+            }
+
+            if (Input.GetKeyDown(setToInitialTorsoHeight))
+            {
+                if (controller.torsoController.isDistabilazed())
                 {
-                    controller.torsoController.StopMovingToInitialHeight();
+                    controller.torsoController.Stabilize();
                 }
                 else
                 {
-                    controller.torsoController.StartMovingToInitialHeight();
+                    if (controller.torsoController.isMovingToInitialHeight())
+                    {
+                        controller.torsoController.StopMovingToInitialHeight();
+                    }
+                    else
+                    {
+                        controller.torsoController.StartMovingToInitialHeight();
+                    }
                 }
             }
-        }
 
-        if (Input.GetKeyDown(distabilize))
-        {
-            controller.torsoController.Distabilaze();
+            if (Input.GetKeyDown(distabilize))
+            {
+                controller.torsoController.Distabilaze();
+            }
         }
     }
 }
