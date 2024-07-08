@@ -1110,6 +1110,7 @@ GameObject:
   - component: {fileID: 602648280}
   - component: {fileID: 602648281}
   - component: {fileID: 602648282}
+  - component: {fileID: 602648283}
   m_Layer: 10
   m_Name: MainCannon
   m_TagString: Untagged
@@ -1226,6 +1227,21 @@ MonoBehaviour:
   maxShells: 20
   recoilForce: 300
   forceReceiver: {fileID: 1140179353}
+--- !u!114 &602648283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602648277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7fd1631399c5f544b8ef7a160b9a2d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blowbackDistance: 0.2
+  blowbackSpeed: 1.5
+  returnSpeed: 0.5
 --- !u!114 &685119413 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9084529359551332591, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
@@ -2197,11 +2213,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6238371683541333086, guid: 62a8917fbd8df724789939b02d3a2f13, type: 3}
       propertyPath: xPos
-      value: 15
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6238371683541333086, guid: 62a8917fbd8df724789939b02d3a2f13, type: 3}
       propertyPath: yPos
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6238371683541333086, guid: 62a8917fbd8df724789939b02d3a2f13, type: 3}
       propertyPath: target
@@ -2209,7 +2225,7 @@ PrefabInstance:
       objectReference: {fileID: 1140179342}
     - target: {fileID: 6238371683541333086, guid: 62a8917fbd8df724789939b02d3a2f13, type: 3}
       propertyPath: cameraZoom
-      value: 20
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6238371683541333086, guid: 62a8917fbd8df724789939b02d3a2f13, type: 3}
       propertyPath: binocularsManager
@@ -4242,7 +4258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9084529359551332591, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_MinValue
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

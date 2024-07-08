@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99542b6aa8b17144caad446ee5432464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionForce: 1
+  explosionForce: 0.1
   explosionRadius: 2
   damage: 1
   hit_layer:
@@ -201,6 +201,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 264
   presicionAngle: 3
+  _timeBeforeDestruction: 20
 --- !u!114 &9222821842126845111
 MonoBehaviour:
   m_ObjectHideFlags: 0

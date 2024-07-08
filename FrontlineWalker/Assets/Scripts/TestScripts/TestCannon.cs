@@ -5,6 +5,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(TestProjectileShooter))]
 [RequireComponent(typeof(TestRotatonController))]
+[RequireComponent(typeof(TestBlowbackMechanism))]
 public class TestCannon : MonoBehaviour
 {
     public float reloadTime;
@@ -15,6 +16,7 @@ public class TestCannon : MonoBehaviour
     
     private TestRotatonController _rotatonController;
     private TestProjectileShooter _projectileShooter;
+    private TestBlowbackMechanism _blowbackMechanism;
 
     private bool _readyToFire;
     private int _remainingShells;
@@ -23,6 +25,7 @@ public class TestCannon : MonoBehaviour
     {
         _projectileShooter = GetComponent<TestProjectileShooter>();
         _rotatonController = GetComponent<TestRotatonController>();
+        _blowbackMechanism = GetComponent<TestBlowbackMechanism>();
 
         _remainingShells = maxShells;
         _readyToFire = true;
@@ -49,6 +52,7 @@ public class TestCannon : MonoBehaviour
            _projectileShooter.Shoot();
            forceReceiver.ReceiveForce(recoilForce, Vector2.left);
            _remainingShells--;
+           _blowbackMechanism.Blowback();
            _readyToFire = false;
            Invoke("Reload", reloadTime);
         }

@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class TestBomb : Projectile
 {
-    [SerializeField] private int explosionForce = 10;
+    [SerializeField] private float explosionForce = 10;
 
-    [SerializeField] private int explosionRadius = 10;
+    [SerializeField] private float explosionRadius = 10;
 
     [SerializeField] private int damage = 10;
     
@@ -17,15 +17,13 @@ public class TestBomb : Projectile
     
     [SerializeField] private LayerMask wall_layer;
 
+    [Range(1, 100)]
     [SerializeField] private float presicionAngle = 3;
+
+    [SerializeField] private float _timeBeforeDestruction = 20;
     private void Start()
     {
-        if (presicionAngle <= 0)
-        {
-            throw new Exception();
-        }
-
-        Destroy(gameObject, 10);
+        Destroy(gameObject, _timeBeforeDestruction);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
