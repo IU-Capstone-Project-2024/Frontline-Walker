@@ -24,7 +24,6 @@ public class TestBlowbackMechanism : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(_currentPosition.x + " " + _currentPosition.y + " " + _direction.x + " " + _direction.y);
         _direction = new Vector2(Mathf.Cos(transform.rotation.z), Mathf.Sin(transform.rotation.z));
         if (_blowingBack)
         {

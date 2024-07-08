@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7fd1631399c5f544b8ef7a160b9a2d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blowbackDistance: 0.2
+  blowbackDistance: 0.3
   blowbackSpeed: 1.5
   returnSpeed: 0.5
 --- !u!114 &685119413 stripped
