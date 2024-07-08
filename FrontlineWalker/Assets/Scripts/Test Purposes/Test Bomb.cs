@@ -20,12 +20,6 @@ public class TestBomb : Projectile
     [Range(1, 100)]
     [SerializeField] private float presicionAngle = 3;
 
-    [SerializeField] private float _timeBeforeDestruction = 20;
-    private void Start()
-    {
-        Destroy(gameObject, _timeBeforeDestruction);
-    }
-
     private void OnCollisionEnter2D(Collision2D other)
     {
         Explode();
@@ -60,6 +54,5 @@ public class TestBomb : Projectile
                 Debug.DrawRay(origin, force.normalized * distance, Color.red, 5);
             }
         }
-
     }
 }

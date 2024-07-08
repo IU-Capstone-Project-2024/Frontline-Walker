@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 5364168387770429963}
   - component: {fileID: 272480961710405745}
   - component: {fileID: 8262416571243961260}
-  - component: {fileID: 2889167855504771609}
   - component: {fileID: 5286854032370191943}
   - component: {fileID: -2606586556402958143}
   - component: {fileID: 9222821842126845111}
+  - component: {fileID: -6582088677734533555}
   m_Layer: 0
   m_Name: TurretShell
   m_TagString: Untagged
@@ -131,19 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialForce: 5
   direction: 0
---- !u!114 &2889167855504771609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3587489201504493870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 147a41a0a52ec8c4fa9d803d452ca38b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBeforeDestruction: 3
 --- !u!70 &5286854032370191943
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -201,7 +188,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 264
   presicionAngle: 3
-  _timeBeforeDestruction: 20
 --- !u!114 &9222821842126845111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,3 +201,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationShift: -90
+--- !u!114 &-6582088677734533555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3587489201504493870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147a41a0a52ec8c4fa9d803d452ca38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeDestruction: 10

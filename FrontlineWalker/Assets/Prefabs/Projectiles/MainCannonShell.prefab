@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1609000132026645219}
   - component: {fileID: 4505091063327133452}
   - component: {fileID: 5336445914664935625}
-  - component: {fileID: 3945740655385833731}
   - component: {fileID: 4669827497047316965}
   - component: {fileID: 457187699174301867}
   - component: {fileID: 1977652543080525703}
+  - component: {fileID: 1266223415101280783}
   m_Layer: 0
   m_Name: MainCannonShell
   m_TagString: Untagged
@@ -131,19 +131,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialForce: 30
   direction: 0
---- !u!114 &3945740655385833731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8320700902301866874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 147a41a0a52ec8c4fa9d803d452ca38b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBeforeDestruction: 3
 --- !u!70 &4669827497047316965
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -201,7 +188,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 264
   presicionAngle: 3
-  _timeBeforeDestruction: 20
 --- !u!114 &1977652543080525703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,3 +201,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationShift: -90
+--- !u!114 &1266223415101280783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8320700902301866874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147a41a0a52ec8c4fa9d803d452ca38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforeDestruction: 10
