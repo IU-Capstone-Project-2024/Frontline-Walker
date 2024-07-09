@@ -15,6 +15,9 @@ public class binoculars : MonoBehaviour
     public float activationMoveDuration = 2f;
     public cameraInit cameraInit; // Camera script
     public Slider binocularsSlider;
+    public GameObject binocularsSliderGameObject;
+    public GameObject binocularsStick;
+    public GameObject binocularsButton;
     public GameObject binocularsManager;
     private buttonHandler buttonHandler;
     public bool startZoom = false; // Flag for start zooming (don't touch)
@@ -35,6 +38,8 @@ public class binoculars : MonoBehaviour
     {
         buttonHandler = binocularsManager.GetComponent<buttonHandler>();
         previousPosition = new Vector3(float.MinValue, 0, -1);
+        binocularsSliderGameObject.SetActive(false);
+        binocularsStick.SetActive(false);
     }
 
     void Update()
@@ -47,6 +52,7 @@ public class binoculars : MonoBehaviour
 
                 Camera.main.orthographicSize += activateSpeed * Time.deltaTime;
                 binocularsSlider.value = binocularsSlider.maxValue;
+                binocularsButton.SetActive(false);
                 if (Camera.main.orthographicSize >= binocularsSlider.maxValue)
                 {
                     Camera.main.orthographicSize = binocularsSlider.maxValue;
@@ -81,15 +87,21 @@ public class binoculars : MonoBehaviour
             }
 
             // Moving binoculars
-            if (!returnBinoculars && !activationIsMoving)
+            if (startZoom && !returnBinoculars && !activationIsMoving)
             {
+                binocularsSliderGameObject.SetActive(true);
+                binocularsStick.SetActive(true);
+                binocularsButton.SetActive(true);
                 Vector2 moveDirection = moveActionToUse.action.ReadValue<Vector2>();
                 transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
-            }
 
-            if (startZoom && !returnBinoculars && !activationIsMoving && buttonHandler.activate)
-            {
-                returnBinoculars = true;
+                if (buttonHandler.activate)
+                {
+                    returnBinoculars = true;
+                    binocularsSliderGameObject.SetActive(false);
+                    binocularsStick.SetActive(false);
+                    binocularsButton.SetActive(false);
+                }
             }
 
             // Returning to initial camera position
@@ -124,6 +136,7 @@ public class binoculars : MonoBehaviour
                     startZoom = false;
                     returnBinoculars = false;
                     endZoom = false;
+                    binocularsButton.SetActive(true);
                 }
             }
             buttonHandler.activate = false;

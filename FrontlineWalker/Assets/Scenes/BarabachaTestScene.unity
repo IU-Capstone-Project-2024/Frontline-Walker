@@ -607,6 +607,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8071855, y: 1.5115473}
   m_EdgeRadius: 0
+--- !u!1 &173006282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7411042528815317390, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+  m_PrefabInstance: {fileID: 2023045626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &221502708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,7 +1252,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9084529359551332591, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
   m_PrefabInstance: {fileID: 2023045626}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 173006282}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
@@ -2192,6 +2197,14 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 231327658178063943, guid: 62a8917fbd8df724789939b02d3a2f13, type: 3}
+      propertyPath: binocularsStick
+      value: 
+      objectReference: {fileID: 1391126907}
+    - target: {fileID: 231327658178063943, guid: 62a8917fbd8df724789939b02d3a2f13, type: 3}
+      propertyPath: binocularsButton
+      value: 
+      objectReference: {fileID: 2018305338}
+    - target: {fileID: 231327658178063943, guid: 62a8917fbd8df724789939b02d3a2f13, type: 3}
       propertyPath: binocularsSlider
       value: 
       objectReference: {fileID: 685119413}
@@ -2200,9 +2213,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 925631965}
     - target: {fileID: 231327658178063943, guid: 62a8917fbd8df724789939b02d3a2f13, type: 3}
+      propertyPath: binocularsSliderGO
+      value: 
+      objectReference: {fileID: 173006282}
+    - target: {fileID: 231327658178063943, guid: 62a8917fbd8df724789939b02d3a2f13, type: 3}
       propertyPath: activationMoveDuration
       value: 0.3
       objectReference: {fileID: 0}
+    - target: {fileID: 231327658178063943, guid: 62a8917fbd8df724789939b02d3a2f13, type: 3}
+      propertyPath: binocularsSliderGameObject
+      value: 
+      objectReference: {fileID: 173006282}
     - target: {fileID: 1547253695518692868, guid: 62a8917fbd8df724789939b02d3a2f13, type: 3}
       propertyPath: orthographic size
       value: 3
@@ -2502,6 +2523,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1391126907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5842068026953197445, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+  m_PrefabInstance: {fileID: 2023045626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1394257295
 GameObject:
   m_ObjectHideFlags: 0
@@ -3994,6 +4020,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8150568, y: 1.6059878}
   m_EdgeRadius: 0
+--- !u!1 &2018305338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3970620619222892777, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+  m_PrefabInstance: {fileID: 2023045626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2019338078
 GameObject:
   m_ObjectHideFlags: 0
@@ -4138,15 +4169,15 @@ PrefabInstance:
       objectReference: {fileID: 1710180167}
     - target: {fileID: 2615045776063496282, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2615045776063496282, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.39999998
       objectReference: {fileID: 0}
     - target: {fileID: 2615045776063496282, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.39999998
       objectReference: {fileID: 0}
     - target: {fileID: 5562663535525780869, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_Name
@@ -4156,16 +4187,24 @@ PrefabInstance:
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 1710180167}
+    - target: {fileID: 5842068026953197445, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6700291996779141688, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6700291996779141688, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6700291996779141688, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0.39999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411042528815317390, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7494220940979491930, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
