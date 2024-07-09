@@ -10,11 +10,8 @@ public class TouchController : MonoBehaviour
     public TestController controller;
 
     public Slider verSlider;
-    public float verDeadZone = 0.6f;
     public Slider horSlider;
-    public float horDeadZone = 0.6f;
     public Slider aimSlider;
-    public float aimDeadZone = 0.6f;
 
     public GameObject binocularsManager;
     private buttonHandler buttonHandler;
@@ -44,11 +41,11 @@ public class TouchController : MonoBehaviour
             stabilizeGameObject.SetActive(true);
             shootGameObject.SetActive(true);
 
-            if (aimSlider.value >= aimDeadZone)
+            if (aimSlider.value >= 1)
             {
                 controller.mainCannonController.Up();
             }
-            if (aimSlider.value <= -aimDeadZone)
+            if (aimSlider.value <= -1)
             {
                 controller.mainCannonController.Down();
             }
@@ -57,19 +54,19 @@ public class TouchController : MonoBehaviour
                 controller.mainCannonController.Fire();
                 buttonHandler.shoot = false;
             }
-            if (verSlider.value >= verDeadZone)
+            if (verSlider.value >= 1)
             {
                 controller.torsoController.Up();
             }
-            if (verSlider.value <= -verDeadZone)
+            if (verSlider.value <= -1)
             {
                 controller.torsoController.Down();
             }
-            if (horSlider.value >= horDeadZone)
+            if (horSlider.value >= 1)
             {
                 controller.Right();
             }
-            if (horSlider.value <= -horDeadZone)
+            if (horSlider.value <= -1)
             {
                 controller.Left();
             }
