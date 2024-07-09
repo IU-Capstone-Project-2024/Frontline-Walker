@@ -26,11 +26,11 @@ public class cameraInit : MonoBehaviour
         {
             var position = target.transform.position;
             transform.position = new Vector3(position.x + xPos, position.y + yPos, -1);
-            if (buttonHandler.activate)
+            if (buttonHandler.binoculars)
             {
                 binocularsActive = true;
             }
-            buttonHandler.activate = false;
+            buttonHandler.binoculars = false;
         }
     }
 }
