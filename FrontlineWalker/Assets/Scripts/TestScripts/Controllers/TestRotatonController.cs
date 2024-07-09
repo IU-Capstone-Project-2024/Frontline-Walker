@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.EnhancedTouch;
+using UnityEngine.UI;
 
 public class TestRotatonController : MonoBehaviour
 {
     public float rotationSpeed = 0.5f;
-    public float maxAngle = 30;
-    public float minAngle = -30;
-
+    public Slider rotationSlider;
     private float _currentAngle;
 
     private void Start()
@@ -18,39 +19,40 @@ public class TestRotatonController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Mathf.RoundToInt(_currentAngle) < rotationSlider.value) {
+            Up();
+        }
         
+        if (Mathf.RoundToInt(_currentAngle) > rotationSlider.value)
+        {
+            Down();
+        }
     }
 
     public void Up()
     {
-        if (_currentAngle < maxAngle)
-        {
-            _currentAngle += rotationSpeed * Time.deltaTime;
-        }
+        _currentAngle += rotationSpeed * Time.deltaTime;
         Clamp();
         SetRotation();
     }
 
     public void Down()
     {
-        if (_currentAngle > minAngle)
-        {
-            _currentAngle -= rotationSpeed * Time.deltaTime;
-        }
+        _currentAngle -= rotationSpeed * Time.deltaTime;
         Clamp();
         SetRotation();
     }
 
     private void Clamp()
     {
-        if (_currentAngle > maxAngle)
+        if (_currentAngle > rotationSlider.maxValue)
         {
-            _currentAngle = maxAngle;
+            _currentAngle = rotationSlider.maxValue;
         }
 
-        if (_currentAngle < minAngle)
+        if (_currentAngle < rotationSlider.minValue)
         {
-            _currentAngle = minAngle;
+            _currentAngle = rotationSlider.minValue;
         }
     }
 

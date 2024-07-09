@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
@@ -21,8 +22,11 @@ public class TouchController : MonoBehaviour
     public GameObject verSliderGameObject;
     public GameObject horSliderGameObject;
     public GameObject aimSliderGameObject;
+    public GameObject aimTextGameObject;
     public GameObject stabilizeGameObject;
     public GameObject shootGameObject;
+
+    [SerializeField] TextMeshProUGUI aimText;
 
 
     void Start()
@@ -40,15 +44,10 @@ public class TouchController : MonoBehaviour
             aimSliderGameObject.SetActive(true);
             stabilizeGameObject.SetActive(true);
             shootGameObject.SetActive(true);
+            aimTextGameObject.SetActive(true);
 
-            if (aimSlider.value >= 1)
-            {
-                controller.mainCannonController.Up();
-            }
-            if (aimSlider.value <= -1)
-            {
-                controller.mainCannonController.Down();
-            }
+            aimText.text = aimSlider.value.ToString() + "°";
+
             if (buttonHandler.shoot)
             {
                 controller.mainCannonController.Fire();
@@ -98,9 +97,9 @@ public class TouchController : MonoBehaviour
             aimSliderGameObject.SetActive(false);
             stabilizeGameObject.SetActive(false);
             shootGameObject.SetActive(false);
+            aimTextGameObject.SetActive(false);
             verSlider.value = 0;
             horSlider.value = 0;
-            aimSlider.value = 0;
             buttonHandler.shoot = false;
             buttonHandler.stabilize = false;
         }
