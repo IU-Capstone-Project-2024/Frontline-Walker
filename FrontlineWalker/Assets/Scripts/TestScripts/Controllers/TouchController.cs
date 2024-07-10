@@ -23,6 +23,8 @@ public class TouchController : MonoBehaviour
     public GameObject horSliderGameObject;
     public GameObject aimSliderGameObject;
     public GameObject aimTextGameObject;
+    public GameObject shellsTextGameObject;
+    public GameObject fuelTextGameObject;
     public GameObject stabilizeGameObject;
     public GameObject shootGameObject;
 
@@ -45,6 +47,8 @@ public class TouchController : MonoBehaviour
             stabilizeGameObject.SetActive(true);
             shootGameObject.SetActive(true);
             aimTextGameObject.SetActive(true);
+            shellsTextGameObject.SetActive(true);
+            fuelTextGameObject.SetActive(true);
 
             aimText.text = aimSlider.value.ToString() + "°";
 
@@ -98,6 +102,8 @@ public class TouchController : MonoBehaviour
             stabilizeGameObject.SetActive(false);
             shootGameObject.SetActive(false);
             aimTextGameObject.SetActive(false);
+            shellsTextGameObject.SetActive(false);
+            fuelTextGameObject.SetActive(false);
             verSlider.value = 0;
             horSlider.value = 0;
             buttonHandler.shoot = false;
