@@ -1980,6 +1980,10 @@ MonoBehaviour:
   forward_force: 50
   backward_force: 50
   distabilization_speed: 5
+  fuelIsLimited: 1
+  tankCapacity: 400
+  idleFuelLoss: 0.1
+  fuelLossPerForceUnit: 0.1
 --- !u!50 &1140179347
 Rigidbody2D:
   serializedVersion: 4
