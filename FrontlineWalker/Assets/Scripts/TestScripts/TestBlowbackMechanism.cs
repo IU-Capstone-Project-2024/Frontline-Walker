@@ -31,7 +31,7 @@ public class TestBlowbackMechanism : MonoBehaviour
             {
                 _currentPosition -= _direction * blowbackSpeed * Time.deltaTime;
                 Clamp();
-                setCurrentX();
+                setCurrentPosition();
             }
         }
         else
@@ -40,14 +40,16 @@ public class TestBlowbackMechanism : MonoBehaviour
             {
                 _currentPosition += _direction * returnSpeed * Time.deltaTime;
                 Clamp();
-                setCurrentX();
+                setCurrentPosition();
             }
         }
+        
+        Debug.Log(_currentPosition + " " + _currentPosition.magnitude + " " + _blowingBack);
     }
 
     private void Clamp()
     {
-        if (_currentPosition.magnitude > blowbackDistance && _currentPosition.x < 0)
+        if (_currentPosition.magnitude >= blowbackDistance && _currentPosition.x < 0)
         {
             _currentPosition = _direction * -blowbackDistance;
             _blowingBack = false;
@@ -59,7 +61,7 @@ public class TestBlowbackMechanism : MonoBehaviour
         }
     }
 
-    private void setCurrentX()
+    private void setCurrentPosition()
     {
         transform.localPosition = new Vector3(_initialPosition.x + _currentPosition.x, _initialPosition.y + _currentPosition.y, transform.localPosition.z);
     }
