@@ -50,7 +50,7 @@ public class TestController : MonoBehaviour
             proceduralWalkerAnimation.ResumeAnimation();
         }
         IdleFuelLoss();
-        Debug.Log(_currentFuelLevel);
+        //Debug.Log(_currentFuelLevel);
     }
 
     public void Right()
