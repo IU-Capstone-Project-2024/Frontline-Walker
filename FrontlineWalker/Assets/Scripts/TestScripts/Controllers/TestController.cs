@@ -7,10 +7,11 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(Rigidbody2D))]
 public class TestController : MonoBehaviour
 {
-    [Header("Controllers")]
+    [Header("Controllers&Observers")]
     public TestProceduralWalkerAnimation proceduralWalkerAnimation;
     public TestTorsoController torsoController;
     public TestCannon mainCannonController;
+    public TestWalkerPartsObserver partsObserver;
     
     [Header("Speed")]
     public float forward_speed = 2f;
@@ -51,6 +52,8 @@ public class TestController : MonoBehaviour
         }
         IdleFuelLoss();
         //Debug.Log(_currentFuelLevel);
+
+        mainCannonController.SetAbleToReceiveCommands(partsObserver.mainCannon.IsWorking());
     }
 
     public void Right()

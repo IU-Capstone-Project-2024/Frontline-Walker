@@ -18,6 +18,7 @@ public class TestCannon : MonoBehaviour
     private TestProjectileShooter _projectileShooter;
     private TestBlowbackMechanism _blowbackMechanism;
 
+    private bool _isAbleToReceiveCommands;
     private bool _readyToFire;
     private int _remainingShells;
     
@@ -29,6 +30,7 @@ public class TestCannon : MonoBehaviour
 
         _remainingShells = maxShells;
         _readyToFire = true;
+        _isAbleToReceiveCommands = true;
     }
     void Update()
     {
@@ -37,17 +39,24 @@ public class TestCannon : MonoBehaviour
 
     public void Up()
     {
-        _rotatonController.Up();
+        if (_isAbleToReceiveCommands)
+        {
+            _rotatonController.Up();
+        }
+        
     }
 
     public void Down()
     {
-        _rotatonController.Down();
+        if (_isAbleToReceiveCommands)
+        {
+            _rotatonController.Down();
+        }
     }
 
     public void Fire()
     {
-        if (_readyToFire)
+        if (_readyToFire && _isAbleToReceiveCommands)
         {
            _projectileShooter.Shoot();
            forceReceiver.ReceiveForce(recoilForce, Vector2.left);
@@ -79,5 +88,15 @@ public class TestCannon : MonoBehaviour
         }
 
         if (_remainingShells > maxShells) _remainingShells = maxShells;
+    }
+
+    public void SetAbleToReceiveCommands(bool value)
+    {
+        _isAbleToReceiveCommands = value;
+    }
+
+    public bool IsAbleToReceiveCommands()
+    {
+        return _isAbleToReceiveCommands;
     }
 }

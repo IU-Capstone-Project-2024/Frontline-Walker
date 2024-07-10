@@ -22,6 +22,7 @@ public class TestCharacterPart : MonoBehaviour
         }
 
         _health = maxHealth;
+        _isWorking = true;
     }
 
     // Update is called once per frame

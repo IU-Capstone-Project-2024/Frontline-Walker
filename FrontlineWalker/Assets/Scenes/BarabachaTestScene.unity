@@ -2025,6 +2025,7 @@ GameObject:
   - component: {fileID: 1140179352}
   - component: {fileID: 1140179353}
   - component: {fileID: 1140179349}
+  - component: {fileID: 1140179355}
   m_Layer: 9
   m_Name: Walker
   m_TagString: Player
@@ -2064,6 +2065,7 @@ MonoBehaviour:
   proceduralWalkerAnimation: {fileID: 16552635}
   torsoController: {fileID: 16552636}
   mainCannonController: {fileID: 602648282}
+  partsObserver: {fileID: 0}
   forward_speed: 2
   backward_speed: 1
   forward_force: 150
@@ -2221,6 +2223,26 @@ MonoBehaviour:
   stabilizeGameObject: {fileID: 1820026540}
   shootGameObject: {fileID: 5768314}
   aimText: {fileID: 1296859555}
+--- !u!114 &1140179355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140179342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2c7fd074a6231498a7d7d34b518a93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCannon: {fileID: 602648284}
+  torso: {fileID: 16552638}
+  upperRightLeg: {fileID: 74075690}
+  upperLeftLeg: {fileID: 1999480725}
+  lowerRightLeg: {fileID: 144286801}
+  lowerLeftLeg: {fileID: 1059692652}
+  rightFoot: {fileID: 1735870171}
+  leftFoot: {fileID: 1549207807}
 --- !u!1 &1185663643
 GameObject:
   m_ObjectHideFlags: 0
