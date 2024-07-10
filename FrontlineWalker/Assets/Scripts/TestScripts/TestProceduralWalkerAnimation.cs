@@ -168,22 +168,11 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
                 }
             }
                     
-            //rotating foot
-            for (int i = 0; i < foots.Length; i++)
-            {
-                        
-                var _forward = new Vector2(_foots_normals[i].y, -_foots_normals[i].x);
-                var _new_z = -Vector2.SignedAngle(_forward, new Vector2(1,0));
-                var target_rotation = Quaternion.Euler(0,0, _new_z);
-                foots[i].transform.rotation = Quaternion.Lerp(foots[i].transform.rotation, target_rotation, foots_rotation_speed * Time.deltaTime);
-            }
-                    
-            //
+            //orienting body
             _lastBodyPos = transform.position;
             if (_nbLegs > 1 && bodyOrientation)
             {
                 Vector2 v1 = (legTargets[1].position - legTargets[0].position).normalized;
-                        
                 Vector3 v2 = Vector3.back;
                 Vector3 normal = Vector3.Cross(v1, v2).normalized;
                 Vector3 up = Vector3.Lerp(_lastBodyUp, normal, 1f / (float)(step_smoothness + 1));
@@ -202,10 +191,23 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
                 var offset = new Vector2(_lastLocalLegTargetPositions[i].x, 0);
                 var start = centr + offset;
                 var dir = Vector2.down;
-                var point = Physics2D.Raycast(start, dir, 10, layerMask).point;
+                var hit = Physics2D.Raycast(start, dir, 10, layerMask);
+                var point = hit.point;
                 legTargets[i].position = point;
                 _lastLegPositions[i] = point;
+
+                _foots_normals[i].x = hit.normal.x;
+                _foots_normals[i].y = hit.normal.y;
             }
+        }
+        
+        //rotating foot
+        for (int i = 0; i < foots.Length; i++)
+        {
+            var _forward = new Vector2(_foots_normals[i].y, -_foots_normals[i].x);
+            var _new_z = -Vector2.SignedAngle(_forward, new Vector2(1,0));
+            var target_rotation = Quaternion.Euler(0,0, _new_z);
+            foots[i].transform.rotation = Quaternion.Lerp(foots[i].transform.rotation, target_rotation, foots_rotation_speed * Time.deltaTime);
         }
     }
 
