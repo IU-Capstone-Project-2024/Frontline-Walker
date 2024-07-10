@@ -72,8 +72,9 @@ public class TestCharacterPart : MonoBehaviour
             throw new Exception("Amount of damage can not be negative!");
         }
         _health -= _damageAmount;
-        Debug.Log("Damage taken, health left - " + _health);
+        
         ClampHealth();
+        Debug.Log("Damage taken by " + name +  ", health left - " + _health);
         CheckHealth();
     }
 

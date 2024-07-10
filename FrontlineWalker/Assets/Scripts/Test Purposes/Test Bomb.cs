@@ -30,7 +30,6 @@ public class TestBomb : Projectile
     private void OnCollisionEnter2D(Collision2D other)
     {
         Explode();
-        Debug.Log("Boom");
         Destroy(gameObject);
     }
 
