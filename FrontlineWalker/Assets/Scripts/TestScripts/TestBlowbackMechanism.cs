@@ -43,8 +43,6 @@ public class TestBlowbackMechanism : MonoBehaviour
                 setCurrentPosition();
             }
         }
-        
-        Debug.Log(_currentPosition + " " + _currentPosition.magnitude + " " + _blowingBack);
     }
 
     private void Clamp()
