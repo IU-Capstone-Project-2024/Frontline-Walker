@@ -4,21 +4,28 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
+[RequireComponent(typeof(TestAppliesDamage))]
 public class TestBomb : Projectile
 {
     [SerializeField] private float explosionForce = 10;
 
     [SerializeField] private float explosionRadius = 10;
-
-    [SerializeField] private int damage = 10;
     
     [SerializeField] private LayerMask hit_layer;
     
     [SerializeField] private LayerMask wall_layer;
-
+    
     [Range(1, 100)]
     [SerializeField] private float presicionAngle = 3;
+
+    private TestAppliesDamage _damage;
+
+    private void Start()
+    {
+        _damage = GetComponent<TestAppliesDamage>();
+    }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
@@ -54,5 +61,10 @@ public class TestBomb : Projectile
                 Debug.DrawRay(origin, force.normalized * distance, Color.red, 5);
             }
         }
+    }
+
+    public TestAppliesDamage GetDamage()
+    {
+        return _damage;
     }
 }

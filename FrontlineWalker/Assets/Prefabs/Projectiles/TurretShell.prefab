@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: -2606586556402958143}
   - component: {fileID: 9222821842126845111}
   - component: {fileID: -6582088677734533555}
-  m_Layer: 0
+  - component: {fileID: -686520118608400126}
+  m_Layer: 11
   m_Name: TurretShell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,10 +181,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionForce: 0.1
   explosionRadius: 2
-  damage: 1
   hit_layer:
     serializedVersion: 2
-    m_Bits: 576
+    m_Bits: 1088
   wall_layer:
     serializedVersion: 2
     m_Bits: 264
@@ -214,3 +214,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeDestruction: 10
+--- !u!114 &-686520118608400126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3587489201504493870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d77c8c5cd0b620a49b189e56208a9214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1

@@ -39,6 +39,14 @@ public class TestCharacterPart : MonoBehaviour
     private void CheckHealth()
     {
         _isWorking = _health > 0;
+        if (!_isWorking)
+        {
+            Debug.Log(name + " took critical damage");
+            if (isCritical)
+            {
+                Debug.Log(name + " was critical part");
+            }
+        }
     }
      
     public int GetHealth()
@@ -64,6 +72,7 @@ public class TestCharacterPart : MonoBehaviour
             throw new Exception("Amount of damage can not be negative!");
         }
         _health -= _damageAmount;
+        Debug.Log("Damage taken, health left - " + _health);
         ClampHealth();
         CheckHealth();
     }
@@ -81,5 +90,16 @@ public class TestCharacterPart : MonoBehaviour
     public bool IsWorking()
     {
         return _isWorking;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log("Collision detected");
+        var appliedDamage = other.gameObject.GetComponent<TestAppliesDamage>();
+        if (appliedDamage != null)
+        {
+            Debug.Log("Damage component received");
+            TakeDamage(appliedDamage.damage);
+        }
     }
 }

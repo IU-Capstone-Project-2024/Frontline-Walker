@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 16552635}
   - component: {fileID: 16552636}
   - component: {fileID: 16552637}
+  - component: {fileID: 16552638}
   m_Layer: 10
   m_Name: Torso
   m_TagString: Untagged
@@ -277,7 +278,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 2047
+    m_Bits: 0
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -307,6 +308,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.934906, y: 1.4507583}
   m_EdgeRadius: 0
+--- !u!114 &16552638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16552631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20304dba714c4c44885287a2e4ec8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Torso
+  maxHealth: 5
+  isCritical: 1
 --- !u!1 &20879763
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,6 +417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 74075688}
   - component: {fileID: 74075689}
+  - component: {fileID: 74075690}
   m_Layer: 10
   m_Name: UpperLegRight
   m_TagString: Untagged
@@ -470,6 +487,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8150568, y: 1.6059878}
   m_EdgeRadius: 0
+--- !u!114 &74075690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74075687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20304dba714c4c44885287a2e4ec8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Upper right leg
+  maxHealth: 2
+  isCritical: 1
 --- !u!1 &80331308
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 144286799}
   - component: {fileID: 144286800}
+  - component: {fileID: 144286801}
   m_Layer: 10
   m_Name: LowerLegRight
   m_TagString: Untagged
@@ -628,6 +661,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8071855, y: 1.5115473}
   m_EdgeRadius: 0
+--- !u!114 &144286801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144286798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20304dba714c4c44885287a2e4ec8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Lower right leg
+  maxHealth: 2
+  isCritical: 0
 --- !u!1 &173006282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7411042528815317390, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
@@ -1142,6 +1190,7 @@ GameObject:
   - component: {fileID: 602648281}
   - component: {fileID: 602648282}
   - component: {fileID: 602648283}
+  - component: {fileID: 602648284}
   m_Layer: 10
   m_Name: MainCannon
   m_TagString: Untagged
@@ -1272,6 +1321,21 @@ MonoBehaviour:
   blowbackDistance: 0.3
   blowbackSpeed: 1.5
   returnSpeed: 0.5
+--- !u!114 &602648284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602648277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20304dba714c4c44885287a2e4ec8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Main cannon
+  maxHealth: 3
+  isCritical: 0
 --- !u!1 &663580188 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8633919491876824646, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
@@ -1850,6 +1914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1059692650}
   - component: {fileID: 1059692651}
+  - component: {fileID: 1059692652}
   m_Layer: 10
   m_Name: LowerLegLeft
   m_TagString: Untagged
@@ -1920,6 +1985,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8071855, y: 1.5115473}
   m_EdgeRadius: 0
+--- !u!114 &1059692652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059692649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20304dba714c4c44885287a2e4ec8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Lower left leg
+  maxHealth: 2
+  isCritical: 0
 --- !u!1 &1140179342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,11 +2057,11 @@ MonoBehaviour:
   mainCannonController: {fileID: 602648282}
   forward_speed: 2
   backward_speed: 1
-  forward_force: 50
-  backward_force: 50
+  forward_force: 150
+  backward_force: 150
   distabilization_speed: 5
   fuelIsLimited: 1
-  tankCapacity: 400
+  tankCapacity: 1200
   idleFuelLoss: 0.1
   fuelLossPerForceUnit: 0.1
 --- !u!50 &1140179347
@@ -1996,7 +2076,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 3
   m_LinearDrag: 0.1
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -2026,7 +2106,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 2048
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -2934,6 +3014,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1549207805}
   - component: {fileID: 1549207806}
+  - component: {fileID: 1549207807}
   m_Layer: 10
   m_Name: FootLeft
   m_TagString: Untagged
@@ -3002,6 +3083,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1112986, y: 0.41568327}
   m_EdgeRadius: 0
+--- !u!114 &1549207807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549207804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20304dba714c4c44885287a2e4ec8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Left foot
+  maxHealth: 1
+  isCritical: 0
 --- !u!1 &1553953045
 GameObject:
   m_ObjectHideFlags: 0
@@ -3573,6 +3669,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1735870169}
   - component: {fileID: 1735870170}
+  - component: {fileID: 1735870171}
   m_Layer: 10
   m_Name: FootRight
   m_TagString: Untagged
@@ -3641,6 +3738,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1112986, y: 0.41568327}
   m_EdgeRadius: 0
+--- !u!114 &1735870171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735870168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20304dba714c4c44885287a2e4ec8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Right foot
+  maxHealth: 1
+  isCritical: 0
 --- !u!1 &1778259605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4069,6 +4181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1999480723}
   - component: {fileID: 1999480724}
+  - component: {fileID: 1999480725}
   m_Layer: 10
   m_Name: UpperLegLeft
   m_TagString: Untagged
@@ -4138,6 +4251,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8150568, y: 1.6059878}
   m_EdgeRadius: 0
+--- !u!114 &1999480725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999480722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20304dba714c4c44885287a2e4ec8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Upper left leg
+  maxHealth: 2
+  isCritical: 1
 --- !u!1 &2018305338 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3970620619222892777, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
