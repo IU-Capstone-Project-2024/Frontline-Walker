@@ -475,6 +475,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6672709567223686049, guid: 63fd3e99d6b265548ba95cd84324975e, type: 3}
+      propertyPath: angleMax
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 9076877662361493625, guid: 63fd3e99d6b265548ba95cd84324975e, type: 3}
       propertyPath: m_Name
       value: SemiCircleSlider

@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
 	public int currentValue;
-	public int angleLimit = 30;
-	public GameObject slideSprite;
+	public int angleMax = 30;
+    public int angleMin = 30;
+    public GameObject slideSprite;
 	private bool isPointerDown=false;
 
     public void Start()
@@ -60,7 +61,15 @@ public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
 						GetComponent<Image>().fillAmount = angle;
 
-						currentValue = Mathf.RoundToInt((angle - 0.25f) * angleLimit * 4);
+						if (angle < 0.25f)
+                        {
+                            currentValue = Mathf.RoundToInt((angle - 0.25f) * angleMin * 4);
+                        }
+						else
+						{
+                            currentValue = Mathf.RoundToInt((angle - 0.25f) * angleMax * 4);
+                        }
+
 
 						slideSprite.transform.localRotation = Quaternion.Euler(0, 0, angle * 360);
 
@@ -78,9 +87,4 @@ public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 			}        
 		}    
 	}
-
-
-
-
-
 }
