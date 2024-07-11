@@ -45,6 +45,9 @@ public class TestWalkerPartsObserver : TestMessageReceiver
     private float _currentMovementPenalty;
     private float _currentTorsoMovementPenalty;
     private float _currentFrictionPenalty;
+    
+    [Header("Debug")] 
+    public bool showDebugLog = true;
 
     private void Start()
     {
@@ -75,14 +78,20 @@ public class TestWalkerPartsObserver : TestMessageReceiver
         _currentMovementPenalty += lowerLeftLeg.IsWorking() ? 0 : lowerLegMovementPenalty;
         _currentMovementPenalty += rightFoot.IsWorking() ? 0 : footMovementPenalty;
         _currentMovementPenalty += leftFoot.IsWorking() ? 0 : footMovementPenalty;
-
+        
+        if (showDebugLog) Debug.Log("New movement penalty: " + _currentMovementPenalty);
+        
         _currentTorsoMovementPenalty = 0;
         _currentTorsoMovementPenalty += lowerRightLeg.IsWorking() ? 0 : lowerLegTorsoMovementPenalty;
         _currentTorsoMovementPenalty += lowerLeftLeg.IsWorking() ? 0 : lowerLegTorsoMovementPenalty;
         
+        if (showDebugLog) Debug.Log("New torso movement penalty: " + _currentTorsoMovementPenalty);
+        
         _currentFrictionPenalty = 0;
         _currentFrictionPenalty += rightFoot.IsWorking() ? 0 : footFrictionPenalty;
         _currentFrictionPenalty += leftFoot.IsWorking() ? 0 : footFrictionPenalty;
+        
+        if (showDebugLog) Debug.Log("New friction penalty: " + _currentFrictionPenalty);
         
         ClampPenalties();
 
@@ -107,7 +116,7 @@ public class TestWalkerPartsObserver : TestMessageReceiver
     
     public override void ReceiveMessage()
     {
-        Debug.Log("Recalculating penalties");
+        if (showDebugLog) Debug.Log("Recalculating penalties");
         CalculatePenalties();
     }
 }

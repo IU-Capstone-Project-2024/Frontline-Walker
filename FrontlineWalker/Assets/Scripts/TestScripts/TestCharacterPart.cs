@@ -5,15 +5,27 @@ using UnityEngine;
 
 public class TestCharacterPart : MonoBehaviour
 {
+    [Header("Settings")]
     [SerializeField] private String name;
     [Range(0, 1000)]
     [SerializeField] private int maxHealth = 10;
     [SerializeField] private bool isCritical;
     public TestMessangeSender messanger;
-
+    [Header("Debug")] 
+    public bool alwaysSendMessage = true;
+    public bool showDebugLog = true;
+    
     private int _health;
     public bool _isWorking;
-    
+
+    private void FixedUpdate()
+    {
+        if (alwaysSendMessage && !_isWorking)
+        {
+            messanger.SendMessage();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +49,7 @@ public class TestCharacterPart : MonoBehaviour
         _isWorking = _health > 0;
         if (!_isWorking)
         {
-            Debug.Log(name + " took critical damage");
+            if (showDebugLog) Debug.Log(name + " took critical damage");
 
             if (messanger != null)
             {
@@ -46,7 +58,7 @@ public class TestCharacterPart : MonoBehaviour
             
             if (isCritical)
             {
-                Debug.Log(name + " was critical part");
+                if (showDebugLog) Debug.Log(name + " was critical part");
             }
         }
     }
@@ -76,7 +88,7 @@ public class TestCharacterPart : MonoBehaviour
         _health -= _damageAmount;
         
         ClampHealth();
-        Debug.Log("Damage taken by " + name +  ", health left - " + _health);
+        if (showDebugLog) Debug.Log("Damage taken by " + name +  ", health left - " + _health);
         CheckHealth();
     }
 

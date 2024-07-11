@@ -24,6 +24,9 @@ public class TestTorsoController : TestMessageReceiver
     public bool _stabilazing;
     private bool _moving_to_initial_height;
     
+    [Header("Debug")] 
+    public bool showDebugLog = true;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -188,7 +191,7 @@ public class TestTorsoController : TestMessageReceiver
     
     public override void ReceiveMessage()
     {
-        Debug.Log("Torso Controller received message");
+        if (showDebugLog) Debug.Log("Torso Controller received message");
         var torsoMovementPenalty = partsObserver.GetCurrentTorsoMovementPenalty();
         speed = _initialSpeed * (1 - torsoMovementPenalty);
     }
