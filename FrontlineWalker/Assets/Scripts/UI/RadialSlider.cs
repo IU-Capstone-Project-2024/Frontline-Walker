@@ -17,6 +17,7 @@ public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         slideSprite.transform.localRotation = Quaternion.Euler(0, 0, 90);
         slideSprite.transform.localPosition = new Vector2(0, -50);
+
     }
 
     public void OnPointerEnter( PointerEventData eventData )
