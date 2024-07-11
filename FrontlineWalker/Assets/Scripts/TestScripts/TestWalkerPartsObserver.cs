@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TestWalkerPartsObserver : MonoBehaviour
 {
-
     public TestCharacterPart mainCannon;
     public TestCharacterPart torso;
     public TestCharacterPart upperRightLeg;
@@ -13,16 +12,4 @@ public class TestWalkerPartsObserver : MonoBehaviour
     public TestCharacterPart lowerLeftLeg;
     public TestCharacterPart rightFoot;
     public TestCharacterPart leftFoot;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -53,7 +53,7 @@ public class TouchController : MonoBehaviour
             shellsTextGameObject.SetActive(true);
             fuelTextGameObject.SetActive(true);
 
-            aimText.text = aimSlider.value.ToString() + "°";
+            aimText.text = aimSlider.value + "°";
 
             if (buttonHandler.shoot)
             {

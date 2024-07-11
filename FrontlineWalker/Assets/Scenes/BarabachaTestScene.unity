@@ -1228,7 +1228,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 10
-  rotationSlider: {fileID: 94630825}
+  maxAngle: 30
+  minAngle: -30
 --- !u!61 &602648280
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1304,7 +1305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadTime: 2
   maxShells: 20
-  recoilForce: 300
+  recoilForce: 800
   forceReceiver: {fileID: 1140179353}
 --- !u!114 &602648283
 MonoBehaviour:
