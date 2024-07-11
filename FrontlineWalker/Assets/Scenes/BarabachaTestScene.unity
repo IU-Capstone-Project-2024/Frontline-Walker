@@ -1334,7 +1334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Main cannon
-  maxHealth: 3
+  maxHealth: 1
   isCritical: 0
 --- !u!1 &663580188 stripped
 GameObject:

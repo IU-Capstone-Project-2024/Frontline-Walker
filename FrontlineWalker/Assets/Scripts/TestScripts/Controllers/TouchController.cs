@@ -35,6 +35,9 @@ public class TouchController : MonoBehaviour
     {
         cameraInit = cameraObject.GetComponent<cameraInit>();
         buttonHandler = binocularsManager.GetComponent<buttonHandler>();
+        
+        controller.mainCannonController.setMaxAngle(aimSlider.maxValue);
+        controller.mainCannonController.setMinAngle(aimSlider.minValue);
     }
 
     void FixedUpdate()
@@ -57,6 +60,7 @@ public class TouchController : MonoBehaviour
                 controller.mainCannonController.Fire();
                 buttonHandler.shoot = false;
             }
+            controller.mainCannonController.SetTargetAngle(aimSlider.value);
             if (verSlider.value >= 1)
             {
                 controller.torsoController.Up();

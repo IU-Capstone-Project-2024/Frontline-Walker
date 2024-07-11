@@ -21,6 +21,7 @@ public class TestCannon : MonoBehaviour
     private bool _isAbleToReceiveCommands;
     private bool _readyToFire;
     private int _remainingShells;
+    private float _targetAngle;
     
     void Start()
     {
@@ -32,9 +33,16 @@ public class TestCannon : MonoBehaviour
         _readyToFire = true;
         _isAbleToReceiveCommands = true;
     }
-    void Update()
+    void FixedUpdate()
     {
+        if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) < _targetAngle) {
+            Up();
+        }
         
+        if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) > _targetAngle)
+        {
+            Down();
+        }
     }
 
     public void Up()
@@ -48,14 +56,17 @@ public class TestCannon : MonoBehaviour
 
     public void Down()
     {
+        Debug.Log("There");
         if (_isAbleToReceiveCommands)
         {
+            Debug.Log("Here");
             _rotatonController.Down();
         }
     }
 
     public void Fire()
     {
+        Debug.Log("Gun log");
         if (_readyToFire && _isAbleToReceiveCommands)
         {
            _projectileShooter.Shoot();
@@ -98,5 +109,20 @@ public class TestCannon : MonoBehaviour
     public bool IsAbleToReceiveCommands()
     {
         return _isAbleToReceiveCommands;
+    }
+
+    public void SetTargetAngle(float value)
+    {
+        _targetAngle = value;
+    }
+
+    public void setMaxAngle(float value)
+    {
+        _rotatonController.maxAngle = value;
+    }
+    
+    public void setMinAngle(float value)
+    {
+        _rotatonController.minAngle = value;
     }
 }

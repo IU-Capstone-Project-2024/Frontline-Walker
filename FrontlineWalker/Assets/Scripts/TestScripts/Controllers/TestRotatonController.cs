@@ -9,24 +9,13 @@ using UnityEngine.UI;
 public class TestRotatonController : MonoBehaviour
 {
     public float rotationSpeed = 0.5f;
-    public Slider rotationSlider;
+    public float maxAngle = 30;
+    public float minAngle = -30;
     private float _currentAngle;
 
     private void Start()
     {
         _currentAngle = 0;
-    }
-
-    void FixedUpdate()
-    {
-        if (Mathf.RoundToInt(_currentAngle) < rotationSlider.value) {
-            Up();
-        }
-        
-        if (Mathf.RoundToInt(_currentAngle) > rotationSlider.value)
-        {
-            Down();
-        }
     }
 
     public void Up()
@@ -45,14 +34,14 @@ public class TestRotatonController : MonoBehaviour
 
     private void Clamp()
     {
-        if (_currentAngle > rotationSlider.maxValue)
+        if (_currentAngle > maxAngle)
         {
-            _currentAngle = rotationSlider.maxValue;
+            _currentAngle = maxAngle;
         }
 
-        if (_currentAngle < rotationSlider.minValue)
+        if (_currentAngle < minAngle)
         {
-            _currentAngle = rotationSlider.minValue;
+            _currentAngle = minAngle;
         }
     }
 
