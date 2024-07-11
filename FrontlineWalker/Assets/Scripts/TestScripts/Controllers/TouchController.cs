@@ -12,7 +12,7 @@ public class TouchController : MonoBehaviour
 
     public Slider verSlider;
     public Slider horSlider;
-    public Slider aimSlider;
+    public GameObject aimSlider;
 
     public GameObject binocularsManager;
     private buttonHandler buttonHandler;
@@ -21,7 +21,6 @@ public class TouchController : MonoBehaviour
 
     public GameObject verSliderGameObject;
     public GameObject horSliderGameObject;
-    public GameObject aimSliderGameObject;
     public GameObject aimTextGameObject;
     public GameObject shellsTextGameObject;
     public GameObject fuelTextGameObject;
@@ -29,15 +28,16 @@ public class TouchController : MonoBehaviour
     public GameObject shootGameObject;
 
     [SerializeField] TextMeshProUGUI aimText;
+    private RadialSlider aimSliderScript;
 
 
     void Start()
     {
         cameraInit = cameraObject.GetComponent<cameraInit>();
         buttonHandler = binocularsManager.GetComponent<buttonHandler>();
-        
-        controller.mainCannonController.setMaxAngle(aimSlider.maxValue);
-        controller.mainCannonController.setMinAngle(aimSlider.minValue);
+        aimSliderScript = aimSlider.GetComponent<RadialSlider>();
+        controller.mainCannonController.setMaxAngle(aimSliderScript.angleMax);
+        controller.mainCannonController.setMinAngle(-aimSliderScript.angleMin);
     }
 
     void FixedUpdate()
@@ -46,21 +46,21 @@ public class TouchController : MonoBehaviour
         {
             verSliderGameObject.SetActive(true);
             horSliderGameObject.SetActive(true);
-            aimSliderGameObject.SetActive(true);
+            aimSlider.SetActive(true);
             stabilizeGameObject.SetActive(true);
             shootGameObject.SetActive(true);
             aimTextGameObject.SetActive(true);
             shellsTextGameObject.SetActive(true);
             fuelTextGameObject.SetActive(true);
 
-            aimText.text = aimSlider.value + "°";
+            aimText.text = aimSliderScript.currentValue.ToString() + "°";
 
             if (buttonHandler.shoot)
             {
                 controller.mainCannonController.Fire();
                 buttonHandler.shoot = false;
             }
-            controller.mainCannonController.SetTargetAngle(aimSlider.value);
+            controller.mainCannonController.SetTargetAngle(aimSliderScript.currentValue);
             if (verSlider.value >= 1)
             {
                 controller.torsoController.Up();
@@ -102,7 +102,7 @@ public class TouchController : MonoBehaviour
         {
             verSliderGameObject.SetActive(false);
             horSliderGameObject.SetActive(false);
-            aimSliderGameObject.SetActive(false);
+            aimSlider.SetActive(false);
             stabilizeGameObject.SetActive(false);
             shootGameObject.SetActive(false);
             aimTextGameObject.SetActive(false);
