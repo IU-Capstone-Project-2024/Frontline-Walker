@@ -183,7 +183,7 @@ MonoBehaviour:
   explosionRadius: 2
   hit_layer:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 5184
   wall_layer:
     serializedVersion: 2
     m_Bits: 264
