@@ -9,6 +9,7 @@ public class TestCharacterPart : MonoBehaviour
     [Range(0, 1000)]
     [SerializeField] private int maxHealth = 10;
     [SerializeField] private bool isCritical;
+    public TestMessangeSender messanger;
 
     private int _health;
     public bool _isWorking;
@@ -25,12 +26,6 @@ public class TestCharacterPart : MonoBehaviour
         _isWorking = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void ClampHealth()
     {
         if (_health > maxHealth) _health = maxHealth;
@@ -43,6 +38,12 @@ public class TestCharacterPart : MonoBehaviour
         if (!_isWorking)
         {
             Debug.Log(name + " took critical damage");
+
+            if (messanger != null)
+            {
+                messanger.SendMessage();
+            }
+            
             if (isCritical)
             {
                 Debug.Log(name + " was critical part");

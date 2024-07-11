@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class TestWalkerPartsObserver : MonoBehaviour
+public class TestWalkerPartsObserver : TestMessageReceiver
 {
     [Header("Parts")]
     public TestCharacterPart mainCannon;
@@ -14,29 +16,100 @@ public class TestWalkerPartsObserver : MonoBehaviour
     public TestCharacterPart rightFoot;
     public TestCharacterPart leftFoot;
 
-    [Header("Movement penalty")]
+    [Header("Movement penalty")] 
     [Range(0,1)]
-    public float lowerLegPenalty;
+    public float maxMovementPenalty;
     [Range(0,1)]
-    public float footPenalty;
+    public float upperLegMovementPenalty;
+    [Range(0,1)]
+    public float lowerLegMovementPenalty;
+    [Range(0,1)]
+    public float footMovementPenalty;
 
-    private float _currentPenalty;
+    [Header("Torso movement penalty")] 
+    [Range(0,1)]
+    public float maxTorsoMovementPenalty;
+    [Range(0,1)] 
+    public float lowerLegTorsoMovementPenalty;
+    
+    [Header("Friction penalty")] 
+    [Range(0,1)]
+    public float maxFrictionPenalty;
+    [Range(0,1)] 
+    public float footFrictionPenalty;
 
-    private void ClampPenalty()
+    [Header("Message receivers")] 
+    public TestMessageReceiver controller;
+
+    private float _currentMovementPenalty;
+    private float _currentTorsoMovementPenalty;
+    private float _currentFrictionPenalty;
+
+
+    private void Start()
     {
-        if (_currentPenalty < 0) _currentPenalty = 0;
-        if (_currentPenalty > 1) _currentPenalty = 1;
+        _currentMovementPenalty = 0;
+        _currentTorsoMovementPenalty = 0;
+        _currentFrictionPenalty = 0;
+
     }
 
-    public float GetCurrentPenalty()
+    private void ClampPenalties()
     {
-        _currentPenalty = 0;
-        _currentPenalty += lowerRightLeg.IsWorking() ? 0 : lowerLegPenalty;
-        _currentPenalty += lowerLeftLeg.IsWorking() ? 0 : lowerLegPenalty;
-        _currentPenalty += rightFoot.IsWorking() ? 0 : footPenalty;
-        _currentPenalty += leftFoot.IsWorking() ? 0 : footPenalty;
-        ClampPenalty();
-        //Debug.Log(_currentPenalty);
-        return _currentPenalty;
+        if (_currentMovementPenalty < 0) _currentMovementPenalty = 0;
+        if (_currentMovementPenalty > maxMovementPenalty) _currentMovementPenalty = maxMovementPenalty;
+        
+        if (_currentTorsoMovementPenalty < 0) _currentTorsoMovementPenalty = 0;
+        if (_currentTorsoMovementPenalty > maxTorsoMovementPenalty) _currentTorsoMovementPenalty = maxTorsoMovementPenalty;
+        
+        if (_currentFrictionPenalty < 0) _currentFrictionPenalty = 0;
+        if (_currentFrictionPenalty > maxFrictionPenalty) _currentFrictionPenalty = maxFrictionPenalty;
+    }
+
+    public void CalculatePenalties()
+    {
+        _currentMovementPenalty = 0;
+        _currentMovementPenalty += upperRightLeg.IsWorking() ? 0 : upperLegMovementPenalty;
+        _currentMovementPenalty += upperLeftLeg.IsWorking() ? 0 : upperLegMovementPenalty;
+        _currentMovementPenalty += lowerRightLeg.IsWorking() ? 0 : lowerLegMovementPenalty;
+        _currentMovementPenalty += lowerLeftLeg.IsWorking() ? 0 : lowerLegMovementPenalty;
+        _currentMovementPenalty += rightFoot.IsWorking() ? 0 : footMovementPenalty;
+        _currentMovementPenalty += leftFoot.IsWorking() ? 0 : footMovementPenalty;
+
+        _currentTorsoMovementPenalty = 0;
+        _currentTorsoMovementPenalty += lowerRightLeg.IsWorking() ? 0 : lowerLegTorsoMovementPenalty;
+        _currentTorsoMovementPenalty += lowerLeftLeg.IsWorking() ? 0 : lowerLegTorsoMovementPenalty;
+        
+        _currentFrictionPenalty = 0;
+        _currentFrictionPenalty += rightFoot.IsWorking() ? 0 : footFrictionPenalty;
+        _currentFrictionPenalty += leftFoot.IsWorking() ? 0 : footFrictionPenalty;
+        
+        ClampPenalties();
+
+        if (_currentMovementPenalty > 0)
+        {
+            controller.ReceiveMessage();
+        }
+    }
+
+    public float GetCurrentMovementPenalty()
+    {
+        return _currentMovementPenalty;
+    }
+    
+    public float GetCurrentTorsoMovementPenalty()
+    {
+        return _currentTorsoMovementPenalty;
+    }
+    
+    public float GetCurrentFrictionPenalty()
+    {
+        return _currentFrictionPenalty;
+    }
+    
+    public override void ReceiveMessage()
+    {
+        Debug.Log("Recalculating penalties");
+        CalculatePenalties();
     }
 }

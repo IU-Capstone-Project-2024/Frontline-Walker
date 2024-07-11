@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 16552636}
   - component: {fileID: 16552637}
   - component: {fileID: 16552638}
+  - component: {fileID: 16552639}
   m_Layer: 10
   m_Name: Torso
   m_TagString: Untagged
@@ -323,6 +324,21 @@ MonoBehaviour:
   name: Torso
   maxHealth: 5
   isCritical: 1
+  messanger: {fileID: 16552639}
+  _isWorking: 0
+--- !u!114 &16552639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16552631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e61627318fbbb46b9dc2fefb84b595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 1140179355}
 --- !u!1 &20879763
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,6 +434,7 @@ GameObject:
   - component: {fileID: 74075688}
   - component: {fileID: 74075689}
   - component: {fileID: 74075690}
+  - component: {fileID: 74075691}
   m_Layer: 10
   m_Name: UpperLegRight
   m_TagString: Untagged
@@ -501,7 +518,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Upper right leg
   maxHealth: 2
-  isCritical: 1
+  isCritical: 0
+  messanger: {fileID: 74075691}
+  _isWorking: 0
+--- !u!114 &74075691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74075687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e61627318fbbb46b9dc2fefb84b595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 1140179355}
 --- !u!1 &80331308
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,6 +623,7 @@ GameObject:
   - component: {fileID: 144286799}
   - component: {fileID: 144286800}
   - component: {fileID: 144286801}
+  - component: {fileID: 144286802}
   m_Layer: 10
   m_Name: LowerLegRight
   m_TagString: Untagged
@@ -674,8 +707,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Lower right leg
-  maxHealth: 2
+  maxHealth: 1
   isCritical: 0
+  messanger: {fileID: 144286802}
+  _isWorking: 0
+--- !u!114 &144286802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144286798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e61627318fbbb46b9dc2fefb84b595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 1140179355}
 --- !u!1 &173006282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7411042528815317390, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
@@ -1191,6 +1239,7 @@ GameObject:
   - component: {fileID: 602648282}
   - component: {fileID: 602648283}
   - component: {fileID: 602648284}
+  - component: {fileID: 602648285}
   m_Layer: 10
   m_Name: MainCannon
   m_TagString: Untagged
@@ -1335,8 +1384,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Main cannon
-  maxHealth: 1
+  maxHealth: 2
   isCritical: 0
+  messanger: {fileID: 602648285}
+  _isWorking: 0
+--- !u!114 &602648285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602648277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e61627318fbbb46b9dc2fefb84b595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 1140179355}
 --- !u!1 &663580188 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8633919491876824646, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
@@ -2043,6 +2107,7 @@ GameObject:
   - component: {fileID: 1059692650}
   - component: {fileID: 1059692651}
   - component: {fileID: 1059692652}
+  - component: {fileID: 1059692653}
   m_Layer: 10
   m_Name: LowerLegLeft
   m_TagString: Untagged
@@ -2126,8 +2191,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Lower left leg
-  maxHealth: 2
+  maxHealth: 1
   isCritical: 0
+  messanger: {fileID: 1059692653}
+  _isWorking: 0
+--- !u!114 &1059692653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059692649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e61627318fbbb46b9dc2fefb84b595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 1140179355}
 --- !u!1 &1140179342
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,6 +2270,7 @@ MonoBehaviour:
   forward_force: 150
   backward_force: 150
   distabilization_speed: 5
+  initialFriction: 1
   fuelIsLimited: 1
   tankCapacity: 1200
   idleFuelLoss: 0.1
@@ -2207,7 +2288,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 3
-  m_LinearDrag: 0.1
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -2230,7 +2311,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1140179342}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 17c334dd4441fb14595b818588d4ac72, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2362,8 +2443,15 @@ MonoBehaviour:
   lowerLeftLeg: {fileID: 1059692652}
   rightFoot: {fileID: 1735870171}
   leftFoot: {fileID: 1549207807}
-  lowerLegPenalty: 0.2
-  footPenalty: 0.1
+  maxMovementPenalty: 0.9
+  upperLegMovementPenalty: 0.3
+  lowerLegMovementPenalty: 0.2
+  footMovementPenalty: 0.1
+  maxTorsoMovementPenalty: 0.9
+  lowerLegTorsoMovementPenalty: 0.45
+  maxFrictionPenalty: 0.9
+  footFrictionPenalty: 0.45
+  controller: {fileID: 1140179346}
 --- !u!1 &1185663643
 GameObject:
   m_ObjectHideFlags: 0
@@ -3056,6 +3144,7 @@ GameObject:
   - component: {fileID: 1549207805}
   - component: {fileID: 1549207806}
   - component: {fileID: 1549207807}
+  - component: {fileID: 1549207808}
   m_Layer: 10
   m_Name: FootLeft
   m_TagString: Untagged
@@ -3139,6 +3228,21 @@ MonoBehaviour:
   name: Left foot
   maxHealth: 1
   isCritical: 0
+  messanger: {fileID: 1549207808}
+  _isWorking: 0
+--- !u!114 &1549207808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549207804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e61627318fbbb46b9dc2fefb84b595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 1140179355}
 --- !u!1 &1553953045
 GameObject:
   m_ObjectHideFlags: 0
@@ -3727,6 +3831,7 @@ GameObject:
   - component: {fileID: 1735870169}
   - component: {fileID: 1735870170}
   - component: {fileID: 1735870171}
+  - component: {fileID: 1735870172}
   m_Layer: 10
   m_Name: FootRight
   m_TagString: Untagged
@@ -3810,6 +3915,21 @@ MonoBehaviour:
   name: Right foot
   maxHealth: 1
   isCritical: 0
+  messanger: {fileID: 1735870172}
+  _isWorking: 0
+--- !u!114 &1735870172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735870168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e61627318fbbb46b9dc2fefb84b595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 1140179355}
 --- !u!1 &1778259605
 GameObject:
   m_ObjectHideFlags: 0
@@ -4239,6 +4359,7 @@ GameObject:
   - component: {fileID: 1999480723}
   - component: {fileID: 1999480724}
   - component: {fileID: 1999480725}
+  - component: {fileID: 1999480726}
   m_Layer: 10
   m_Name: UpperLegLeft
   m_TagString: Untagged
@@ -4322,7 +4443,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Upper left leg
   maxHealth: 2
-  isCritical: 1
+  isCritical: 0
+  messanger: {fileID: 1999480726}
+  _isWorking: 0
+--- !u!114 &1999480726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999480722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e61627318fbbb46b9dc2fefb84b595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 1140179355}
 --- !u!1 &2018305338 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3970620619222892777, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}

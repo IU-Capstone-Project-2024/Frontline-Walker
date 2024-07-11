@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class TestController : MonoBehaviour
+public class TestController : TestMessageReceiver
 {
     [Header("Controllers&Observers")]
     public TestProceduralWalkerAnimation proceduralWalkerAnimation;
@@ -19,6 +19,7 @@ public class TestController : MonoBehaviour
     public float forward_force = 50f;
     public float backward_force = 50f;
     public float distabilization_speed = 3f;
+    public float initialFriction = 1;
     [Header("Fuel")] 
     public bool fuelIsLimited = true;
     public float tankCapacity = 100;
@@ -28,13 +29,23 @@ public class TestController : MonoBehaviour
     private float _currentFuelLevel;
     
     private float _current_y;
+    
     private Rigidbody2D _rb;
+    private PhysicsMaterial2D _material;
+    
+    
+    private float _frictionPenalty;
+    private float _movementPenalty;
     
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _material = GetComponent<Collider2D>().sharedMaterial;
 
         _currentFuelLevel = tankCapacity;
+
+        _frictionPenalty = 0;
+        _movementPenalty = 0;
     }
 
     private void FixedUpdate()
@@ -61,7 +72,7 @@ public class TestController : MonoBehaviour
         if (AbleToMove())
         {
             var _forward_speed = torsoController.GetCurrentYRatio() * forward_speed;
-            _forward_speed *= 1 - partsObserver.GetCurrentPenalty();
+            _forward_speed *= 1 - _movementPenalty;
             if (Mathf.Abs(_rb.velocity.x) < _forward_speed)
             {
                 _rb.AddForce(Vector2.right * forward_force);
@@ -76,7 +87,7 @@ public class TestController : MonoBehaviour
         if (AbleToMove())
         {
             var _backward_speed = torsoController.GetCurrentYRatio() * backward_speed;
-            _backward_speed *= 1 - partsObserver.GetCurrentPenalty();
+            _backward_speed *= 1 - _movementPenalty;
             if (Mathf.Abs(_rb.velocity.x) < _backward_speed)
             {
                 _rb.AddForce(-Vector2.right * backward_force);
@@ -122,5 +133,14 @@ public class TestController : MonoBehaviour
             return false;
         }
         return torsoController.isStabilized();
+    }
+
+    public override void ReceiveMessage()
+    {
+        Debug.Log("Controller received message");
+        _movementPenalty = partsObserver.GetCurrentMovementPenalty();
+        _frictionPenalty = partsObserver.GetCurrentFrictionPenalty();
+
+        _material.friction = initialFriction - _frictionPenalty;
     }
 }
