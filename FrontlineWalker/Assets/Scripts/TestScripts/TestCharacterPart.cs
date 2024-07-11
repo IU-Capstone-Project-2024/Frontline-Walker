@@ -117,4 +117,9 @@ public class TestCharacterPart : MonoBehaviour
             TakeDamage(appliedDamage.damage);
         }
     }
+
+    public void PrintConsoleHealth()
+    {
+        Debug.Log(name +  ", health left - " + _health);
+    }
 }
