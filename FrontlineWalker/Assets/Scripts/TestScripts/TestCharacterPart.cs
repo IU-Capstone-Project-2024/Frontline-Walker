@@ -11,7 +11,7 @@ public class TestCharacterPart : MonoBehaviour
     [SerializeField] private bool isCritical;
 
     private int _health;
-    private bool _isWorking;
+    public bool _isWorking;
     
     // Start is called before the first frame update
     void Start()
@@ -96,11 +96,11 @@ public class TestCharacterPart : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("Collision detected");
+        //Debug.Log("Collision detected");
         var appliedDamage = other.gameObject.GetComponent<TestAppliesDamage>();
         if (appliedDamage != null)
         {
-            Debug.Log("Damage component received");
+            //Debug.Log("Damage component received");
             TakeDamage(appliedDamage.damage);
         }
     }

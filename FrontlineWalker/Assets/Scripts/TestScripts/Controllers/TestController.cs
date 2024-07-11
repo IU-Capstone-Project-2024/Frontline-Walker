@@ -61,6 +61,7 @@ public class TestController : MonoBehaviour
         if (AbleToMove())
         {
             var _forward_speed = torsoController.GetCurrentYRatio() * forward_speed;
+            _forward_speed *= 1 - partsObserver.GetCurrentPenalty();
             if (Mathf.Abs(_rb.velocity.x) < _forward_speed)
             {
                 _rb.AddForce(Vector2.right * forward_force);
@@ -75,6 +76,7 @@ public class TestController : MonoBehaviour
         if (AbleToMove())
         {
             var _backward_speed = torsoController.GetCurrentYRatio() * backward_speed;
+            _backward_speed *= 1 - partsObserver.GetCurrentPenalty();
             if (Mathf.Abs(_rb.velocity.x) < _backward_speed)
             {
                 _rb.AddForce(-Vector2.right * backward_force);

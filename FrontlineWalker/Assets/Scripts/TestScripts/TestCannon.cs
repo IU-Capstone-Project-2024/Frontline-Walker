@@ -56,17 +56,14 @@ public class TestCannon : MonoBehaviour
 
     public void Down()
     {
-        Debug.Log("There");
         if (_isAbleToReceiveCommands)
         {
-            Debug.Log("Here");
             _rotatonController.Down();
         }
     }
 
     public void Fire()
     {
-        Debug.Log("Gun log");
         if (_readyToFire && _isAbleToReceiveCommands)
         {
            _projectileShooter.Shoot();

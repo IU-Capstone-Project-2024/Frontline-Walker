@@ -2362,6 +2362,8 @@ MonoBehaviour:
   lowerLeftLeg: {fileID: 1059692652}
   rightFoot: {fileID: 1735870171}
   leftFoot: {fileID: 1549207807}
+  lowerLegPenalty: 0.2
+  footPenalty: 0.1
 --- !u!1 &1185663643
 GameObject:
   m_ObjectHideFlags: 0
