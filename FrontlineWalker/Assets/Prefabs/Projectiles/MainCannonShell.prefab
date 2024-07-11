@@ -188,6 +188,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 264
   presicionAngle: 3
+  _damagePerRay: 0.01
 --- !u!114 &1977652543080525703
 MonoBehaviour:
   m_ObjectHideFlags: 0

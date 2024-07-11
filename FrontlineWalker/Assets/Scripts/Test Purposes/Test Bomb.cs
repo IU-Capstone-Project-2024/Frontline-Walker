@@ -20,6 +20,8 @@ public class TestBomb : Projectile
     [Range(1, 100)]
     [SerializeField] private float presicionAngle = 3;
 
+    [Range(0, 10)] [SerializeField] private float _damagePerRay = 0.1f;
+    
     private TestAppliesDamage _damage;
 
     private void Start()
@@ -30,6 +32,7 @@ public class TestBomb : Projectile
     private void OnCollisionEnter2D(Collision2D other)
     {
         Explode();
+        
         Destroy(gameObject);
     }
 
@@ -58,6 +61,12 @@ public class TestBomb : Projectile
             {
                 hit.rigidbody.AddForceAtPosition(force, hit.point, ForceMode2D.Impulse);
                 Debug.DrawRay(origin, force.normalized * distance, Color.red, 5);
+            }
+
+            var _characterPart = hit.collider.gameObject.GetComponent<TestCharacterPart>();
+            if (_characterPart != null)
+            {
+                _characterPart.TakeDamage(_damagePerRay);
             }
         }
     }
