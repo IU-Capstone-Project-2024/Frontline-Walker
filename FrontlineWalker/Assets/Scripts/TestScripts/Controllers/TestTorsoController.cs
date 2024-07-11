@@ -3,17 +3,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestTorsoController : MonoBehaviour
+public class TestTorsoController : TestMessageReceiver
 {
+    [Header("Settings")]
     public float maxY = 0.2f;
     public float minY = -0.4f;
     public float speed = 0.5f;
     public float dropSpeed = 0.7f;
     public float walkerTorsoBottomDropHeight;
+
+    [Header("Parts observer")] 
+    public TestWalkerPartsObserver partsObserver;
     
     private float _currentY;
     private float _initialY;
+    private float _initialSpeed;
 
+    [Header("State flags")]
     public  bool _distabilazed;
     public bool _stabilazing;
     private bool _moving_to_initial_height;
@@ -24,6 +30,8 @@ public class TestTorsoController : MonoBehaviour
         _currentY = 0;
         _initialY = transform.localPosition.y;
 
+        _initialSpeed = speed;
+        
         _moving_to_initial_height = false;
     }
 
@@ -176,5 +184,12 @@ public class TestTorsoController : MonoBehaviour
     {
         _distabilazed = false;
         _stabilazing = true;
+    }
+    
+    public override void ReceiveMessage()
+    {
+        Debug.Log("Torso Controller received message");
+        var torsoMovementPenalty = partsObserver.GetCurrentTorsoMovementPenalty();
+        speed = _initialSpeed * (1 - torsoMovementPenalty);
     }
 }

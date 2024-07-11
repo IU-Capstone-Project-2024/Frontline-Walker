@@ -262,6 +262,7 @@ MonoBehaviour:
   speed: 0.5
   dropSpeed: 1.4
   walkerTorsoBottomDropHeight: 1.1
+  partsObserver: {fileID: 1140179355}
   _distabilazed: 0
   _stabilazing: 0
 --- !u!61 &16552637
@@ -2311,7 +2312,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1140179342}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 17c334dd4441fb14595b818588d4ac72, type: 2}
+  m_Material: {fileID: 6200000, guid: eb32f40462b6b434b9a02b32624b7b84, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2452,6 +2453,7 @@ MonoBehaviour:
   maxFrictionPenalty: 0.9
   footFrictionPenalty: 0.45
   controller: {fileID: 1140179346}
+  torsoController: {fileID: 16552636}
 --- !u!1 &1185663643
 GameObject:
   m_ObjectHideFlags: 0

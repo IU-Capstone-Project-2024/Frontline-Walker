@@ -40,11 +40,11 @@ public class TestWalkerPartsObserver : TestMessageReceiver
 
     [Header("Message receivers")] 
     public TestMessageReceiver controller;
+    public TestMessageReceiver torsoController;
 
     private float _currentMovementPenalty;
     private float _currentTorsoMovementPenalty;
     private float _currentFrictionPenalty;
-
 
     private void Start()
     {
@@ -86,10 +86,8 @@ public class TestWalkerPartsObserver : TestMessageReceiver
         
         ClampPenalties();
 
-        if (_currentMovementPenalty > 0)
-        {
-            controller.ReceiveMessage();
-        }
+        controller.ReceiveMessage();
+        torsoController.ReceiveMessage();
     }
 
     public float GetCurrentMovementPenalty()
