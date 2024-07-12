@@ -183,12 +183,11 @@ MonoBehaviour:
   explosionRadius: 2
   hit_layer:
     serializedVersion: 2
-    m_Bits: 5184
+    m_Bits: 1088
   wall_layer:
     serializedVersion: 2
     m_Bits: 264
   presicionAngle: 3
-  _damagePerRay: 0.01
 --- !u!114 &9222821842126845111
 MonoBehaviour:
   m_ObjectHideFlags: 0

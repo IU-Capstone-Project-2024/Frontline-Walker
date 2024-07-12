@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurrelAim : TestMessageReceiver
+public class TurrelAim : MonoBehaviour
 {
     
     public float rotationSpeed = 200.0f;
@@ -11,13 +11,7 @@ public class TurrelAim : TestMessageReceiver
     
     private Transform _target;
     private Quaternion _targetRotation;
-    private bool _ableToRotate;
-
-    private void Start()
-    {
-        _ableToRotate = true;
-    }
-
+    
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.CompareTag("Player"))
@@ -29,7 +23,7 @@ public class TurrelAim : TestMessageReceiver
 
     private void FixedUpdate()
     {
-        if (_target != null && _ableToRotate)
+        if (_target != null)
         {
             Vector3 direction = _target.position - transform.position;
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -59,10 +53,5 @@ public class TurrelAim : TestMessageReceiver
             return true;
         }
         return false;
-    }
-
-    public override void ReceiveMessage()
-    {
-        _ableToRotate = false;
     }
 }

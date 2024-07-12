@@ -11,13 +11,18 @@ public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public int angleMin = 30;
     public GameObject slideSprite;
 	private bool isPointerDown=false;
+	private float trueAngleMax;
+	private float trueAngleMin;
 
     public void Start()
     {
-        GetComponent<Image>().fillAmount = 0.25f;
 
-        slideSprite.transform.localRotation = Quaternion.Euler(0, 0, 90);
-        slideSprite.transform.localPosition = new Vector2(0, -50);
+        slideSprite.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        slideSprite.transform.localPosition = new Vector2(-50,0);
+
+		trueAngleMax = angleMax / 360f;
+        trueAngleMin = 1f - angleMin / 360f;
+
 
     }
 
@@ -55,23 +60,30 @@ public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 					Vector2 localPos;
 					RectTransformUtility.ScreenPointToLocalPointInRectangle( transform as RectTransform, Input.mousePosition, ray.eventCamera, out localPos );
 
-					if (localPos.y <= 0f)
+                    float angle = (Mathf.Atan2(localPos.y, localPos.x) * 180f / Mathf.PI + 180f) / 360f;
+
+                    if (angle > trueAngleMax && angle <= trueAngleMax + 0.05f)
+                    {
+                        angle = trueAngleMax;
+                    }
+                    else if (angle < trueAngleMin && angle >= trueAngleMin - 0.05f)
+                    {
+                        angle = trueAngleMin;
+                    }
+
+					if (angle <= trueAngleMax || angle >= trueAngleMin)
 					{
-						float angle = (Mathf.Atan2(localPos.y, localPos.x) * 180f / Mathf.PI + 180f) / 360f;
-
-						GetComponent<Image>().fillAmount = angle;
-
-						if (angle < 0.25f)
-                        {
-                            currentValue = Mathf.RoundToInt((angle - 0.25f) * angleMin * 4);
-                        }
-						else
+						if (angle <= 0.5f)
 						{
-                            currentValue = Mathf.RoundToInt((angle - 0.25f) * angleMax * 4);
+                            currentValue = Mathf.RoundToInt(angle * 360);
+                        }
+                        else
+                        {
+                            currentValue = Mathf.RoundToInt(angle * 360) - 360;
                         }
 
 
-						slideSprite.transform.localRotation = Quaternion.Euler(0, 0, angle * 360);
+                        slideSprite.transform.localRotation = Quaternion.Euler(0, 0, angle * 360);
 
                         float angleInRadians = (angle * 360 + 180) * Mathf.Deg2Rad;
 
@@ -80,6 +92,7 @@ public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
                         slideSprite.transform.localPosition = new Vector2(x, y);
                     }
+
 
                 }
 

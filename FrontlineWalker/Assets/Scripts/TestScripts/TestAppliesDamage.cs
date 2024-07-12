@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class TestAppliesDamage : MonoBehaviour
 {
-    public float damage;
+    public int damage;
 }

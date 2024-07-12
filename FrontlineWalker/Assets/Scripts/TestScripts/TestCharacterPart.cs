@@ -8,14 +8,14 @@ public class TestCharacterPart : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private String name;
     [Range(0, 1000)]
-    [SerializeField] private float maxHealth = 10;
+    [SerializeField] private int maxHealth = 10;
     [SerializeField] private bool isCritical;
     public TestMessangeSender messanger;
     [Header("Debug")] 
     public bool alwaysSendMessage = true;
     public bool showDebugLog = true;
     
-    private float _health;
+    private int _health;
     public bool _isWorking;
 
     private void FixedUpdate()
@@ -63,7 +63,7 @@ public class TestCharacterPart : MonoBehaviour
         }
     }
      
-    public float GetHealth()
+    public int GetHealth()
     {
         return _health;
     }
@@ -79,7 +79,7 @@ public class TestCharacterPart : MonoBehaviour
         CheckHealth();
     }
     
-    public void TakeDamage(float _damageAmount)
+    public void TakeDamage(int _damageAmount)
     {
         if (_damageAmount < 0)
         {
