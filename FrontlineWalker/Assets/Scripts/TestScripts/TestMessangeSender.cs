@@ -11,4 +11,9 @@ public class TestMessangeSender : MonoBehaviour
         //Debug.Log("message sended");
         receiver.ReceiveMessage();
     }
+
+    public void SendTerminationMessage()
+    {
+        receiver.ReceiveTerminationMessage();
+    }
 }

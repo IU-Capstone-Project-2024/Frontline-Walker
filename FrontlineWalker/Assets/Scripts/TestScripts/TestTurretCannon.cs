@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestTurretCannon : MonoBehaviour
+public class TestTurretCannon : TestMessageReceiver
 {
 
     public TurrelAim turrelAim;
@@ -30,5 +30,10 @@ public class TestTurretCannon : MonoBehaviour
     public void Reload()
     {
         _readyToFire = true;
+    }
+    
+    public override void ReceiveMessage()
+    {
+        Destroy(gameObject);
     }
 }

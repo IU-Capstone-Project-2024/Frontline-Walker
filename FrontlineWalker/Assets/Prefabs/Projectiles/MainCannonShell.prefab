@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1977652543080525703}
   - component: {fileID: 1266223415101280783}
   - component: {fileID: 2252241700128934270}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: MainCannonShell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,11 +183,12 @@ MonoBehaviour:
   explosionRadius: 3
   hit_layer:
     serializedVersion: 2
-    m_Bits: 1088
+    m_Bits: 5184
   wall_layer:
     serializedVersion: 2
     m_Bits: 264
   presicionAngle: 3
+  _damagePerRay: 0.01
 --- !u!114 &1977652543080525703
 MonoBehaviour:
   m_ObjectHideFlags: 0

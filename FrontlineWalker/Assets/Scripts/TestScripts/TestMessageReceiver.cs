@@ -8,4 +8,10 @@ public class TestMessageReceiver : MonoBehaviour
     {
         Debug.Log("Message received");
     }
+
+    public virtual void ReceiveTerminationMessage()
+    {
+        Debug.Log("Receive termination message");
+        Destroy(gameObject);
+    }
 }

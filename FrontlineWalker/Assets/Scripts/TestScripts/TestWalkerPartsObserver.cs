@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class TestWalkerPartsObserver : TestMessageReceiver
@@ -118,5 +119,11 @@ public class TestWalkerPartsObserver : TestMessageReceiver
     {
         if (showDebugLog) Debug.Log("Recalculating penalties");
         CalculatePenalties();
+    }
+
+    public override void ReceiveTerminationMessage()
+    {
+        if (showDebugLog) Debug.Log("Walker destroyed");
+        SceneManager.LoadScene("Scenes/BarabachaTestScene");
     }
 }
