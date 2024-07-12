@@ -6,7 +6,8 @@ public class escapePlane : MonoBehaviour
 {
     public float rotationAwaySpeed = 100.0f; // Speed of the plane rotation during flying away
     public float angleAway = 150f; // The maximum angle of the plane during the flying away to the left (91-179), flips horizontally when the plane is going to the right 
-    public chasePlane chase; // chasePlane script
+    public chasePlane chase;
+    [SerializeField] private SpriteRenderer sprite;// chasePlane script
 
     private void Update()
     {
@@ -33,6 +34,7 @@ public class escapePlane : MonoBehaviour
                 if (chase.leftSide)
                 {
                     chase.leftSide = false;
+                    sprite.flipY = false;
                     transform.eulerAngles = new Vector3(0, 0, chase.startAngle);
                     transform.position = new Vector2(position.x + chase.startXpos, position.y + chase.startYpos);
 
@@ -40,6 +42,7 @@ public class escapePlane : MonoBehaviour
                 else
                 {
                     chase.leftSide = true;
+                    sprite.flipY = true;
                     transform.eulerAngles = new Vector3(0, 0, 540 - chase.startAngle);
                     transform.position = new Vector2(position.x - chase.startXpos, position.y + chase.startYpos);
                 }

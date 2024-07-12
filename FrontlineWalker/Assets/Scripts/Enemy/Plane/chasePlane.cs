@@ -18,11 +18,13 @@ public class chasePlane : MonoBehaviour
     public GameObject target;  // Do not touch it
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (ableToEscape && !goAway && collision.gameObject.CompareTag("Player"))
         {
             goAway = true;
+            gameObject.GetComponent<BombHolder>().Release();
         }
     }
 

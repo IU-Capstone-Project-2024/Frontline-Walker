@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class TestBullet : Projectile
+public class Bullet : Projectile
 {
     [SerializeField] private float speed = 5;
     private Rigidbody2D _rigidbody;

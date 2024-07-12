@@ -471,9 +471,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ca2802864a1d04a919ce452262c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _usedProjectile: {fileID: 9147174918919015208, guid: 232a82a16b6a7694b97b116ceda9c7c7, type: 3}
+  _usedProjectile: {fileID: 0}
   _useInitialVelocity: 0
-  _shift: {x: 0, y: 0}
+  _shootingPoint: {fileID: 0}
+  _rigidbody: {fileID: 0}
 --- !u!70 &755205002
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1043,9 +1044,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ca2802864a1d04a919ce452262c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _usedProjectile: {fileID: 9147174918919015208, guid: 232a82a16b6a7694b97b116ceda9c7c7, type: 3}
+  _usedProjectile: {fileID: 0}
   _useInitialVelocity: 1
-  _shift: {x: 0, y: 0}
+  _shootingPoint: {fileID: 0}
+  _rigidbody: {fileID: 0}
 --- !u!70 &1807386995
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1197,11 +1199,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3579075397552314479, guid: 34014516b47cd464e9e73df13d3d4e31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.45
       objectReference: {fileID: 0}
     - target: {fileID: 3579075397552314479, guid: 34014516b47cd464e9e73df13d3d4e31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6
+      value: 7.52
       objectReference: {fileID: 0}
     - target: {fileID: 3579075397552314479, guid: 34014516b47cd464e9e73df13d3d4e31, type: 3}
       propertyPath: m_LocalPosition.z
