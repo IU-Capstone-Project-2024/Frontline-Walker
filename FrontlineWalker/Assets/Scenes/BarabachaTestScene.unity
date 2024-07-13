@@ -1615,7 +1615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &602648278
 Transform:
   m_ObjectHideFlags: 0
@@ -1805,7 +1805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ca2802864a1d04a919ce452262c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _usedProjectile: {fileID: 3587489201504493870, guid: 32024d6a1bb74194bb09050d6d322d4e, type: 3}
+  _usedProjectile: {fileID: -2606586556402958143, guid: 32024d6a1bb74194bb09050d6d322d4e, type: 3}
   _useInitialVelocity: 0
   _shootingPoint: {fileID: 1974527545}
   _rigidbody: {fileID: 0}
@@ -2614,7 +2614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 767864807867052932, guid: 80427a39eda0fbd4183aa5eedb2f9061, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3526685132888944524, guid: 80427a39eda0fbd4183aa5eedb2f9061, type: 3}
       propertyPath: goAwayAtY
@@ -2892,7 +2892,7 @@ Transform:
   m_GameObject: {fileID: 1140179342}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50.2, y: -1.967, z: 0}
+  m_LocalPosition: {x: -33.71, y: -1.967, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6212,7 +6212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ca2802864a1d04a919ce452262c8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _usedProjectile: {fileID: 3587489201504493870, guid: 32024d6a1bb74194bb09050d6d322d4e, type: 3}
+  _usedProjectile: {fileID: -2606586556402958143, guid: 32024d6a1bb74194bb09050d6d322d4e, type: 3}
   _useInitialVelocity: 0
   _shootingPoint: {fileID: 1394257296}
   _rigidbody: {fileID: 0}
