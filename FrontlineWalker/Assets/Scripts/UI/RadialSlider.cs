@@ -18,7 +18,7 @@ public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
 
         slideSprite.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        slideSprite.transform.localPosition = new Vector2(-50,0);
+        slideSprite.transform.localPosition = new Vector2(-170,0);
 
 		trueAngleMax = angleMax / 360f;
         trueAngleMin = 1f - angleMin / 360f;
@@ -87,8 +87,8 @@ public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
                         float angleInRadians = (angle * 360 + 180) * Mathf.Deg2Rad;
 
-                        float x = 50 * Mathf.Cos(angleInRadians);
-                        float y = 50 * Mathf.Sin(angleInRadians);
+                        float x = 170 * Mathf.Cos(angleInRadians);
+                        float y = 170 * Mathf.Sin(angleInRadians);
 
                         slideSprite.transform.localPosition = new Vector2(x, y);
                     }
