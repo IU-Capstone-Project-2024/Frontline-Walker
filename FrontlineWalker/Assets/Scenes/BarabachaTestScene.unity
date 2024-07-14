@@ -1342,7 +1342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Turrel Base
   maxHealth: 2
-  isCritical: 0
+  isCritical: 1
   messanger: {fileID: 431747961}
   alwaysSendMessage: 1
   showDebugLog: 1
@@ -1837,7 +1837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e61627318fbbb46b9dc2fefb84b595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receiver: {fileID: 92998774}
+  receiver: {fileID: 313896342}
 --- !u!114 &643644209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2176,7 +2176,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: dec808ba52da26f47bd9caca67a4283b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2217,8 +2217,8 @@ Transform:
   m_GameObject: {fileID: 789673918}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.13052596, w: 0.99144495}
-  m_LocalPosition: {x: 9.9942, y: -3.29, z: 0}
-  m_LocalScale: {x: 10.671069, y: 0.5848, z: 1}
+  m_LocalPosition: {x: 9.2966, y: -5.8936, z: 0}
+  m_LocalScale: {x: 10.671069, y: 5.9756618, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2390,7 +2390,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: dec808ba52da26f47bd9caca67a4283b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2859,6 +2859,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 1140179355}
+--- !u!1 &1113740526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1113740528}
+  - component: {fileID: 1113740527}
+  m_Layer: 0
+  m_Name: SceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1113740527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113740526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b601e7f3cca9e42468ed362223312671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseButton: 114
+--- !u!4 &1113740528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113740526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.108545, y: 3.8508492, z: -0.58020395}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1140179342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3187,7 +3232,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: dec808ba52da26f47bd9caca67a4283b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3228,8 +3273,8 @@ Transform:
   m_GameObject: {fileID: 1185663643}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.13052596, w: 0.99144495}
-  m_LocalPosition: {x: -16.7558, y: -3.29, z: 0}
-  m_LocalScale: {x: 10.671069, y: 0.5848, z: 1}
+  m_LocalPosition: {x: -17.5113, y: -6.1095, z: 0}
+  m_LocalScale: {x: 10.671069, y: 6.4227414, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4118,7 +4163,7 @@ Transform:
   m_GameObject: {fileID: 1560172093}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.14, y: -2.56, z: 0}
+  m_LocalPosition: {x: 27.14, y: -2.66, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4162,7 +4207,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: dec808ba52da26f47bd9caca67a4283b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4203,8 +4248,8 @@ Transform:
   m_GameObject: {fileID: 1658423413}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.5243, y: -4.6976, z: 0}
-  m_LocalScale: {x: 136.95653, y: 0.5848, z: 1}
+  m_LocalPosition: {x: -30.5243, y: -13.0182, z: 0}
+  m_LocalScale: {x: 136.95653, y: 17.225927, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4727,7 +4772,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: dec808ba52da26f47bd9caca67a4283b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4768,8 +4813,8 @@ Transform:
   m_GameObject: {fileID: 1794259855}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.13052596, w: 0.99144495}
-  m_LocalPosition: {x: -26.7558, y: -3.29, z: 0}
-  m_LocalScale: {x: 10.671069, y: 0.5848, z: 1}
+  m_LocalPosition: {x: -26.0876, y: -5.7837, z: 0}
+  m_LocalScale: {x: 10.671069, y: 5.7481747, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5210,7 +5255,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: dec808ba52da26f47bd9caca67a4283b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5251,8 +5296,8 @@ Transform:
   m_GameObject: {fileID: 2019338078}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.13052596, w: 0.99144495}
-  m_LocalPosition: {x: -0.0058, y: -3.29, z: 0}
-  m_LocalScale: {x: 10.671069, y: 0.5848, z: 1}
+  m_LocalPosition: {x: 0.7691, y: -6.1821, z: 0}
+  m_LocalScale: {x: 10.671069, y: 6.5730934, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -6228,7 +6273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13e61627318fbbb46b9dc2fefb84b595, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  receiver: {fileID: 5357608542774808863}
+  receiver: {fileID: 6898528310134993171}
 --- !u!114 &7749494116472343314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6392,7 +6437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Turrel Base
   maxHealth: 2
-  isCritical: 0
+  isCritical: 1
   messanger: {fileID: 8040041229908372645}
   alwaysSendMessage: 1
   showDebugLog: 1
@@ -6480,3 +6525,4 @@ SceneRoots:
   - {fileID: 2023045626}
   - {fileID: 1344133780}
   - {fileID: 931423393}
+  - {fileID: 1113740528}

@@ -89,7 +89,7 @@ public class TestCharacterPart : MonoBehaviour
         _health -= _damageAmount;
         
         ClampHealth();
-        //if (showDebugLog) Debug.Log("Damage taken by " + name +  ", health left - " + _health);
+        if (showDebugLog) Debug.Log("Damage taken by " + name +  ", health left - " + _health);
         CheckHealth();
     }
 
