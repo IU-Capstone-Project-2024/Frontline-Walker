@@ -3112,7 +3112,7 @@ MonoBehaviour:
   cameraObject: {fileID: 1547253694466316769}
   verSliderGameObject: {fileID: 1412090070}
   horSliderGameObject: {fileID: 663580188}
-  aimTextGameObject: {fileID: 1296859553}
+  aimTextGameObject: {fileID: 2050289504}
   shellsTextGameObject: {fileID: 2027310882}
   fuelTextGameObject: {fileID: 1725096777}
   stabilizeGameObject: {fileID: 1820026540}
@@ -3279,17 +3279,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15}
---- !u!1 &1296859553 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 344477849444126294, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-  m_PrefabInstance: {fileID: 2023045626}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1296859555 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8431915997548890082, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
   m_PrefabInstance: {fileID: 2023045626}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1296859553}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -5667,6 +5662,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 16552632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2050289504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8616786505728918460, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+  m_PrefabInstance: {fileID: 2023045626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2142242907
 GameObject:
   m_ObjectHideFlags: 0
