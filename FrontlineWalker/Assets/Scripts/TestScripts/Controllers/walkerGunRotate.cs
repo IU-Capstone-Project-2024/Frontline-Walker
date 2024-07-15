@@ -7,7 +7,7 @@ public class walkerGunRotate : MonoBehaviour
     public float rotationSpeed = 5f;
     public float minAngle = -45f;
     public float maxAngle = 45f;
-    public RectTransform uiArea;
+    public TestTransformCollections uiArea;
 
     private Coroutine rotateCoroutine;
 
@@ -36,8 +36,7 @@ public class walkerGunRotate : MonoBehaviour
 
     private bool IsTapWithinUIArea(Vector2 tapPosition)
     {
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(uiArea, tapPosition, null, out Vector2 localPoint);
-        return uiArea.rect.Contains(localPoint);
+        return uiArea.Contains(tapPosition);
     }
 
     private IEnumerator RotateToAngle(float targetAngle)
