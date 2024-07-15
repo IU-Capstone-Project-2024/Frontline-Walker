@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -37,6 +38,12 @@ public class TestController : TestMessageReceiver
     private float _frictionPenalty;
     private float _movementPenalty;
     
+    [Header("Sound")] 
+    
+    public AudioManager audioManager;
+
+    private bool motorSoundPlay;
+    
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -46,6 +53,8 @@ public class TestController : TestMessageReceiver
 
         _frictionPenalty = 0;
         _movementPenalty = 0;
+
+        motorSoundPlay = false;
     }
 
     private void FixedUpdate()
@@ -71,6 +80,8 @@ public class TestController : TestMessageReceiver
     {
         if (AbleToMove())
         {
+            PlayMotorSound();
+            
             var _forward_speed = torsoController.GetCurrentYRatio() * forward_speed;
             _forward_speed *= 1 - _movementPenalty;
             if (Mathf.Abs(_rb.velocity.x) < _forward_speed)
@@ -86,6 +97,8 @@ public class TestController : TestMessageReceiver
     {
         if (AbleToMove())
         {
+            PlayMotorSound();
+            
             var _backward_speed = torsoController.GetCurrentYRatio() * backward_speed;
             _backward_speed *= 1 - _movementPenalty;
             if (Mathf.Abs(_rb.velocity.x) < _backward_speed)
@@ -142,5 +155,32 @@ public class TestController : TestMessageReceiver
         _frictionPenalty = partsObserver.GetCurrentFrictionPenalty();
 
         _material.friction = initialFriction - _frictionPenalty;
+    }
+    
+    public void PlayMotorSound()
+    {
+        if (!motorSoundPlay)
+        {
+            audioManager.Play("motor");
+            motorSoundPlay = true;
+        }
+    }
+    
+    public void PauseMotorSound()
+    {
+        if (motorSoundPlay)
+        {
+            audioManager.Pause("motor");
+            motorSoundPlay = false;
+        }
+    }
+    
+    public void StopMotorSound()
+    {
+        if (motorSoundPlay)
+        {
+            audioManager.Stop("motor");
+            motorSoundPlay = false;
+        }
     }
 }

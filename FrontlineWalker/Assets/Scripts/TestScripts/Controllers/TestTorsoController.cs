@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 
 public class TestTorsoController : TestMessageReceiver
@@ -23,6 +24,12 @@ public class TestTorsoController : TestMessageReceiver
     public  bool _distabilazed;
     public bool _stabilazing;
     private bool _moving_to_initial_height;
+
+    [Header("Sound")] 
+    
+    public AudioManager audioManager;
+
+    private bool hydraulicSoundPlay;
     
     [Header("Debug")] 
     public bool showDebugLog = true;
@@ -32,6 +39,8 @@ public class TestTorsoController : TestMessageReceiver
     {
         _currentY = 0;
         _initialY = transform.localPosition.y;
+
+        hydraulicSoundPlay = false;
 
         _initialSpeed = speed;
         
@@ -60,22 +69,25 @@ public class TestTorsoController : TestMessageReceiver
     {
         if (_moving_to_initial_height && !_distabilazed)
         {
+            PlayHydraulicSound();
             if (_currentY > 0.02f)
             { 
-                Down();      
+                Down();
             } else if (_currentY < -0.02f)
             {
-                Up();        
+                Up();
             }
             else
             {
                 _currentY = 0;
                 _moving_to_initial_height = false;
+                PauseHydraulicSound();
             }
         }
 
         if (_distabilazed)
         {
+            PauseHydraulicSound();
             if (_currentY > -walkerTorsoBottomDropHeight + 0.02f)
             {
                 _currentY -= dropSpeed * Time.deltaTime;
@@ -92,11 +104,13 @@ public class TestTorsoController : TestMessageReceiver
             if (_currentY < -0.02f)
             {
                 _currentY += speed * Time.deltaTime;
+                PlayHydraulicSound();
             }
             else
             {
                 _currentY = 0;
                 _stabilazing = false;
+                PauseHydraulicSound();
             }
             setTorsoY();
         }
@@ -120,6 +134,11 @@ public class TestTorsoController : TestMessageReceiver
     {
         if (isStabilized())
         {
+            if (_currentY < maxY) PlayHydraulicSound();
+            else if (isStabilized())
+            {
+                PauseHydraulicSound();
+            }
             _currentY += speed * Time.deltaTime;
             Clamp();
             setTorsoY();
@@ -130,6 +149,11 @@ public class TestTorsoController : TestMessageReceiver
     {
         if (isStabilized())
         {
+            if (_currentY > minY) PlayHydraulicSound();
+            else if (isStabilized())
+            {
+                PauseHydraulicSound();
+            }
             _currentY -= speed * Time.deltaTime;
             Clamp();
             setTorsoY();
@@ -138,11 +162,13 @@ public class TestTorsoController : TestMessageReceiver
 
     public void StartMovingToInitialHeight()
     {
+        PlayHydraulicSound();
         _moving_to_initial_height = true;
     }
 
     public void StopMovingToInitialHeight()
     {
+        PauseHydraulicSound();
         _moving_to_initial_height = false;
     }
 
@@ -185,6 +211,7 @@ public class TestTorsoController : TestMessageReceiver
 
     public void Stabilize()
     {
+        PlayHydraulicSound();
         _distabilazed = false;
         _stabilazing = true;
     }
@@ -194,5 +221,36 @@ public class TestTorsoController : TestMessageReceiver
         if (showDebugLog) Debug.Log("Torso Controller received message");
         var torsoMovementPenalty = partsObserver.GetCurrentTorsoMovementPenalty();
         speed = _initialSpeed * (1 - torsoMovementPenalty);
+    }
+
+    public void PlayHydraulicSound()
+    {
+        if (!hydraulicSoundPlay)
+        {
+            if (showDebugLog) Debug.Log("Playing sound of hydraulic motor");
+            
+            audioManager.Play("hydraulicMotor");
+            hydraulicSoundPlay = true;
+        }
+    }
+    
+    public void PauseHydraulicSound()
+    {
+        if (hydraulicSoundPlay)
+        {
+            if (showDebugLog) Debug.Log("Pausing sound of hydraulic motor");
+            
+            audioManager.Pause("hydraulicMotor");
+            hydraulicSoundPlay = false;
+        }
+    }
+    
+    public void StopHydraulicSound()
+    {
+        if (hydraulicSoundPlay)
+        {
+            audioManager.Stop("hydraulicMotor");
+            hydraulicSoundPlay = false;
+        }
     }
 }

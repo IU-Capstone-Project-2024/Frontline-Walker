@@ -66,17 +66,28 @@ public class TouchController : MonoBehaviour
             {
                 controller.torsoController.Up();
             }
-            if (verSlider.value <= -1)
+            else if (verSlider.value <= -1)
             {
                 controller.torsoController.Down();
+            }
+            else
+            {
+                if (controller.torsoController.isStabilized() && !controller.torsoController.isMovingToInitialHeight())
+                {
+                    controller.torsoController.PauseHydraulicSound();    
+                }
             }
             if (horSlider.value >= 1)
             {
                 controller.Right();
             }
-            if (horSlider.value <= -1)
+            else if (horSlider.value <= -1)
             {
                 controller.Left();
+            }
+            else
+            {
+                controller.PauseMotorSound();
             }
 
             if (buttonHandler.stabilize)
