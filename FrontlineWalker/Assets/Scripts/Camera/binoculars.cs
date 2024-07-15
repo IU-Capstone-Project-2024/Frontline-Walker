@@ -13,14 +13,18 @@ public class binoculars : MonoBehaviour
     public float returnSpeed = 10f; // End zooming speed
     public float activationMoveDistance = 5f;
     public float activationMoveDuration = 2f;
+    public float maxZoom = 30f;
+    public float minZoom = 20f;
+    public float zoomPerOne;
     public cameraInit cameraInit; // Camera script
-    public Slider binocularsSlider;
+    public GameObject binocularsSliderSystem;
     public GameObject binocularsSliderGameObject;
     public GameObject binocularsStick;
     public GameObject binocularsButton;
     public GameObject backButton;
     public GameObject binocularsManager;
     private buttonHandler buttonHandler;
+    private RadialSlider binocularsSlider;
     public bool startZoom = false; // Flag for start zooming (don't touch)
     public bool returnBinoculars = false;  // Flag for returning to initial camera position (don't touch)
     public bool endZoom = false; // Flag for end zooming (don't touch)
@@ -38,9 +42,11 @@ public class binoculars : MonoBehaviour
     void Start()
     {
         buttonHandler = binocularsManager.GetComponent<buttonHandler>();
+        binocularsSlider = binocularsSliderSystem.GetComponent<RadialSlider>();
         previousPosition = new Vector3(float.MinValue, 0, -1);
         binocularsSliderGameObject.SetActive(false);
         binocularsStick.SetActive(false);
+        zoomPerOne = (maxZoom-minZoom) / (binocularsSlider.angleMax + binocularsSlider.angleMin);
     }
 
     void Update()
@@ -48,15 +54,14 @@ public class binoculars : MonoBehaviour
         if (cameraInit.binocularsActive)
         {
             // Binoculars activation process
-            if (Camera.main.orthographicSize < binocularsSlider.maxValue && !startZoom && !returnBinoculars)
+            if (Camera.main.orthographicSize < maxZoom - binocularsSlider.currentValue*zoomPerOne && !startZoom && !returnBinoculars)
             {
 
                 Camera.main.orthographicSize += activateSpeed * Time.deltaTime;
-                binocularsSlider.value = binocularsSlider.maxValue;
                 binocularsButton.SetActive(false);
-                if (Camera.main.orthographicSize >= binocularsSlider.maxValue)
+                if (Camera.main.orthographicSize >= maxZoom - binocularsSlider.currentValue * zoomPerOne)
                 {
-                    Camera.main.orthographicSize = binocularsSlider.maxValue;
+                    Camera.main.orthographicSize = maxZoom - binocularsSlider.currentValue * zoomPerOne;
                     startZoom = true;
 
                     actStartPosition = transform.position;

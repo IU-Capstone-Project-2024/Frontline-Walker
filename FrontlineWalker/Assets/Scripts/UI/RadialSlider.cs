@@ -9,7 +9,10 @@ public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 	public int currentValue;
 	public int angleMax = 30;
     public int angleMin = 30;
-	public float pushYpos = -150f;
+	public float pushPos = -150f;
+	public bool isX;
+	public bool zeroToValueMode;
+	public float initialAngle;
     public GameObject slideSprite;
 	private bool isPointerDown=false;
 	private float trueAngleMax;
@@ -18,8 +21,15 @@ public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void Start()
     {
 
-        slideSprite.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        slideSprite.transform.localPosition = new Vector2(pushYpos, 0);
+        slideSprite.transform.localRotation = Quaternion.Euler(0, 0, initialAngle);
+		if (isX)
+		{
+            slideSprite.transform.localPosition = new Vector2(pushPos, 0);
+        }
+		else
+		{
+            slideSprite.transform.localPosition = new Vector2(0, pushPos);
+        }
 
 		trueAngleMax = angleMax / 360f;
         trueAngleMin = 1f - angleMin / 360f;
@@ -74,13 +84,27 @@ public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
 					if (angle <= trueAngleMax || angle >= trueAngleMin)
 					{
-						if (angle <= 0.5f)
+						if (!zeroToValueMode)
 						{
-                            currentValue = Mathf.RoundToInt(angle * 360);
+                            if (angle <= 0.5f)
+                            {
+                                currentValue = Mathf.RoundToInt(angle * 360);
+                            }
+                            else
+                            {
+                                currentValue = Mathf.RoundToInt(angle * 360) - 360;
+                            }
                         }
-                        else
-                        {
-                            currentValue = Mathf.RoundToInt(angle * 360) - 360;
+						else
+						{
+                            if (angle <= 0.5f)
+                            {
+                                currentValue = 90 + Mathf.RoundToInt(angle * 360);
+                            }
+                            else
+                            {
+                                currentValue = 90 - Mathf.Abs(Mathf.RoundToInt(angle * 360) - 360);
+                            }
                         }
 
 
@@ -88,8 +112,8 @@ public class RadialSlider: MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
                         float angleInRadians = (angle * 360 + 180) * Mathf.Deg2Rad;
 
-                        float x = -pushYpos * Mathf.Cos(angleInRadians);
-                        float y = -pushYpos * Mathf.Sin(angleInRadians);
+                        float x = Mathf.Abs(pushPos) * Mathf.Cos(angleInRadians);
+                        float y = Mathf.Abs(pushPos) * Mathf.Sin(angleInRadians);
 
                         slideSprite.transform.localPosition = new Vector2(x, y);
                     }
