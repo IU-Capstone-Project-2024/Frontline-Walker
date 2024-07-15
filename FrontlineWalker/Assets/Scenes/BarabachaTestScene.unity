@@ -1714,6 +1714,7 @@ MonoBehaviour:
   _useInitialVelocity: 0
   _shootingPoint: {fileID: 382056597}
   _rigidbody: {fileID: 1140179347}
+  soundEffect: {fileID: 3264693995686976320, guid: e05fbb16ce525fd408f4cff4efe1a25d, type: 3}
 --- !u!114 &602648282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1814,6 +1815,7 @@ MonoBehaviour:
   _useInitialVelocity: 0
   _shootingPoint: {fileID: 1974527545}
   _rigidbody: {fileID: 0}
+  soundEffect: {fileID: 0}
 --- !u!4 &643644207
 Transform:
   m_ObjectHideFlags: 0
@@ -6222,6 +6224,7 @@ MonoBehaviour:
   _useInitialVelocity: 0
   _shootingPoint: {fileID: 1394257296}
   _rigidbody: {fileID: 0}
+  soundEffect: {fileID: 0}
 --- !u!114 &7749494116472343313
 MonoBehaviour:
   m_ObjectHideFlags: 0
