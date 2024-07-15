@@ -9,6 +9,12 @@ using UnityEngine.TextCore.Text;
 [RequireComponent(typeof(TestAppliesDamage))]
 public class TestBomb : Projectile
 {
+    [Header("Sound")]
+    
+    [SerializeField] private GameObject explosionSoundEffect;
+    
+    [Header("Settings")]
+    
     [SerializeField] private float explosionForce = 10;
 
     [SerializeField] private float explosionRadius = 10;
@@ -21,6 +27,8 @@ public class TestBomb : Projectile
     [SerializeField] private float presicionAngle = 3;
     [Range(0, 10)] 
     [SerializeField] private float _damagePerRay = 0.01f;
+
+    [Header("Debug")] public bool showDebugLog;
     
     private TestAppliesDamage _damage;
 
@@ -31,7 +39,9 @@ public class TestBomb : Projectile
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (showDebugLog) Debug.Log("Explosion");
         Explode();
+        Instantiate(explosionSoundEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

@@ -75,6 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99542b6aa8b17144caad446ee5432464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionSoundEffect: {fileID: 3264693995686976320, guid: 29fefcc283fc4f74ab455bd1497ffa40, type: 3}
   explosionForce: 0.6
   explosionRadius: 5
   hit_layer:

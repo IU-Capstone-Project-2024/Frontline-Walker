@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99542b6aa8b17144caad446ee5432464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionSoundEffect: {fileID: 3264693995686976320, guid: 201012b92fefa3e44b36698064f9b468, type: 3}
   explosionForce: 0.3
   explosionRadius: 3
   hit_layer:
@@ -189,6 +190,7 @@ MonoBehaviour:
     m_Bits: 264
   presicionAngle: 3
   _damagePerRay: 0.01
+  showDebugLog: 1
 --- !u!114 &1977652543080525703
 MonoBehaviour:
   m_ObjectHideFlags: 0
