@@ -5345,6 +5345,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -132.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5325768456204652429, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a2c9424a40e7e254c900450195cb2be5, type: 3}
     - target: {fileID: 5562663535525780869, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_Name
       value: HUD Canvas
@@ -5356,6 +5360,22 @@ PrefabInstance:
     - target: {fileID: 5570400755833759280, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: zeroToValueMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697433256497142394, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: inScale.x
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697433256497142394, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: inScale.y
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697433256497142394, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: outScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5697433256497142394, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: outScale.y
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5697433256497142394, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: cameraObject
