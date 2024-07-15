@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4152769395432962884}
   - component: {fileID: 6267124431895773284}
   m_Layer: 5
-  m_Name: RadialSliderImage
+  m_Name: Radial Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2462,7 +2462,7 @@ GameObject:
   - component: {fileID: 8639728184872625518}
   - component: {fileID: 8937133675106105043}
   m_Layer: 5
-  m_Name: SemiCircleSlider
+  m_Name: Aim Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

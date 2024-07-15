@@ -5327,6 +5327,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 205
       objectReference: {fileID: 0}
+    - target: {fileID: 306407684433595670, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_Name
+      value: Radial Slider
+      objectReference: {fileID: 0}
     - target: {fileID: 484169255642984065, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: fuelObject
       value: 
@@ -5486,6 +5490,10 @@ PrefabInstance:
     - target: {fileID: 7494220940979491930, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8616786505728918460, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_Name
+      value: Aim Slider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
