@@ -17,8 +17,8 @@ public class binoculars : MonoBehaviour
     public Slider binocularsSlider;
     public GameObject binocularsSliderGameObject;
     public GameObject binocularsStick;
-    public GameObject binocularsStickBack;
     public GameObject binocularsButton;
+    public GameObject backButton;
     public GameObject binocularsManager;
     private buttonHandler buttonHandler;
     public bool startZoom = false; // Flag for start zooming (don't touch)
@@ -41,7 +41,6 @@ public class binoculars : MonoBehaviour
         previousPosition = new Vector3(float.MinValue, 0, -1);
         binocularsSliderGameObject.SetActive(false);
         binocularsStick.SetActive(false);
-        binocularsStickBack.SetActive(false);
     }
 
     void Update()
@@ -93,18 +92,16 @@ public class binoculars : MonoBehaviour
             {
                 binocularsSliderGameObject.SetActive(true);
                 binocularsStick.SetActive(true);
-                binocularsStickBack.SetActive(true);
-                binocularsButton.SetActive(true);
+                backButton.SetActive(true);
                 Vector2 moveDirection = moveActionToUse.action.ReadValue<Vector2>();
                 transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
 
-                if (buttonHandler.binoculars)
+                if (buttonHandler.backBinoculars)
                 {
                     returnBinoculars = true;
                     binocularsSliderGameObject.SetActive(false);
                     binocularsStick.SetActive(false);
-                    binocularsStickBack.SetActive(false);
-                    binocularsButton.SetActive(false);
+                    backButton.SetActive(false);
                 }
             }
 
@@ -144,6 +141,7 @@ public class binoculars : MonoBehaviour
                 }
             }
             buttonHandler.binoculars = false;
+            buttonHandler.backBinoculars = false;
         }
     }
 }

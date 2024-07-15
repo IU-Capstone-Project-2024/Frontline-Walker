@@ -13,6 +13,7 @@ public class TouchController : MonoBehaviour
     public Slider verSlider;
     public Slider horSlider;
     public GameObject aimSlider;
+    public GameObject aimSliderWorker;
 
     public GameObject binocularsManager;
     private buttonHandler buttonHandler;
@@ -21,7 +22,7 @@ public class TouchController : MonoBehaviour
 
     public GameObject verSliderGameObject;
     public GameObject horSliderGameObject;
-    public GameObject aimTextGameObject;
+    public GameObject UI_backdrop;
     public GameObject shellsTextGameObject;
     public GameObject fuelTextGameObject;
     public GameObject stabilizeGameObject;
@@ -46,10 +47,10 @@ public class TouchController : MonoBehaviour
         {
             verSliderGameObject.SetActive(true);
             horSliderGameObject.SetActive(true);
-            aimSlider.SetActive(true);
+            aimSliderWorker.SetActive(true);
             stabilizeGameObject.SetActive(true);
             shootGameObject.SetActive(true);
-            aimTextGameObject.SetActive(true);
+            UI_backdrop.SetActive(true);
             shellsTextGameObject.SetActive(true);
             fuelTextGameObject.SetActive(true);
 
@@ -102,10 +103,10 @@ public class TouchController : MonoBehaviour
         {
             verSliderGameObject.SetActive(false);
             horSliderGameObject.SetActive(false);
-            aimSlider.SetActive(false);
+            aimSliderWorker.SetActive(false);
             stabilizeGameObject.SetActive(false);
             shootGameObject.SetActive(false);
-            aimTextGameObject.SetActive(false);
+            UI_backdrop.SetActive(false);
             shellsTextGameObject.SetActive(false);
             fuelTextGameObject.SetActive(false);
             verSlider.value = 0;

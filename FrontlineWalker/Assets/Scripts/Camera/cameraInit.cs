@@ -31,6 +31,7 @@ public class cameraInit : MonoBehaviour
                 binocularsActive = true;
             }
             buttonHandler.binoculars = false;
+            buttonHandler.backBinoculars = false;
         }
     }
 }
