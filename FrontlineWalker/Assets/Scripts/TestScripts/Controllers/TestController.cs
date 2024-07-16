@@ -168,8 +168,6 @@ public class TestController : TestMessageReceiver
     {
         if (!motorSoundPlay && tankCapacity > 0)
         {
-            Debug.Log("Play");
-            
             audioManager.Stop("idle");
             audioManager.Play("action");
             
@@ -181,8 +179,6 @@ public class TestController : TestMessageReceiver
     {
         if (motorSoundPlay && tankCapacity > 0)
         {
-            Debug.Log("Pause");
-            
             audioManager.Stop("action");
             audioManager.Play("idle");
             
