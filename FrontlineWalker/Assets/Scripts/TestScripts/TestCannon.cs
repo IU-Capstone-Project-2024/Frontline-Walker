@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 
 [RequireComponent(typeof(TestProjectileShooter))]
@@ -23,6 +24,12 @@ public class TestCannon : MonoBehaviour
     private int _remainingShells;
     private float _targetAngle;
     
+    [Header("Sound")] 
+    
+    public AudioManager audioManager;
+
+    private bool _aimingSoundPlay;
+    
     void Start()
     {
         _projectileShooter = GetComponent<TestProjectileShooter>();
@@ -32,16 +39,22 @@ public class TestCannon : MonoBehaviour
         _remainingShells = maxShells;
         _readyToFire = true;
         _isAbleToReceiveCommands = true;
+        _aimingSoundPlay = false;
     }
     void FixedUpdate()
     {
         if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) < _targetAngle) {
             Up();
-        }
-        
+            PlayAimingSound();
+        } else 
         if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) > _targetAngle)
         {
             Down();
+            PlayAimingSound();
+        }
+        else
+        {
+            PauseAimingSound();
         }
     }
 
@@ -121,5 +134,25 @@ public class TestCannon : MonoBehaviour
     public void setMinAngle(float value)
     {
         _rotatonController.minAngle = value;
+    }
+
+    public void PlayAimingSound()
+    {
+        if (!_aimingSoundPlay)
+        {
+            audioManager.Play("aiming");
+
+            _aimingSoundPlay = true;
+        }
+    }
+
+    public void PauseAimingSound()
+    {
+        if (_aimingSoundPlay)
+        {
+            audioManager.Pause("aiming");
+
+            _aimingSoundPlay = false;
+        }
     }
 }
