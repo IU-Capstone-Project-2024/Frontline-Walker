@@ -22,7 +22,8 @@ public class TouchController : MonoBehaviour
 
     public GameObject verSliderGameObject;
     public GameObject horSliderGameObject;
-    public GameObject UI_backdrop;
+    public GameObject pauseBackdrop;
+    public GameObject buttonsBackdrop;
     public GameObject shellsTextGameObject;
     public GameObject fuelTextGameObject;
     public GameObject stabilizeGameObject;
@@ -50,7 +51,8 @@ public class TouchController : MonoBehaviour
             aimSliderWorker.SetActive(true);
             stabilizeGameObject.SetActive(true);
             shootGameObject.SetActive(true);
-            UI_backdrop.SetActive(true);
+            pauseBackdrop.SetActive(true);
+            buttonsBackdrop.SetActive(true);
             shellsTextGameObject.SetActive(true);
             fuelTextGameObject.SetActive(true);
 
@@ -117,7 +119,8 @@ public class TouchController : MonoBehaviour
             aimSliderWorker.SetActive(false);
             stabilizeGameObject.SetActive(false);
             shootGameObject.SetActive(false);
-            UI_backdrop.SetActive(false);
+            pauseBackdrop.SetActive(false);
+            buttonsBackdrop.SetActive(false);
             shellsTextGameObject.SetActive(false);
             fuelTextGameObject.SetActive(false);
             verSlider.value = 0;
