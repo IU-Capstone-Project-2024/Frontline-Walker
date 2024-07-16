@@ -68,5 +68,13 @@ namespace Audio
 
 			return s;
 		}
+
+		public void StopAll()
+		{
+			foreach (var sound in sounds)
+			{
+				sound.source.Stop();
+			}
+		}
 	}
 }

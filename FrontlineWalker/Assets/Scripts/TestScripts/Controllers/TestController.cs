@@ -73,6 +73,11 @@ public class TestController : TestMessageReceiver
         IdleFuelLoss();
         //Debug.Log(_currentFuelLevel);
 
+        if (!AbleToMove())
+        {
+            audioManager.StopAll();
+        }
+
         mainCannonController.SetAbleToReceiveCommands(partsObserver.mainCannon.IsWorking());
     }
 
@@ -132,6 +137,8 @@ public class TestController : TestMessageReceiver
     {
         _currentFuelLevel += _amountOfFuel;
         ClampFuel();
+        
+        PlayIdleMotorSound();
     }
 
     public float GetFuelLeft()
@@ -159,7 +166,7 @@ public class TestController : TestMessageReceiver
     
     public void PlayActionMotorSound()
     {
-        if (!motorSoundPlay)
+        if (!motorSoundPlay && tankCapacity > 0)
         {
             Debug.Log("Play");
             
@@ -172,7 +179,7 @@ public class TestController : TestMessageReceiver
     
     public void PlayIdleMotorSound()
     {
-        if (motorSoundPlay)
+        if (motorSoundPlay && tankCapacity > 0)
         {
             Debug.Log("Pause");
             
