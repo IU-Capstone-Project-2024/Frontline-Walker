@@ -28,12 +28,10 @@ namespace Audio
 
 		public void Play(string sound)
 		{
-			Sound s = Array.Find(sounds, item => item.name == sound);
-			if (s == null)
-			{
-				Debug.LogWarning("Sound: " + name + " not found!");
-				return;
-			}
+			Sound s = FindSound(sound);
+
+			s.source.clip = s.clip;
+			
 			s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 			
 			s.source.Play();
@@ -41,26 +39,34 @@ namespace Audio
 
 		public void Pause(string sound)
 		{
-			Sound s = Array.Find(sounds, item => item.name == sound);
-			if (s == null)
-			{
-				Debug.LogWarning("Sound: " + name + " not found!");
-				return;
-			}
+			Sound s = FindSound(sound);
+			
+			s.source.clip = s.clip;
 			
 			s.source.Pause();
 		}
 		
 		public void Stop(string sound)
 		{
-			Sound s = Array.Find(sounds, item => item.name == sound);
+			Sound s = FindSound(sound);
+			
+			s.source.clip = s.clip;
+			
+			s.source.Stop();
+		}
+
+		private Sound FindSound(String soundName)
+		{
+			Sound s = Array.Find(sounds, item => item.name.Equals(soundName));
 			if (s == null)
 			{
 				Debug.LogWarning("Sound: " + name + " not found!");
-				return;
+				return null;
 			}
 			
-			s.source.Stop();
+			Debug.Log(s.name);
+
+			return s;
 		}
 	}
 }

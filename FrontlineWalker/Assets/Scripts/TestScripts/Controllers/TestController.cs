@@ -34,7 +34,6 @@ public class TestController : TestMessageReceiver
     private Rigidbody2D _rb;
     private PhysicsMaterial2D _material;
     
-    
     private float _frictionPenalty;
     private float _movementPenalty;
     
@@ -55,6 +54,7 @@ public class TestController : TestMessageReceiver
         _movementPenalty = 0;
 
         motorSoundPlay = false;
+        audioManager.Play("idle");
     }
 
     private void FixedUpdate()
@@ -80,7 +80,7 @@ public class TestController : TestMessageReceiver
     {
         if (AbleToMove())
         {
-            PlayMotorSound();
+            PlayActionMotorSound();
             
             var _forward_speed = torsoController.GetCurrentYRatio() * forward_speed;
             _forward_speed *= 1 - _movementPenalty;
@@ -97,7 +97,7 @@ public class TestController : TestMessageReceiver
     {
         if (AbleToMove())
         {
-            PlayMotorSound();
+            PlayActionMotorSound();
             
             var _backward_speed = torsoController.GetCurrentYRatio() * backward_speed;
             _backward_speed *= 1 - _movementPenalty;
@@ -157,29 +157,28 @@ public class TestController : TestMessageReceiver
         _material.friction = initialFriction - _frictionPenalty;
     }
     
-    public void PlayMotorSound()
+    public void PlayActionMotorSound()
     {
         if (!motorSoundPlay)
         {
-            audioManager.Play("motor");
+            Debug.Log("Play");
+            
+            audioManager.Stop("idle");
+            audioManager.Play("action");
+            
             motorSoundPlay = true;
         }
     }
     
-    public void PauseMotorSound()
+    public void PlayIdleMotorSound()
     {
         if (motorSoundPlay)
         {
-            audioManager.Pause("motor");
-            motorSoundPlay = false;
-        }
-    }
-    
-    public void StopMotorSound()
-    {
-        if (motorSoundPlay)
-        {
-            audioManager.Stop("motor");
+            Debug.Log("Pause");
+            
+            audioManager.Stop("action");
+            audioManager.Play("idle");
+            
             motorSoundPlay = false;
         }
     }

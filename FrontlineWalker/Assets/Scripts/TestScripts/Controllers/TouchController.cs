@@ -89,7 +89,7 @@ public class TouchController : MonoBehaviour
             }
             else
             {
-                controller.PauseMotorSound();
+                controller.PlayIdleMotorSound();
             }
 
             if (buttonHandler.stabilize)
