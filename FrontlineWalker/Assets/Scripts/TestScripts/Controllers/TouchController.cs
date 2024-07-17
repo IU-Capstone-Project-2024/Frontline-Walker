@@ -25,9 +25,9 @@ public class TouchController : MonoBehaviour
     public GameObject pauseBackdrop;
     public GameObject buttonsBackdrop;
     public GameObject shellsTextGameObject;
-    public GameObject fuelTextGameObject;
     public GameObject stabilizeGameObject;
     public GameObject shootGameObject;
+    public GameObject upperPanel;
 
     [SerializeField] TextMeshProUGUI aimText;
     private RadialSlider aimSliderScript;
@@ -54,7 +54,7 @@ public class TouchController : MonoBehaviour
             pauseBackdrop.SetActive(true);
             buttonsBackdrop.SetActive(true);
             shellsTextGameObject.SetActive(true);
-            fuelTextGameObject.SetActive(true);
+            upperPanel.SetActive(true);
 
             aimText.text = aimSliderScript.currentValue.ToString() + "°";
 
@@ -122,7 +122,7 @@ public class TouchController : MonoBehaviour
             pauseBackdrop.SetActive(false);
             buttonsBackdrop.SetActive(false);
             shellsTextGameObject.SetActive(false);
-            fuelTextGameObject.SetActive(false);
+            upperPanel.SetActive(false);
             verSlider.value = 0;
             horSlider.value = 0;
             buttonHandler.shoot = false;
