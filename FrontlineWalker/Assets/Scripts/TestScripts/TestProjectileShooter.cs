@@ -17,8 +17,11 @@ public class TestProjectileShooter : MonoBehaviour
     
     public void Shoot()
     {
-        GameObject sound = Instantiate(soundEffect, transform.position, Quaternion.identity);
-        sound.transform.SetParent(gameObject.transform);
+        if (soundEffect != null)
+        {
+            GameObject sound = Instantiate(soundEffect, transform.position, Quaternion.identity); 
+            sound.transform.SetParent(gameObject.transform);
+        }
         
         Projectile newProjectile = Instantiate(_usedProjectile, _shootingPoint.position, _shootingPoint.rotation);
         if (_rigidbody != null)

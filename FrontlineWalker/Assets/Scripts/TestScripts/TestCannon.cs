@@ -48,12 +48,10 @@ public class TestCannon : MonoBehaviour
     {
         if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) < _targetAngle) {
             Up();
-            PlayAimingSound();
         } else 
         if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) > _targetAngle)
         {
             Down();
-            PlayAimingSound();
         }
         else
         {
@@ -66,6 +64,7 @@ public class TestCannon : MonoBehaviour
         if (_isAbleToReceiveCommands)
         {
             _rotatonController.Up();
+            PlayAimingSound();
         }
         
     }
@@ -75,6 +74,7 @@ public class TestCannon : MonoBehaviour
         if (_isAbleToReceiveCommands)
         {
             _rotatonController.Down();
+            PlayAimingSound();
         }
     }
 
