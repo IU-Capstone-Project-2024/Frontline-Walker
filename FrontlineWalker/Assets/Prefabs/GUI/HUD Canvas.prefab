@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54dfe2443ba3f52429eb56cace719638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7500
+  speed: 5000
   _isPaused: 0
   binoculars: {fileID: 3447870509829945694}
   cannonShoot: {fileID: 8195813273334070599}
@@ -953,6 +953,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6633961750628615592}
+  - component: {fileID: 8881029429973246758}
   m_Layer: 0
   m_Name: Health Bar
   m_TagString: Untagged
@@ -969,7 +970,7 @@ Transform:
   m_GameObject: {fileID: 1197601597423526494}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 62.932556, y: 104.700775, z: 2356.0173}
+  m_LocalPosition: {x: 62.932556, y: 104.700775, z: 1}
   m_LocalScale: {x: 1.7943926, y: 1.7943926, z: 1.7943926}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -985,6 +986,41 @@ Transform:
   - {fileID: 9030757447111175137}
   m_Father: {fileID: 6762704923595074364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8881029429973246758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197601597423526494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6099857afbebdd4e83df4d5cb8d02f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 1482267355220423980}
+  fuel: {fileID: 141248863409557871}
+  gun: {fileID: 2112284916659896024}
+  cannon: {fileID: 7358305128512714907}
+  rightUpLeg: {fileID: 2062683786659491440}
+  rightDownLeg: {fileID: 4685004895322389671}
+  rightStep: {fileID: 3026215577117313758}
+  leftUpLeg: {fileID: 6883849288214314376}
+  leftDownLeg: {fileID: 2859481798654994485}
+  leftStep: {fileID: 2947494588038724064}
+  bodyColor: {r: 0.16862746, g: 0.14901961, b: 0.14901961, a: 1}
+  fuelColor: {r: 0.29411766, g: 0.2627451, b: 0.23529413, a: 1}
+  backLegColor: {r: 0, g: 0, b: 0, a: 1}
+  damageColor: {r: 1, g: 0, b: 0, a: 1}
+  notWorkingColor: {r: 1, g: 1, b: 1, a: 1}
+  GO_body: {fileID: 0}
+  GO_cannon: {fileID: 0}
+  GO_rightUpLeg: {fileID: 0}
+  GO_rightDownLeg: {fileID: 0}
+  GO_rightStep: {fileID: 0}
+  GO_leftUpLeg: {fileID: 0}
+  GO_leftDownLeg: {fileID: 0}
+  GO_leftStep: {fileID: 0}
 --- !u!1 &1216964997403781152
 GameObject:
   m_ObjectHideFlags: 0

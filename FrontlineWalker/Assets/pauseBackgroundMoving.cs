@@ -35,36 +35,36 @@ public class pauseBackgroundMoving : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         _initialTimeScale = Time.timeScale;
 
-        rectTransformPos = rectTransform.anchoredPosition;
-        binocularsPos = binoculars.anchoredPosition;
-        cannonShootPos = cannonShoot.anchoredPosition;
-        gunShootPos = gunShoot.anchoredPosition;
-        aimSliderPos = aimSlider.anchoredPosition;
+        rectTransformPos = rectTransform.position;
+        binocularsPos = binoculars.position;
+        cannonShootPos = cannonShoot.position;
+        gunShootPos = gunShoot.position;
+        aimSliderPos = aimSlider.position;
 
-        rectTransformTPos = new Vector2(0, 0);
-        binocularsTPos = new Vector2(binoculars.anchoredPosition.x - Screen.width*2, binoculars.anchoredPosition.y) * Time.timeScale;
-        cannonShootTPos = new Vector2(cannonShoot.anchoredPosition.x - Screen.width * 2, cannonShoot.anchoredPosition.y) * Time.timeScale;
-        gunShootTPos = new Vector2(gunShoot.anchoredPosition.x - Screen.width * 2, gunShoot.anchoredPosition.y) * Time.timeScale;
-        aimSliderTPos = new Vector2(aimSlider.anchoredPosition.x - Screen.width * 2, aimSlider.anchoredPosition.y) * Time.timeScale;
+        rectTransformTPos = new Vector2(rectTransform.position.x - Screen.width, rectTransform.position.y);
+        binocularsTPos = new Vector2(binoculars.position.x - Screen.width, binoculars.position.y);
+        cannonShootTPos = new Vector2(cannonShoot.position.x - Screen.width, cannonShoot.position.y);
+        gunShootTPos = new Vector2(gunShoot.position.x - Screen.width, gunShoot.position.y);
+        aimSliderTPos = new Vector2(aimSlider.position.x - Screen.width, aimSlider.position.y);
     }
 
     void Update()
     {
         if(_isPaused) {
-            rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, rectTransformTPos, speed * Time.unscaledDeltaTime);
-            binoculars.anchoredPosition = Vector2.MoveTowards(binoculars.anchoredPosition, binocularsTPos, speed * Time.unscaledDeltaTime);
-            cannonShoot.anchoredPosition = Vector2.MoveTowards(cannonShoot.anchoredPosition, cannonShootTPos, speed * Time.unscaledDeltaTime);
-            gunShoot.anchoredPosition = Vector2.MoveTowards(gunShoot.anchoredPosition, gunShootTPos, speed * Time.unscaledDeltaTime);
-            aimSlider.anchoredPosition = Vector2.MoveTowards(aimSlider.anchoredPosition, aimSliderTPos, speed * Time.unscaledDeltaTime);
+            rectTransform.position = Vector2.MoveTowards(rectTransform.position, rectTransformTPos, speed * Time.unscaledDeltaTime);
+            binoculars.position = Vector2.MoveTowards(binoculars.position, binocularsTPos, speed * Time.unscaledDeltaTime);
+            cannonShoot.position = Vector2.MoveTowards(cannonShoot.position, cannonShootTPos, speed * Time.unscaledDeltaTime);
+            gunShoot.position = Vector2.MoveTowards(gunShoot.position, gunShootTPos, speed * Time.unscaledDeltaTime);
+            aimSlider.position = Vector2.MoveTowards(aimSlider.position, aimSliderTPos, speed * Time.unscaledDeltaTime);
         }
 
         if (!_isPaused)
         {
-            rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, rectTransformPos, speed * Time.unscaledDeltaTime);
-            binoculars.anchoredPosition = Vector2.MoveTowards(binoculars.anchoredPosition, binocularsPos, speed * Time.unscaledDeltaTime);
-            cannonShoot.anchoredPosition = Vector2.MoveTowards(cannonShoot.anchoredPosition, cannonShootPos, speed * Time.unscaledDeltaTime);
-            gunShoot.anchoredPosition = Vector2.MoveTowards(gunShoot.anchoredPosition, gunShootPos, speed * Time.unscaledDeltaTime);
-            aimSlider.anchoredPosition = Vector2.MoveTowards(aimSlider.anchoredPosition, aimSliderPos, speed * Time.unscaledDeltaTime);
+            rectTransform.position = Vector2.MoveTowards(rectTransform.position, rectTransformPos, speed * Time.unscaledDeltaTime);
+            binoculars.position = Vector2.MoveTowards(binoculars.position, binocularsPos, speed * Time.unscaledDeltaTime);
+            cannonShoot.position = Vector2.MoveTowards(cannonShoot.position, cannonShootPos, speed * Time.unscaledDeltaTime);
+            gunShoot.position = Vector2.MoveTowards(gunShoot.position, gunShootPos, speed * Time.unscaledDeltaTime);
+            aimSlider.position = Vector2.MoveTowards(aimSlider.position, aimSliderPos, speed * Time.unscaledDeltaTime);
         }
     }
 
