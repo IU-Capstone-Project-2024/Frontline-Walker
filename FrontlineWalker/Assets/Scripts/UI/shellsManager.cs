@@ -20,9 +20,7 @@ public class shellsManager : MonoBehaviour
     {
         cannonScript = mainCannon.GetComponent<TestCannon>();
         Vector2 position = shellsSprites.anchoredPosition;
-        Vector2 scale = shellsSprites.sizeDelta;
         xZero = position.x - (11.5f * 5f);
-        shellsSprites.sizeDelta = new Vector2(23 * 6, scale.y);
         shellsSprites.anchoredPosition = new Vector2(xZero + (11.5f * 6), position.y);
     }
 
