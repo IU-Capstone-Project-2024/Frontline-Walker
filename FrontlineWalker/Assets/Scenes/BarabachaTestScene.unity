@@ -3729,6 +3729,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1343161470 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3026215577117313758, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+  m_PrefabInstance: {fileID: 2023045626}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1344133777
 GameObject:
   m_ObjectHideFlags: 0
@@ -5558,11 +5569,24 @@ MonoBehaviour:
   cannon: {fileID: 710018127}
   rightUpLeg: {fileID: 872684151}
   rightDownLeg: {fileID: 984271442}
-  rightStep: {fileID: 346268913}
+  rightStep: {fileID: 1343161470}
   leftUpLeg: {fileID: 6340902}
   leftDownLeg: {fileID: 1771882404}
   leftStep: {fileID: 346268913}
+  bodyColor: {r: 0.16862746, g: 0.14901961, b: 0.14901961, a: 1}
+  fuelColor: {r: 0.29411766, g: 0.2627451, b: 0.23529413, a: 1}
+  backLegColor: {r: 0, g: 0, b: 0, a: 1}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
+  GO_body: {fileID: 16552631}
+  GO_fuel: {fileID: 0}
+  GO_gun: {fileID: 0}
+  GO_cannon: {fileID: 602648277}
+  GO_rightUpLeg: {fileID: 74075687}
+  GO_rightDownLeg: {fileID: 144286798}
+  GO_rightStep: {fileID: 1735870168}
+  GO_leftUpLeg: {fileID: 1999480722}
+  GO_leftDownLeg: {fileID: 1059692649}
+  GO_leftStep: {fileID: 1549207804}
 --- !u!1 &1974527544
 GameObject:
   m_ObjectHideFlags: 0

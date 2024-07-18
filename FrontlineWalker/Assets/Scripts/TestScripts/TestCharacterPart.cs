@@ -69,6 +69,11 @@ public class TestCharacterPart : MonoBehaviour
         return _health;
     }
 
+    public float GetMaxHealth()
+    {
+        return maxHealth;
+    }
+
     public void FixHealth(float _fixAmount)
     {
         if (_fixAmount < 0)
