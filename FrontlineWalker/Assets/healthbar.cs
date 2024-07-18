@@ -83,19 +83,29 @@ public class healthbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // fuel.color = Color.Lerp(fuelColor, damageColor, (TCP_fuel.GetMaxHealth() - TCP_fuel.GetHealth()) / TCP_fuel.GetMaxHealth());
+        // Coloring(fuel, TCP_fuel, fuelColor, damageColor, criticalColor);
 
-        body.color = Color.Lerp(bodyColor, damageColor, (TCP_body.GetMaxHealth() - TCP_body.GetHealth()) / TCP_body.GetMaxHealth());
-        // gun.color = Color.Lerp(bodyColor, damageColor, (TCP_gun.GetMaxHealth() - TCP_gun.GetHealth()) / TCP_gun.GetMaxHealth());
-        cannon.color = Color.Lerp(bodyColor, damageColor, (TCP_cannon.GetMaxHealth() - TCP_cannon.GetHealth()) / TCP_cannon.GetMaxHealth());
-        rightUpLeg.color = Color.Lerp(bodyColor, damageColor, (TCP_rightUpLeg.GetMaxHealth() - TCP_rightUpLeg.GetHealth()) / TCP_rightUpLeg.GetMaxHealth());
-        rightDownLeg.color = Color.Lerp(bodyColor, damageColor, (TCP_rightDownLeg.GetMaxHealth() - TCP_rightDownLeg.GetHealth()) / TCP_rightDownLeg.GetMaxHealth());
-        rightStep.color = Color.Lerp(bodyColor, damageColor, (TCP_rightStep.GetMaxHealth() - TCP_rightStep.GetHealth()) / TCP_rightStep.GetMaxHealth());
+        Coloring(body, TCP_body, bodyColor, damageColor, criticalColor);
+        // Coloring(gun, TCP_gun, bodyColor, damageColor, criticalColor);
+        Coloring(cannon, TCP_cannon, bodyColor, damageColor, criticalColor);
+        Coloring(rightUpLeg, TCP_rightUpLeg, bodyColor, damageColor, criticalColor);
+        Coloring(rightDownLeg, TCP_rightDownLeg, bodyColor, damageColor, criticalColor);
+        Coloring(rightStep, TCP_rightStep, bodyColor, damageColor, criticalColor);
 
+        Coloring(leftUpLeg, TCP_leftUpLeg, backLegColor, damageColor, criticalColor);
+        Coloring(leftDownLeg, TCP_leftDownLeg, backLegColor, damageColor, criticalColor);
+        Coloring(leftStep, TCP_leftStep, backLegColor, damageColor, criticalColor);
+    }
 
-        leftUpLeg.color = Color.Lerp(backLegColor, damageColor, (TCP_leftUpLeg.GetMaxHealth() - TCP_leftUpLeg.GetHealth()) / TCP_leftUpLeg.GetMaxHealth());
-        leftDownLeg.color = Color.Lerp(backLegColor, damageColor, (TCP_leftDownLeg.GetMaxHealth() - TCP_leftDownLeg.GetHealth()) / TCP_leftDownLeg.GetMaxHealth());
-        leftStep.color = Color.Lerp(backLegColor, damageColor, (TCP_leftStep.GetMaxHealth() - TCP_leftStep.GetHealth()) / TCP_leftStep.GetMaxHealth());
-        
+    public void Coloring(Image part, TestCharacterPart TCP, Color ok, Color damage, Color critical)
+    {
+        if (!TCP.IsCritical())
+        {
+            part.color = Color.Lerp(ok, damage, (TCP.GetMaxHealth() - TCP.GetHealth()) / TCP.GetMaxHealth());
+        }
+        else
+        {
+            part.color = critical;
+        }
     }
 }
