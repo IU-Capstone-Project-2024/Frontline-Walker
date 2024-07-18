@@ -7,7 +7,9 @@ using UnityEngine.UIElements;
 public class pauseBackgroundMoving : MonoBehaviour
 {
     public float speed = 10f;
-    public bool isPaused = false;
+    public bool _isPaused = false;
+    private float _initialTimeScale;
+
     private RectTransform rectTransform;
     public RectTransform binoculars;
     public RectTransform cannonShoot;
@@ -31,6 +33,7 @@ public class pauseBackgroundMoving : MonoBehaviour
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+        _initialTimeScale = Time.timeScale;
 
         rectTransformPos = rectTransform.anchoredPosition;
         binocularsPos = binoculars.anchoredPosition;
@@ -47,7 +50,7 @@ public class pauseBackgroundMoving : MonoBehaviour
 
     void Update()
     {
-        if(isPaused) {
+        if(_isPaused) {
             rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, rectTransformTPos, speed * Time.unscaledDeltaTime);
             binoculars.anchoredPosition = Vector2.MoveTowards(binoculars.anchoredPosition, binocularsTPos, speed * Time.unscaledDeltaTime);
             cannonShoot.anchoredPosition = Vector2.MoveTowards(cannonShoot.anchoredPosition, cannonShootTPos, speed * Time.unscaledDeltaTime);
@@ -55,7 +58,7 @@ public class pauseBackgroundMoving : MonoBehaviour
             aimSlider.anchoredPosition = Vector2.MoveTowards(aimSlider.anchoredPosition, aimSliderTPos, speed * Time.unscaledDeltaTime);
         }
 
-        if (!isPaused)
+        if (!_isPaused)
         {
             rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, rectTransformPos, speed * Time.unscaledDeltaTime);
             binoculars.anchoredPosition = Vector2.MoveTowards(binoculars.anchoredPosition, binocularsPos, speed * Time.unscaledDeltaTime);
@@ -68,13 +71,13 @@ public class pauseBackgroundMoving : MonoBehaviour
     // Update is called once per frame
     public void PauseActivate()
     {
-        isPaused = true;
+        _isPaused = true;
         Time.timeScale = 0;
     }
 
     public void PauseDeactivate()
     {
-        isPaused = false;
-        Time.timeScale = 1;
+        _isPaused = false;
+        Time.timeScale = _initialTimeScale;
     }
 }
