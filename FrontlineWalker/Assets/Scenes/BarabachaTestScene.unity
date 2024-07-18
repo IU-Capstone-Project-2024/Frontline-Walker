@@ -5812,22 +5812,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 458473312144837690, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 458473312144837690, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 458473312144837690, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 1920
-      objectReference: {fileID: 0}
-    - target: {fileID: 458473312144837690, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 484169255642984065, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: fuelObject
       value: 
@@ -5952,31 +5936,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7795171947537148374, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+    - target: {fileID: 8944443515392862477, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7795171947537148374, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+    - target: {fileID: 8944443515392862477, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7795171947537148374, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+    - target: {fileID: 8944443515392862477, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1911290897}
-    - target: {fileID: 7795171947537148374, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+    - target: {fileID: 8944443515392862477, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 7795171947537148374, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+    - target: {fileID: 8944443515392862477, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PauseActivate
+      value: PauseDeactivate
       objectReference: {fileID: 0}
-    - target: {fileID: 7795171947537148374, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+    - target: {fileID: 8944443515392862477, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: pauseBackgroundMoving, Assembly-CSharp
       objectReference: {fileID: 0}
-    - target: {fileID: 7795171947537148374, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+    - target: {fileID: 8944443515392862477, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}

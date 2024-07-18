@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -12,10 +13,12 @@ public class pauseBackgroundMoving : MonoBehaviour
     public RectTransform cannonShoot;
     public RectTransform aimSlider;
 
+    private Vector2 rectTransformPos;
     private Vector2 binocularsPos;
     private Vector2 cannonShootPos;
     private Vector2 aimSliderPos;
 
+    private Vector2 rectTransformTPos;
     private Vector2 binocularsTPos;
     private Vector2 cannonShootTPos;
     private Vector2 aimSliderTPos;
@@ -25,10 +28,13 @@ public class pauseBackgroundMoving : MonoBehaviour
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+
+        rectTransformPos = rectTransform.anchoredPosition;
         binocularsPos = binoculars.anchoredPosition;
         cannonShootPos = cannonShoot.anchoredPosition;
         aimSliderPos = aimSlider.anchoredPosition;
 
+        rectTransformTPos = new Vector2(0, 0);
         binocularsTPos = new Vector2(binoculars.anchoredPosition.x - Screen.width*2, binoculars.anchoredPosition.y) * Time.timeScale;
         cannonShootTPos = new Vector2(cannonShoot.anchoredPosition.x - Screen.width * 2, cannonShoot.anchoredPosition.y) * Time.timeScale;
         aimSliderTPos = new Vector2(aimSlider.anchoredPosition.x - Screen.width * 2, aimSlider.anchoredPosition.y) * Time.timeScale;
@@ -37,12 +43,18 @@ public class pauseBackgroundMoving : MonoBehaviour
     void Update()
     {
         if(isPaused) {
-            Vector2 targetPosition = new Vector2(0, 0) * Time.timeScale;
-
-            rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, targetPosition, speed * Time.unscaledDeltaTime);
+            rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, rectTransformTPos, speed * Time.unscaledDeltaTime);
             binoculars.anchoredPosition = Vector2.MoveTowards(binoculars.anchoredPosition, binocularsTPos, speed * Time.unscaledDeltaTime);
             cannonShoot.anchoredPosition = Vector2.MoveTowards(cannonShoot.anchoredPosition, cannonShootTPos, speed * Time.unscaledDeltaTime);
             aimSlider.anchoredPosition = Vector2.MoveTowards(aimSlider.anchoredPosition, aimSliderTPos, speed * Time.unscaledDeltaTime);
+        }
+
+        if (!isPaused)
+        {
+            rectTransform.anchoredPosition = Vector2.MoveTowards(rectTransform.anchoredPosition, rectTransformPos, speed * Time.unscaledDeltaTime);
+            binoculars.anchoredPosition = Vector2.MoveTowards(binoculars.anchoredPosition, binocularsPos, speed * Time.unscaledDeltaTime);
+            cannonShoot.anchoredPosition = Vector2.MoveTowards(cannonShoot.anchoredPosition, cannonShootPos, speed * Time.unscaledDeltaTime);
+            aimSlider.anchoredPosition = Vector2.MoveTowards(aimSlider.anchoredPosition, aimSliderPos, speed * Time.unscaledDeltaTime);
         }
     }
 
@@ -51,5 +63,11 @@ public class pauseBackgroundMoving : MonoBehaviour
     {
         isPaused = true;
         Time.timeScale = 0;
+    }
+
+    public void PauseDeactivate()
+    {
+        isPaused = false;
+        Time.timeScale = 1;
     }
 }
