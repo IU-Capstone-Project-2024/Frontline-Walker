@@ -82,7 +82,7 @@ public class TestCannon : MonoBehaviour
     {
         if (_readyToFire && _isAbleToReceiveCommands)
         {
-            _cannonIsFired = true;
+           _cannonIsFired = true;
            _projectileShooter.Shoot();
            forceReceiver.ReceiveForce(recoilForce, Vector2.left);
            _remainingShells--;
