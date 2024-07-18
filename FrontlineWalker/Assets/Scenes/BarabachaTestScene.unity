@@ -2225,11 +2225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &690749049 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2529030517055155325, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-  m_PrefabInstance: {fileID: 2023045626}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &743482020
 GameObject:
   m_ObjectHideFlags: 0
@@ -3373,7 +3368,7 @@ MonoBehaviour:
   cameraObject: {fileID: 1547253694466316769}
   verSliderGameObject: {fileID: 1412090070}
   horSliderGameObject: {fileID: 663580188}
-  pauseBackdrop: {fileID: 690749049}
+  pauseBackdrop: {fileID: 1568614883}
   buttonsBackdrop: {fileID: 1619752076}
   shellsTextGameObject: {fileID: 2027310882}
   stabilizeGameObject: {fileID: 1820026540}
@@ -4525,6 +4520,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1568614883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3212330271387877200, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+  m_PrefabInstance: {fileID: 2023045626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1619752076 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 859900622347788928, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
@@ -5829,10 +5829,6 @@ PrefabInstance:
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 1547253694466316769}
-    - target: {fileID: 7014262969323979051, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: speed
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 7014262969323979051, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: mainCannon
       value: 
