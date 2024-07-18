@@ -19,13 +19,13 @@ public class shellsManager : MonoBehaviour
     {
         cannonScript = mainCannon.GetComponent<TestCannon>();
         Vector2 position = shellsSprites.anchoredPosition;
-        xZero = position.x - (11.5f * 8f);
+        xZero = position.x - (11.5f * 5f);
     }
 
     void Update()
     {
-        shellsText.text = "+" + (cannonScript.GetNumberOfRemainingShells() - 8).ToString();
-        if (cannonScript.GetNumberOfRemainingShells() < 9)
+        shellsText.text = "+" + (cannonScript.GetNumberOfRemainingShells() - 5).ToString();
+        if (cannonScript.GetNumberOfRemainingShells() < 6)
         {
             shellsTextGameObject.SetActive(false);
             Vector2 position = shellsSprites.anchoredPosition;
@@ -38,8 +38,8 @@ public class shellsManager : MonoBehaviour
             shellsTextGameObject.SetActive(true);
             Vector2 position = shellsSprites.anchoredPosition;
             Vector2 scale = shellsSprites.sizeDelta;
-            shellsSprites.sizeDelta = new Vector2(23 * 8, scale.y);
-            shellsSprites.anchoredPosition = new Vector2(xZero + (11.5f * 8f), position.y);
+            shellsSprites.sizeDelta = new Vector2(23 * 5, scale.y);
+            shellsSprites.anchoredPosition = new Vector2(xZero + (11.5f * 5f), position.y);
         }
     }
 }
