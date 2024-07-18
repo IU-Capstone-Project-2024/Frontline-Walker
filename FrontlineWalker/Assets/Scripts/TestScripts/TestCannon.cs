@@ -23,6 +23,7 @@ public class TestCannon : MonoBehaviour
     private bool _readyToFire;
     private int _remainingShells;
     private float _targetAngle;
+    public bool _cannonIsFired;
     
     [Header("Sound")] 
     
@@ -40,6 +41,8 @@ public class TestCannon : MonoBehaviour
         _readyToFire = true;
         _isAbleToReceiveCommands = true;
         _aimingSoundPlay = false;
+
+        _cannonIsFired = false;
     }
     void FixedUpdate()
     {
@@ -79,6 +82,7 @@ public class TestCannon : MonoBehaviour
     {
         if (_readyToFire && _isAbleToReceiveCommands)
         {
+            _cannonIsFired = true;
            _projectileShooter.Shoot();
            forceReceiver.ReceiveForce(recoilForce, Vector2.left);
            _remainingShells--;
