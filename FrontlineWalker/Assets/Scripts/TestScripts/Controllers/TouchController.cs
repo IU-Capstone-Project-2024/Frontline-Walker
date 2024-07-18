@@ -27,6 +27,7 @@ public class TouchController : MonoBehaviour
     public GameObject shellsTextGameObject;
     public GameObject stabilizeGameObject;
     public GameObject shootGameObject;
+    public GameObject gunGameObject;
     public GameObject upperPanel;
 
     [SerializeField] TextMeshProUGUI aimText;
@@ -51,6 +52,7 @@ public class TouchController : MonoBehaviour
             aimSliderWorker.SetActive(true);
             stabilizeGameObject.SetActive(true);
             shootGameObject.SetActive(true);
+            gunGameObject.SetActive(true);
             pauseBackdrop.SetActive(true);
             buttonsBackdrop.SetActive(true);
             shellsTextGameObject.SetActive(true);
@@ -62,6 +64,11 @@ public class TouchController : MonoBehaviour
             {
                 controller.mainCannonController.Fire();
                 buttonHandler.shoot = false;
+            }
+            if (buttonHandler.gun)
+            {
+                //controller.mainCannonController.Gun();
+                buttonHandler.gun = false;
             }
             controller.mainCannonController.SetTargetAngle(aimSliderScript.currentValue);
             if (verSlider.value >= 1)
@@ -119,6 +126,7 @@ public class TouchController : MonoBehaviour
             aimSliderWorker.SetActive(false);
             stabilizeGameObject.SetActive(false);
             shootGameObject.SetActive(false);
+            gunGameObject.SetActive(false);
             pauseBackdrop.SetActive(false);
             buttonsBackdrop.SetActive(false);
             shellsTextGameObject.SetActive(false);
