@@ -24,7 +24,7 @@ public class healthbar : MonoBehaviour
     [SerializeField] public Color fuelColor = Color.white;
     [SerializeField] public Color backLegColor = Color.white;
     [SerializeField] public Color damageColor = Color.red;
-    [SerializeField] public Color criticalColor = Color.white;
+    [SerializeField] public Color notWorkingColor = Color.white;
 
     [Header("Walker Parts")]
 
@@ -85,27 +85,27 @@ public class healthbar : MonoBehaviour
     {
         // Coloring(fuel, TCP_fuel, fuelColor, damageColor, criticalColor);
 
-        Coloring(body, TCP_body, bodyColor, damageColor, criticalColor);
+        Coloring(body, TCP_body, bodyColor, damageColor, notWorkingColor);
         // Coloring(gun, TCP_gun, bodyColor, damageColor, criticalColor);
-        Coloring(cannon, TCP_cannon, bodyColor, damageColor, criticalColor);
-        Coloring(rightUpLeg, TCP_rightUpLeg, bodyColor, damageColor, criticalColor);
-        Coloring(rightDownLeg, TCP_rightDownLeg, bodyColor, damageColor, criticalColor);
-        Coloring(rightStep, TCP_rightStep, bodyColor, damageColor, criticalColor);
+        Coloring(cannon, TCP_cannon, bodyColor, damageColor, notWorkingColor);
+        Coloring(rightUpLeg, TCP_rightUpLeg, bodyColor, damageColor, notWorkingColor);
+        Coloring(rightDownLeg, TCP_rightDownLeg, bodyColor, damageColor, notWorkingColor);
+        Coloring(rightStep, TCP_rightStep, bodyColor, damageColor, notWorkingColor);
 
-        Coloring(leftUpLeg, TCP_leftUpLeg, backLegColor, damageColor, criticalColor);
-        Coloring(leftDownLeg, TCP_leftDownLeg, backLegColor, damageColor, criticalColor);
-        Coloring(leftStep, TCP_leftStep, backLegColor, damageColor, criticalColor);
+        Coloring(leftUpLeg, TCP_leftUpLeg, backLegColor, damageColor, notWorkingColor);
+        Coloring(leftDownLeg, TCP_leftDownLeg, backLegColor, damageColor, notWorkingColor);
+        Coloring(leftStep, TCP_leftStep, backLegColor, damageColor, notWorkingColor);
     }
 
-    public void Coloring(Image part, TestCharacterPart TCP, Color ok, Color damage, Color critical)
+    public void Coloring(Image part, TestCharacterPart TCP, Color ok, Color damage, Color notWorking)
     {
-        if (!TCP.IsCritical())
+        if (TCP.IsWorking())
         {
             part.color = Color.Lerp(ok, damage, (TCP.GetMaxHealth() - TCP.GetHealth()) / TCP.GetMaxHealth());
         }
         else
         {
-            part.color = critical;
+            part.color = notWorking;
         }
     }
 }
