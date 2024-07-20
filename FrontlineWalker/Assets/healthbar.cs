@@ -17,6 +17,7 @@ public class healthbar : MonoBehaviour
     [SerializeField] public Image leftUpLeg;
     [SerializeField] public Image leftDownLeg;
     [SerializeField] public Image leftStep;
+    [SerializeField] public GameObject distabilizeIcon;
 
     [Header("Colors")]
 
@@ -95,6 +96,15 @@ public class healthbar : MonoBehaviour
         Coloring(leftUpLeg, TCP_leftUpLeg, backLegColor, damageColor, notWorkingColor);
         Coloring(leftDownLeg, TCP_leftDownLeg, backLegColor, damageColor, notWorkingColor);
         Coloring(leftStep, TCP_leftStep, backLegColor, damageColor, notWorkingColor);
+
+        if (GO_body.GetComponent<TestTorsoController>().isDistabilazed())
+        {
+            distabilizeIcon.SetActive(true);
+        }
+        else
+        {
+            distabilizeIcon.SetActive(false);
+        }
     }
 
     public void Coloring(Image part, TestCharacterPart TCP, Color ok, Color damage, Color notWorking)
