@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee5a070c8ecc4f548a70fa0113092414, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialForce: 30
+  initialForce: 40
   direction: 0
 --- !u!70 &7043129319099318536
 CapsuleCollider2D:
@@ -147,7 +147,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99542b6aa8b17144caad446ee5432464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionSoundEffect: {fileID: 3264693995686976320, guid: 201012b92fefa3e44b36698064f9b468, type: 3}
+  explosionSoundEffect: {fileID: 3264693995686976320, guid: f572936b01eef8245b58c6cd8e286cbb, type: 3}
   explosionForce: 0.1
   explosionRadius: 1
   hit_layer:
@@ -229,4 +229,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d77c8c5cd0b620a49b189e56208a9214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 0.1
