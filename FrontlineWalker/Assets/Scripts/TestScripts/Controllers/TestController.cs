@@ -76,7 +76,11 @@ public class TestController : TestMessageReceiver
         IdleFuelLoss();
         //Debug.Log(_currentFuelLevel);
 
-        if (!AbleToMove())
+        if (!torsoController.isStabilized())
+        {
+            PlayIdleMotorSound();
+        }
+        if (_currentFuelLevel == 0)
         {
             audioManager.StopAll();
         }

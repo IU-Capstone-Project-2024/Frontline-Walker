@@ -79,5 +79,13 @@ namespace Audio
 				sound.source.Stop();
 			}
 		}
+		
+		public void PauseAll()
+		{
+			foreach (var sound in sounds)
+			{
+				sound.source.Pause();
+			}
+		}
 	}
 }
