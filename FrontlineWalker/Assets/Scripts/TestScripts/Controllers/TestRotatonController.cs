@@ -54,4 +54,10 @@ public class TestRotationController : MonoBehaviour
     {
         return _currentAngle;
     }
+    
+    public void SetCurrentAngle(float newAngle)
+    {
+        _currentAngle = newAngle;
+        SetRotation();
+    }
 }

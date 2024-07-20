@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,13 @@ public class TapRotate : MonoBehaviour
     public TestRotationController rotationController;
 
     private Coroutine rotateCoroutine;
+
+    private void Start()
+    {
+        rotationController.maxAngle = maxAngle;
+        rotationController.minAngle = minAngle;
+        rotationController.rotationSpeed = rotationSpeed;
+    }
 
     private void Update()
     {
@@ -44,14 +52,15 @@ public class TapRotate : MonoBehaviour
     {
         while (true)
         {
-            float currentAngle = transform.eulerAngles.z;
-            if (currentAngle > 180) currentAngle -= 360;
-            float angle = Mathf.MoveTowardsAngle(currentAngle, targetAngle, rotationSpeed * Time.deltaTime);
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-            if (Mathf.Approximately(angle, targetAngle))
-                break;
+            float currentAngle = rotationController.GetCurrentAngle();
+            if (currentAngle < targetAngle - 0.02f) rotationController.Up();
+            if (currentAngle > targetAngle + 0.02f) rotationController.Down();
 
-            yield return null;
+            if (Mathf.Abs(targetAngle - currentAngle) <= 0.02f)
+            {
+                rotationController.SetCurrentAngle(targetAngle);
+                yield return null;    
+            }
         }
 
         rotateCoroutine = null;
