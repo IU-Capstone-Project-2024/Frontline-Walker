@@ -7,46 +7,45 @@ using UnityEngine.UIElements;
 
 public class shellsManager : MonoBehaviour
 {
-    public GameObject mainCannon;
+    public TestCannon mainCannon;
     public GameObject shellsTextGameObject;
     public RectTransform shellsSprites;
-    private TestCannon cannonScript;
     private float xZero;
-    public float speed = 5f;
+    private float _reloadTime;
+    private float speed;
 
     [SerializeField] TextMeshProUGUI shellsText;
 
     void Start()
     {
-        cannonScript = mainCannon.GetComponent<TestCannon>();
+        _reloadTime = mainCannon.reloadTime;
         Vector2 position = shellsSprites.anchoredPosition;
-        Vector2 scale = shellsSprites.sizeDelta;
         xZero = position.x - (11.5f * 5f);
+        Vector2 targetPosition = new Vector2(xZero + (23f * 6), position.y) * Time.timeScale;
+        speed = (targetPosition.magnitude - position.magnitude) / _reloadTime;
+        Debug.Log("Speed:" + speed);
+        
+        Vector2 scale = shellsSprites.sizeDelta;
         shellsSprites.sizeDelta = new Vector2(23 * 6, scale.y);
         shellsSprites.anchoredPosition = new Vector2(xZero + (11.5f * 6), position.y);
     }
 
     void Update()
     {
-        shellsText.text = "+" + (cannonScript.GetNumberOfRemainingShells() - 5).ToString();
-        if (cannonScript.GetNumberOfRemainingShells() < 6)
+        shellsText.text = "+" + (mainCannon.GetNumberOfRemainingShells() - 5).ToString();
+        if (mainCannon.GetNumberOfRemainingShells() < 6)
         {
             shellsTextGameObject.SetActive(false);
             Vector2 position = shellsSprites.anchoredPosition;
-            Vector2 targetPosition = new Vector2(xZero + (23f * (-3f + cannonScript.GetNumberOfRemainingShells())), position.y) * Time.timeScale;
+            Vector2 targetPosition = new Vector2(xZero + (23f * (-3f + mainCannon.GetNumberOfRemainingShells())), position.y) * Time.timeScale;
 
-            if (cannonScript._cannonIsFired)
+            if (!mainCannon.ReadyToFire())
             {
                 shellsSprites.anchoredPosition = Vector2.MoveTowards(shellsSprites.anchoredPosition, targetPosition, speed * Time.deltaTime);
-
-                if (shellsSprites.anchoredPosition.x <= targetPosition.x)
-                {
-                    cannonScript._cannonIsFired = false;
-                }
             }
             else
             {
-                shellsSprites.anchoredPosition = new Vector2(xZero + (23f * (-3f + cannonScript.GetNumberOfRemainingShells())), position.y);
+                shellsSprites.anchoredPosition = new Vector2(xZero + (23f * (-3f + mainCannon.GetNumberOfRemainingShells())), position.y);
             }
         }
         else
@@ -55,14 +54,9 @@ public class shellsManager : MonoBehaviour
             Vector2 position = shellsSprites.anchoredPosition;
             Vector2 targetPosition = new Vector2(xZero + (23f * 2), position.y) * Time.timeScale;
 
-            if (cannonScript._cannonIsFired)
+            if (!mainCannon.ReadyToFire())
             {
                 shellsSprites.anchoredPosition = Vector2.MoveTowards(shellsSprites.anchoredPosition, targetPosition, speed * Time.deltaTime);
-
-                if (shellsSprites.anchoredPosition.x <= targetPosition.x)
-                {
-                    cannonScript._cannonIsFired = false;
-                }
             }
             else
             {
