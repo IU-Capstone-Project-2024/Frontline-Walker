@@ -9,11 +9,17 @@ public class TestMessangeSender : MonoBehaviour
     public void SendMessage()
     {
         //Debug.Log("message sended");
-        receiver.ReceiveMessage();
+        if (receiver != null)
+        {
+            receiver.ReceiveMessage();    
+        }
     }
 
     public void SendTerminationMessage()
     {
-        receiver.ReceiveTerminationMessage();
+        if (receiver != null)
+        {
+            receiver.ReceiveTerminationMessage();    
+        }
     }
 }

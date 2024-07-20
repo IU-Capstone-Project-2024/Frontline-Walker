@@ -80,6 +80,7 @@ public class TestController : TestMessageReceiver
         }
 
         mainCannonController.SetAbleToReceiveCommands(partsObserver.mainCannon.IsWorking());
+        AAMachineGunController.SetAbleToReceiveCommands(partsObserver.AAmachineGun.IsWorking());
     }
 
     public void Right()

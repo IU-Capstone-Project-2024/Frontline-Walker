@@ -7,7 +7,8 @@ using UnityEngine.Serialization;
 
 public class TestWalkerPartsObserver : TestMessageReceiver
 {
-    [Header("Parts")]
+    [Header("Parts")] 
+    public TestCharacterPart AAmachineGun;
     public TestCharacterPart mainCannon;
     public TestCharacterPart torso;
     public TestCharacterPart upperRightLeg;
