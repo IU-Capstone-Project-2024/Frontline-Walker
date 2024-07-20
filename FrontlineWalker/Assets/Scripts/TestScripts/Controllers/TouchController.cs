@@ -25,9 +25,10 @@ public class TouchController : MonoBehaviour
     public GameObject pauseBackdrop;
     public GameObject buttonsBackdrop;
     public GameObject shellsTextGameObject;
-    public GameObject fuelTextGameObject;
     public GameObject stabilizeGameObject;
     public GameObject shootGameObject;
+    public GameObject gunGameObject;
+    public GameObject upperPanel;
 
     [SerializeField] TextMeshProUGUI aimText;
     private RadialSlider aimSliderScript;
@@ -51,10 +52,11 @@ public class TouchController : MonoBehaviour
             aimSliderWorker.SetActive(true);
             stabilizeGameObject.SetActive(true);
             shootGameObject.SetActive(true);
+            gunGameObject.SetActive(true);
             pauseBackdrop.SetActive(true);
             buttonsBackdrop.SetActive(true);
             shellsTextGameObject.SetActive(true);
-            fuelTextGameObject.SetActive(true);
+            upperPanel.SetActive(true);
 
             aimText.text = aimSliderScript.currentValue.ToString() + "°";
 
@@ -62,6 +64,11 @@ public class TouchController : MonoBehaviour
             {
                 controller.mainCannonController.Fire();
                 buttonHandler.shoot = false;
+            }
+            if (buttonHandler.gun)
+            {
+                controller.AAMachineGunController.Fire();
+                buttonHandler.gun = false;
             }
             controller.mainCannonController.SetTargetAngle(aimSliderScript.currentValue);
             if (verSlider.value >= 1)
@@ -119,10 +126,11 @@ public class TouchController : MonoBehaviour
             aimSliderWorker.SetActive(false);
             stabilizeGameObject.SetActive(false);
             shootGameObject.SetActive(false);
+            gunGameObject.SetActive(false);
             pauseBackdrop.SetActive(false);
             buttonsBackdrop.SetActive(false);
             shellsTextGameObject.SetActive(false);
-            fuelTextGameObject.SetActive(false);
+            upperPanel.SetActive(false);
             verSlider.value = 0;
             horSlider.value = 0;
             buttonHandler.shoot = false;

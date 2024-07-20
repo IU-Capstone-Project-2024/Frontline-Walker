@@ -5,7 +5,7 @@ using Audio;
 using UnityEngine;
 
 [RequireComponent(typeof(TestProjectileShooter))]
-[RequireComponent(typeof(TestRotatonController))]
+[RequireComponent(typeof(TestRotationController))]
 [RequireComponent(typeof(TestBlowbackMechanism))]
 public class TestCannon : MonoBehaviour
 {
@@ -14,8 +14,10 @@ public class TestCannon : MonoBehaviour
     public int maxShells;
     public float recoilForce;
     public TestForceReceiver forceReceiver;
+
+    public float maxAimingDelta = 0;
     
-    private TestRotatonController _rotatonController;
+    private TestRotationController _rotatonController;
     private TestProjectileShooter _projectileShooter;
     private TestBlowbackMechanism _blowbackMechanism;
 
@@ -23,6 +25,7 @@ public class TestCannon : MonoBehaviour
     private bool _readyToFire;
     private int _remainingShells;
     private float _targetAngle;
+    public bool _cannonIsFired;
     
     [Header("Sound")] 
     
@@ -33,27 +36,32 @@ public class TestCannon : MonoBehaviour
     void Start()
     {
         _projectileShooter = GetComponent<TestProjectileShooter>();
-        _rotatonController = GetComponent<TestRotatonController>();
+        _rotatonController = GetComponent<TestRotationController>();
         _blowbackMechanism = GetComponent<TestBlowbackMechanism>();
 
         _remainingShells = maxShells;
         _readyToFire = true;
         _isAbleToReceiveCommands = true;
         _aimingSoundPlay = false;
+
+        _cannonIsFired = false;
     }
     void FixedUpdate()
     {
-        if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) < _targetAngle) {
+        if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) < _targetAngle - maxAimingDelta) {
             Up();
-            PlayAimingSound();
         } else 
-        if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) > _targetAngle)
+        if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) > _targetAngle + maxAimingDelta)
         {
             Down();
-            PlayAimingSound();
+        } else if (_rotatonController.GetCurrentAngle() == _rotatonController.maxAngle ||
+                   _rotatonController.GetCurrentAngle() == _rotatonController.minAngle)
+        {
+            PauseAimingSound();
         }
         else
         {
+            _rotatonController.SetCurrentAngle(_targetAngle);
             PauseAimingSound();
         }
     }
@@ -63,6 +71,7 @@ public class TestCannon : MonoBehaviour
         if (_isAbleToReceiveCommands)
         {
             _rotatonController.Up();
+            PlayAimingSound();
         }
         
     }
@@ -72,6 +81,7 @@ public class TestCannon : MonoBehaviour
         if (_isAbleToReceiveCommands)
         {
             _rotatonController.Down();
+            PlayAimingSound();
         }
     }
 
@@ -79,6 +89,7 @@ public class TestCannon : MonoBehaviour
     {
         if (_readyToFire && _isAbleToReceiveCommands)
         {
+           _cannonIsFired = true;
            _projectileShooter.Shoot();
            forceReceiver.ReceiveForce(recoilForce, Vector2.left);
            _remainingShells--;

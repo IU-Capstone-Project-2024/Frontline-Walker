@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using UnityEngine.UI;
 
-public class TestRotatonController : MonoBehaviour
+public class TestRotationController : MonoBehaviour
 {
     public float rotationSpeed = 0.5f;
     public float maxAngle = 30;
@@ -53,5 +53,11 @@ public class TestRotatonController : MonoBehaviour
     public float GetCurrentAngle()
     {
         return _currentAngle;
+    }
+    
+    public void SetCurrentAngle(float newAngle)
+    {
+        _currentAngle = newAngle;
+        SetRotation();
     }
 }
