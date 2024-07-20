@@ -190,6 +190,7 @@ MonoBehaviour:
     m_Bits: 264
   presicionAngle: 3
   _damagePerRay: 0.01
+  showDebugLog: 0
 --- !u!114 &9222821842126845111
 MonoBehaviour:
   m_ObjectHideFlags: 0

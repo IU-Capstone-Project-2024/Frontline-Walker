@@ -31,6 +31,9 @@ public class TestCannon : MonoBehaviour
     
     public AudioManager audioManager;
 
+    public bool PerRoundReload = false;
+    public float PerRoundReloasDelay = 0;
+
     private bool _aimingSoundPlay;
     
     void Start()
@@ -96,6 +99,10 @@ public class TestCannon : MonoBehaviour
            _blowbackMechanism.Blowback();
            _readyToFire = false;
            Invoke("Reload", reloadTime);
+           if (PerRoundReload)
+           {
+               Invoke("PlayReloadSound", PerRoundReloasDelay);
+           }
         }
     }
 
@@ -105,6 +112,16 @@ public class TestCannon : MonoBehaviour
         {
             _readyToFire = true;
         }
+
+        if (PerRoundReload)
+        {
+            audioManager.Stop("reload");
+        }
+    }
+
+    public void PlayReloadSound()
+    {
+        audioManager.Play("reload");
     }
 
     public int GetNumberOfRemainingShells()
