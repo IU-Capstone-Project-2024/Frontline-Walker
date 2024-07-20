@@ -2229,7 +2229,6 @@ MonoBehaviour:
   recoilForce: 800
   forceReceiver: {fileID: 1140179353}
   maxAimingDelta: 0
-  _cannonIsFired: 0
   audioManager: {fileID: 602648286}
   PerRoundReload: 1
   PerRoundReloasDelay: 0
@@ -6026,7 +6025,6 @@ MonoBehaviour:
   recoilForce: 0
   forceReceiver: {fileID: 1140179353}
   maxAimingDelta: 1
-  _cannonIsFired: 0
   audioManager: {fileID: 1803748368}
   PerRoundReload: 0
   PerRoundReloasDelay: 0
@@ -6704,7 +6702,7 @@ PrefabInstance:
     - target: {fileID: 7014262969323979051, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: mainCannon
       value: 
-      objectReference: {fileID: 602648277}
+      objectReference: {fileID: 602648282}
     - target: {fileID: 7260452470657939186, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
