@@ -258,10 +258,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxY: 0.2
-  minY: -1.8
+  minY: -1.5
   speed: 0.5
   dropSpeed: 1.4
-  walkerTorsoBottomDropHeight: 2.1
+  walkerTorsoBottomDropHeight: 1.7
   partsObserver: {fileID: 1140179355}
   _distabilazed: 0
   _stabilazing: 0
@@ -4384,7 +4384,7 @@ GameObject:
   - component: {fileID: 1210667447}
   - component: {fileID: 1210667448}
   - component: {fileID: 1210667449}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FuelTank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
