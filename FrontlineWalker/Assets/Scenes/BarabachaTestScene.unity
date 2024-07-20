@@ -7257,6 +7257,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4466934937223160337, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: pushPos
+      value: -249
+      objectReference: {fileID: 0}
     - target: {fileID: 5562663535525780869, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_Name
       value: HUD Canvas
@@ -7269,6 +7273,22 @@ PrefabInstance:
       propertyPath: mainCannon
       value: 
       objectReference: {fileID: 602648282}
+    - target: {fileID: 7315635219181491243, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341050683785688948, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 156.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341050683785688948, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 57.1425
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341050683785688948, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -249
+      objectReference: {fileID: 0}
     - target: {fileID: 7494220940979491930, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
