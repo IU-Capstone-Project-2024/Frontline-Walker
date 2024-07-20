@@ -10,6 +10,9 @@ public class shellsManager : MonoBehaviour
     public TestCannon mainCannon;
     public GameObject shellsTextGameObject;
     public RectTransform shellsSprites;
+    [Range(0, 1000)]
+    //public int numberOfShells = 6;
+    //public float shellWidth = 23;
     private float xZero;
     private float _reloadTime;
     private float speed;
@@ -20,7 +23,7 @@ public class shellsManager : MonoBehaviour
     {
         _reloadTime = mainCannon.reloadTime;
         Vector2 position = shellsSprites.anchoredPosition;
-        xZero = position.x - (11.5f * 5f);
+        xZero = position.x - (11.5f * 6f);
         Vector2 targetPosition = new Vector2(xZero + (23f * 6), position.y) * Time.timeScale;
         speed = (targetPosition.magnitude - position.magnitude) / _reloadTime;
         Debug.Log("Speed:" + speed);
