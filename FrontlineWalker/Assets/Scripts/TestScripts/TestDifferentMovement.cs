@@ -89,7 +89,14 @@ public class TestDifferentMovement : MonoBehaviour
 
     void MoveRandomly()
     {
-        
+        _timer += Time.deltaTime;
+        if (_timer > 1)
+        {
+            _timer = 0;
+            var newRot = Quaternion.Euler(new Vector3(0, 0, UnityEngine.Random.Range(-45, 45)));
+            transform.rotation = newRot;
+        }
+        transform.Translate(speed * Time.deltaTime * transform.right);
     }
 
 }
