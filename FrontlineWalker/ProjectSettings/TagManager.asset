@@ -38,24 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Right3
+  - name: Left3
     uniqueID: 2316021669
     locked: 0
-  - name: Right2
+  - name: Left2
     uniqueID: 3208421225
     locked: 0
-  - name: Right1
+  - name: Left1
     uniqueID: 2484539427
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Left1
+  - name: Right1
     uniqueID: 35937697
     locked: 0
-  - name: Left2
+  - name: Right2
     uniqueID: 3919231127
     locked: 0
-  - name: Left3
+  - name: Right3
     uniqueID: 3034027337
     locked: 0
