@@ -9,10 +9,11 @@ public class TapRotate : MonoBehaviour
     public TestCannon testCannon;
 
     private float _targetAngle;
+    public bool activation;
 
     private void FixedUpdate()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (activation)
         {
             Vector3 tapPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             tapPosition.z = 0;
@@ -25,6 +26,16 @@ public class TapRotate : MonoBehaviour
                 testCannon.SetTargetAngle(_targetAngle);
             }
         }
+    }
+
+    public void PointerDown()
+    {
+        activation = true;
+    }
+
+    public void PointerUp()
+    {
+        activation = false;
     }
 
     private bool IsTapWithinUIArea(Vector2 tapPosition)

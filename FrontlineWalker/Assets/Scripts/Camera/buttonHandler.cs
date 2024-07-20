@@ -30,4 +30,9 @@ public class buttonHandler : MonoBehaviour
     {
         stabilize = true;
     }
+
+    public void PointerUp()
+    {
+        gun = false;
+    }
 }
