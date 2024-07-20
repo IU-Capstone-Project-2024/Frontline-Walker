@@ -5840,6 +5840,14 @@ PrefabInstance:
       propertyPath: fuelObject
       value: 
       objectReference: {fileID: 1140179342}
+    - target: {fileID: 934153562051862443, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -230
+      objectReference: {fileID: 0}
+    - target: {fileID: 934153562051862443, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 230
+      objectReference: {fileID: 0}
     - target: {fileID: 2214807284659423854, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: cameraObject
       value: 
@@ -5858,7 +5866,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4456117802994318434, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -265
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372538629872158397, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 5562663535525780869, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_Name
@@ -5963,6 +5975,14 @@ PrefabInstance:
     - target: {fileID: 7494220940979491930, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521750411639387417, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 230
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521750411639387417, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 230
       objectReference: {fileID: 0}
     - target: {fileID: 8881029429973246758, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: GO_body
