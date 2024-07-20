@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class walkerGunRotate : MonoBehaviour
+public class TapRotate : MonoBehaviour
 {
     public float rotationSpeed = 5f;
     public float minAngle = -45f;
     public float maxAngle = 45f;
     public TestTransformCollections uiArea;
+    public TestRotationController rotationController;
 
     private Coroutine rotateCoroutine;
 

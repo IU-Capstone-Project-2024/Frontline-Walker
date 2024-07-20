@@ -5,7 +5,7 @@ using Audio;
 using UnityEngine;
 
 [RequireComponent(typeof(TestProjectileShooter))]
-[RequireComponent(typeof(TestRotatonController))]
+[RequireComponent(typeof(TestRotationController))]
 [RequireComponent(typeof(TestBlowbackMechanism))]
 public class TestCannon : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class TestCannon : MonoBehaviour
     public float recoilForce;
     public TestForceReceiver forceReceiver;
     
-    private TestRotatonController _rotatonController;
+    private TestRotationController _rotatonController;
     private TestProjectileShooter _projectileShooter;
     private TestBlowbackMechanism _blowbackMechanism;
 
@@ -34,7 +34,7 @@ public class TestCannon : MonoBehaviour
     void Start()
     {
         _projectileShooter = GetComponent<TestProjectileShooter>();
-        _rotatonController = GetComponent<TestRotatonController>();
+        _rotatonController = GetComponent<TestRotationController>();
         _blowbackMechanism = GetComponent<TestBlowbackMechanism>();
 
         _remainingShells = maxShells;
