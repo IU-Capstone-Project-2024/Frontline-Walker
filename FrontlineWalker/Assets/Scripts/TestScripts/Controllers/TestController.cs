@@ -12,6 +12,7 @@ public class TestController : TestMessageReceiver
     public TestProceduralWalkerAnimation proceduralWalkerAnimation;
     public TestTorsoController torsoController;
     public TestCannon mainCannonController;
+    public TestCannon AAMachineGunController;
     public TestWalkerPartsObserver partsObserver;
     
     [Header("Speed")]

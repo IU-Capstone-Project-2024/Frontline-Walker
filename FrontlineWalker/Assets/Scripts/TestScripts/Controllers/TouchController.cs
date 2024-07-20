@@ -67,7 +67,7 @@ public class TouchController : MonoBehaviour
             }
             if (buttonHandler.gun)
             {
-                //controller.mainCannonController.Gun();
+                controller.AAMachineGunController.Fire();
                 buttonHandler.gun = false;
             }
             controller.mainCannonController.SetTargetAngle(aimSliderScript.currentValue);

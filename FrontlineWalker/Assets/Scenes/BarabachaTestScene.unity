@@ -558,6 +558,8 @@ GameObject:
   m_Component:
   - component: {fileID: 72266553}
   - component: {fileID: 72266554}
+  - component: {fileID: 72266556}
+  - component: {fileID: 72266555}
   m_Layer: 0
   m_Name: GunSprite
   m_TagString: Untagged
@@ -632,6 +634,124 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &72266555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72266552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d46fea3b1849d84984eea1dc6a6fd0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 0}
+  sounds:
+  - name: fire
+    clip: {fileID: 8300000, guid: eb6f4d5396686dc4e8ef0d22bc4d53a3, type: 3}
+    volume: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+--- !u!82 &72266556
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72266552}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &74075687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,13 +1916,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473892470}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.70710576, w: 0.70710784}
   m_LocalPosition: {x: 0.626, y: 0.031, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1803748367}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &481332704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1962,7 +2082,7 @@ MonoBehaviour:
   _useInitialVelocity: 0
   _shootingPoint: {fileID: 382056597}
   _rigidbody: {fileID: 1140179347}
-  soundEffect: {fileID: 3264693995686976320, guid: e05fbb16ce525fd408f4cff4efe1a25d, type: 3}
+  audioManager: {fileID: 790405734}
 --- !u!114 &602648282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1979,6 +2099,7 @@ MonoBehaviour:
   maxShells: 20
   recoilForce: 800
   forceReceiver: {fileID: 1140179353}
+  maxAimingDelta: 0
   _cannonIsFired: 0
   audioManager: {fileID: 602648286}
 --- !u!114 &602648283
@@ -2183,7 +2304,7 @@ MonoBehaviour:
   _useInitialVelocity: 0
   _shootingPoint: {fileID: 1974527545}
   _rigidbody: {fileID: 0}
-  soundEffect: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!4 &643644207
 Transform:
   m_ObjectHideFlags: 0
@@ -2597,6 +2718,8 @@ GameObject:
   m_Component:
   - component: {fileID: 790405732}
   - component: {fileID: 790405733}
+  - component: {fileID: 790405735}
+  - component: {fileID: 790405734}
   m_Layer: 10
   m_Name: MainCannon
   m_TagString: Untagged
@@ -2671,6 +2794,124 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &790405734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790405731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d46fea3b1849d84984eea1dc6a6fd0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 0}
+  sounds:
+  - name: fire
+    clip: {fileID: 8300000, guid: bae85a357ba19c344a9aa335dbd33ac1, type: 3}
+    volume: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+--- !u!82 &790405735
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790405731}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &893495635
 GameObject:
   m_ObjectHideFlags: 0
@@ -3345,6 +3586,7 @@ MonoBehaviour:
   proceduralWalkerAnimation: {fileID: 16552635}
   torsoController: {fileID: 16552636}
   mainCannonController: {fileID: 602648282}
+  AAMachineGunController: {fileID: 1803748370}
   partsObserver: {fileID: 1140179355}
   forward_speed: 2
   backward_speed: 1
@@ -4146,6 +4388,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1478564948 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 552648142687562430, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+  m_PrefabInstance: {fileID: 2023045626}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838b88c126cf1f84baa4290abe0d78f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1503296314
@@ -5474,6 +5727,7 @@ GameObject:
   - component: {fileID: 1803748370}
   - component: {fileID: 1803748369}
   - component: {fileID: 1803748368}
+  - component: {fileID: 1803748378}
   m_Layer: 10
   m_Name: AntiAirCannon
   m_TagString: Untagged
@@ -5511,7 +5765,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixerGroup: {fileID: 0}
-  sounds: []
+  sounds:
+  - name: aiming
+    clip: {fileID: 8300000, guid: 699b15dee4eb81d49a9e6e511d3661eb, type: 3}
+    volume: 0.7
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!82 &1803748369
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5624,6 +5886,7 @@ MonoBehaviour:
   maxShells: 100
   recoilForce: 0
   forceReceiver: {fileID: 1140179353}
+  maxAimingDelta: 1
   _cannonIsFired: 0
   audioManager: {fileID: 1803748368}
 --- !u!114 &1803748371
@@ -5653,9 +5916,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c78a97da1403704fbbd2f06e309708b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 0.5
-  maxAngle: 30
-  minAngle: -30
+  rotationSpeed: 20
+  maxAngle: 180
+  minAngle: -45
 --- !u!114 &1803748373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5672,7 +5935,7 @@ MonoBehaviour:
   _useInitialVelocity: 0
   _shootingPoint: {fileID: 473892471}
   _rigidbody: {fileID: 1140179347}
-  soundEffect: {fileID: 0}
+  audioManager: {fileID: 72266555}
 --- !u!114 &1803748374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5762,10 +6025,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7993c11f0f457c749bf2d29a0580a164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 100
-  minAngle: -45
-  maxAngle: 180
-  uiArea: {fileID: 0}
+  uiArea: {fileID: 1478564948}
+  testCannon: {fileID: 1803748370}
+--- !u!114 &1803748378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803748366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d45869d7e652a4485e75f753591d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flipAngle: 90
+  unflipAngle: 270
+  spriteRenderer: {fileID: 72266554}
+  initialFlipY: 0
 --- !u!1 &1820026540 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7024971815063986785, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
@@ -6994,7 +7271,7 @@ MonoBehaviour:
   _useInitialVelocity: 0
   _shootingPoint: {fileID: 1394257296}
   _rigidbody: {fileID: 0}
-  soundEffect: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &7749494116472343313
 MonoBehaviour:
   m_ObjectHideFlags: 0

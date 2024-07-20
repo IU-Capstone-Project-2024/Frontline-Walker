@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -13,14 +14,13 @@ public class TestProjectileShooter : MonoBehaviour
     [SerializeField] private Transform _shootingPoint;
     [SerializeField] private Rigidbody2D _rigidbody;
 
-    [Header("Sound")] public GameObject soundEffect;
+    [Header("Sound")] public AudioManager audioManager;
     
     public void Shoot()
     {
-        if (soundEffect != null)
+        if (audioManager != null)
         {
-            GameObject sound = Instantiate(soundEffect, transform.position, Quaternion.identity); 
-            sound.transform.SetParent(gameObject.transform);
+            audioManager.Play("fire");
         }
         
         Projectile newProjectile = Instantiate(_usedProjectile, _shootingPoint.position, _shootingPoint.rotation);

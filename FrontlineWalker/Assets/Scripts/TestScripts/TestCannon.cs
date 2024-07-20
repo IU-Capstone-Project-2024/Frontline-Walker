@@ -14,6 +14,8 @@ public class TestCannon : MonoBehaviour
     public int maxShells;
     public float recoilForce;
     public TestForceReceiver forceReceiver;
+
+    public float maxAimingDelta = 0;
     
     private TestRotationController _rotatonController;
     private TestProjectileShooter _projectileShooter;
@@ -46,15 +48,20 @@ public class TestCannon : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) < _targetAngle) {
+        if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) < _targetAngle - maxAimingDelta) {
             Up();
         } else 
-        if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) > _targetAngle)
+        if (Mathf.RoundToInt(_rotatonController.GetCurrentAngle()) > _targetAngle + maxAimingDelta)
         {
             Down();
+        } else if (_rotatonController.GetCurrentAngle() == _rotatonController.maxAngle ||
+                   _rotatonController.GetCurrentAngle() == _rotatonController.minAngle)
+        {
+            PauseAimingSound();
         }
         else
         {
+            _rotatonController.SetCurrentAngle(_targetAngle);
             PauseAimingSound();
         }
     }

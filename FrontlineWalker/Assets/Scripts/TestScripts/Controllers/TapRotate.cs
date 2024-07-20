@@ -5,22 +5,12 @@ using UnityEngine;
 
 public class TapRotate : MonoBehaviour
 {
-    public float rotationSpeed = 5f;
-    public float minAngle = -45f;
-    public float maxAngle = 45f;
     public TestTransformCollections uiArea;
-    public TestRotationController rotationController;
+    public TestCannon testCannon;
 
-    private Coroutine rotateCoroutine;
+    private float _targetAngle;
 
-    private void Start()
-    {
-        rotationController.maxAngle = maxAngle;
-        rotationController.minAngle = minAngle;
-        rotationController.rotationSpeed = rotationSpeed;
-    }
-
-    private void Update()
+    private void FixedUpdate()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -30,15 +20,9 @@ public class TapRotate : MonoBehaviour
             if (IsTapWithinUIArea(Input.mousePosition))
             {
                 Vector3 direction = tapPosition - transform.position;
-                float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                targetAngle = Mathf.Clamp(targetAngle, minAngle, maxAngle);
+                _targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-                if (rotateCoroutine != null)
-                {
-                    StopCoroutine(rotateCoroutine);
-                }
-
-                rotateCoroutine = StartCoroutine(RotateToAngle(targetAngle));
+                testCannon.SetTargetAngle(_targetAngle);
             }
         }
     }
@@ -46,23 +30,5 @@ public class TapRotate : MonoBehaviour
     private bool IsTapWithinUIArea(Vector2 tapPosition)
     {
         return uiArea.Contains(tapPosition);
-    }
-
-    private IEnumerator RotateToAngle(float targetAngle)
-    {
-        while (true)
-        {
-            float currentAngle = rotationController.GetCurrentAngle();
-            if (currentAngle < targetAngle - 0.02f) rotationController.Up();
-            if (currentAngle > targetAngle + 0.02f) rotationController.Down();
-
-            if (Mathf.Abs(targetAngle - currentAngle) <= 0.02f)
-            {
-                rotationController.SetCurrentAngle(targetAngle);
-                yield return null;    
-            }
-        }
-
-        rotateCoroutine = null;
     }
 }
