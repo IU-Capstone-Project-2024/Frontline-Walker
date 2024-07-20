@@ -27,8 +27,8 @@ public class volumeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        musicVolume = RS_musicVolume.currentValue * 100 / 180;
-        soundVolume = RS_soundVolume.currentValue * 100 / 180;
-        masterVolume = RS_masterVolume.currentValue * 100 / 180;
+        musicVolume = (180 - RS_musicVolume.currentValue) * 100 / 180;
+        soundVolume = (180 - RS_soundVolume.currentValue) * 100 / 180;
+        masterVolume = (180 - RS_masterVolume.currentValue) * 100 / 180;
     }
 }

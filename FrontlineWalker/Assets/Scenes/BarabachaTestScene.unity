@@ -692,6 +692,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1059692650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &85614558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8693222983600856466, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+  m_PrefabInstance: {fileID: 2023045626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &92998769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2026,11 +2031,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &619016325 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7440856717339966565, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-  m_PrefabInstance: {fileID: 2023045626}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &643644205
 GameObject:
   m_ObjectHideFlags: 0
@@ -2214,11 +2214,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &654501084 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2346277618215971059, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-  m_PrefabInstance: {fileID: 2023045626}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &663580188 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8633919491876824646, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
@@ -3174,9 +3169,9 @@ MonoBehaviour:
   musicVolume: 0
   soundVolume: 0
   masterVolume: 0
-  GA_musicVolume: {fileID: 654501084}
-  GA_soundVolume: {fileID: 1227342840}
-  GA_masterVolume: {fileID: 619016325}
+  GA_musicVolume: {fileID: 85614558}
+  GA_soundVolume: {fileID: 2071419230}
+  GA_masterVolume: {fileID: 1794222433}
 --- !u!1 &1140179342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3670,11 +3665,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15}
---- !u!1 &1227342840 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8971981793312088358, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-  m_PrefabInstance: {fileID: 2023045626}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1296859555 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8431915997548890082, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
@@ -5215,6 +5205,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1794222433 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 441763311938352952, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+  m_PrefabInstance: {fileID: 2023045626}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1794259855
 GameObject:
   m_ObjectHideFlags: 0
@@ -5861,6 +5856,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4456117802994318434, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -265
+      objectReference: {fileID: 0}
     - target: {fileID: 5562663535525780869, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_Name
       value: HUD Canvas
@@ -6041,6 +6040,11 @@ Transform:
 --- !u!1 &2050289504 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8616786505728918460, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+  m_PrefabInstance: {fileID: 2023045626}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2071419230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2810915184981154608, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
   m_PrefabInstance: {fileID: 2023045626}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2142242907
