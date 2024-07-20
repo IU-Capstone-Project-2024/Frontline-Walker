@@ -11,6 +11,7 @@ public class TestWalkerPartsObserver : TestMessageReceiver
     public TestCharacterPart AAmachineGun;
     public TestCharacterPart mainCannon;
     public TestCharacterPart torso;
+    public TestCharacterPart fuelTank;
     public TestCharacterPart upperRightLeg;
     public TestCharacterPart upperLeftLeg;
     public TestCharacterPart lowerRightLeg;
@@ -39,6 +40,9 @@ public class TestWalkerPartsObserver : TestMessageReceiver
     public float maxFrictionPenalty;
     [Range(0,1)] 
     public float footFrictionPenalty;
+
+    [Header("Fuel loss multiplier")] [Range(1, 100)]
+    public float fuelLossMultiplier;
 
     [Header("Message receivers")] 
     public TestMessageReceiver controller;
@@ -114,6 +118,11 @@ public class TestWalkerPartsObserver : TestMessageReceiver
     public float GetCurrentFrictionPenalty()
     {
         return _currentFrictionPenalty;
+    }
+
+    public float GetFuelLossMultiplier()
+    {
+        return fuelLossMultiplier;
     }
     
     public override void ReceiveMessage()

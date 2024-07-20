@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Audio;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -27,7 +28,8 @@ public class TestController : TestMessageReceiver
     public float tankCapacity = 100;
     public float idleFuelLoss = 0.1f;
     public float fuelLossPerForceUnit = 0.1f;
-
+    private float fuelLossMultiplier = 1f;
+    
     private float _currentFuelLevel;
     
     private float _current_y;
@@ -119,13 +121,13 @@ public class TestController : TestMessageReceiver
 
     private void IdleFuelLoss()
     {
-        _currentFuelLevel -= idleFuelLoss * Time.deltaTime;
+        _currentFuelLevel -= idleFuelLoss * fuelLossMultiplier * Time.deltaTime;
         ClampFuel();
     }
 
     private void FuelLossPerForceUnit(float _force)
     {
-        _currentFuelLevel -= fuelLossPerForceUnit * _force * Time.deltaTime;
+        _currentFuelLevel -= fuelLossPerForceUnit * _force * fuelLossMultiplier * Time.deltaTime;
         ClampFuel();
     }
 
@@ -162,6 +164,7 @@ public class TestController : TestMessageReceiver
         Debug.Log("Controller received message");
         _movementPenalty = partsObserver.GetCurrentMovementPenalty();
         _frictionPenalty = partsObserver.GetCurrentFrictionPenalty();
+        fuelLossMultiplier = partsObserver.GetFuelLossMultiplier();
 
         _material.friction = initialFriction - _frictionPenalty;
     }

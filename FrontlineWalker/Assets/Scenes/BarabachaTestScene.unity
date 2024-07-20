@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxY: 0.2
-  minY: -1.7
+  minY: -1.8
   speed: 0.5
   dropSpeed: 1.4
   walkerTorsoBottomDropHeight: 2.1
@@ -1361,7 +1361,7 @@ Transform:
   m_GameObject: {fileID: 221502708}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.71, y: -2.56, z: 0}
+  m_LocalPosition: {x: -42.46, y: -2.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4117,6 +4117,7 @@ MonoBehaviour:
   AAmachineGun: {fileID: 1803748375}
   mainCannon: {fileID: 602648284}
   torso: {fileID: 16552638}
+  fuelTank: {fileID: 1210667447}
   upperRightLeg: {fileID: 74075690}
   upperLeftLeg: {fileID: 1999480725}
   lowerRightLeg: {fileID: 144286801}
@@ -4131,6 +4132,7 @@ MonoBehaviour:
   lowerLegTorsoMovementPenalty: 0.45
   maxFrictionPenalty: 0.9
   footFrictionPenalty: 0.45
+  fuelLossMultiplier: 2
   controller: {fileID: 1140179346}
   torsoController: {fileID: 16552636}
   showDebugLog: 1
@@ -4379,6 +4381,9 @@ GameObject:
   - component: {fileID: 1210667446}
   - component: {fileID: 1210667445}
   - component: {fileID: 1210667444}
+  - component: {fileID: 1210667447}
+  - component: {fileID: 1210667448}
+  - component: {fileID: 1210667449}
   m_Layer: 0
   m_Name: FuelTank
   m_TagString: Untagged
@@ -4491,12 +4496,60 @@ Transform:
   m_GameObject: {fileID: 1210667443}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.662, y: -0.962, z: 0}
+  m_LocalPosition: {x: -0.662, y: -1, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 16552632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1210667447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210667443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20304dba714c4c44885287a2e4ec8422, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Fuel tank
+  maxHealth: 1
+  isCritical: 0
+  messanger: {fileID: 1210667448}
+  alwaysSendMessage: 1
+  showDebugLog: 1
+  _isWorking: 0
+--- !u!114 &1210667448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210667443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e61627318fbbb46b9dc2fefb84b595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 1140179355}
+--- !u!114 &1210667449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1210667443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886c9c0e8f86ffe4c8903cd3d21d6321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appliedDamage: 1
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1344133777
 GameObject:
   m_ObjectHideFlags: 0
@@ -4717,7 +4770,7 @@ Transform:
   m_GameObject: {fileID: 1358975564}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.96, y: -3.81, z: 0}
+  m_LocalPosition: {x: -41.71, y: -3.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4990,7 +5043,7 @@ Transform:
   m_GameObject: {fileID: 1503296314}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.46, y: -3.81, z: 0}
+  m_LocalPosition: {x: -43.21, y: -3.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
