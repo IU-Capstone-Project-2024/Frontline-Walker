@@ -4114,6 +4114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca2c7fd074a6231498a7d7d34b518a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AAmachineGun: {fileID: 1803748375}
   mainCannon: {fileID: 602648284}
   torso: {fileID: 16552638}
   upperRightLeg: {fileID: 74075690}
