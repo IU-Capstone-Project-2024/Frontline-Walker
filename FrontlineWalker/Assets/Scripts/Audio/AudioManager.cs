@@ -17,7 +17,10 @@ namespace Audio
 		{
 			foreach (Sound s in sounds)
 			{
-				s.source = gameObject.GetComponent<AudioSource>();
+				if (s.source == null)
+				{
+					s.source = gameObject.GetComponent<AudioSource>();
+				}
 				s.source.volume = s.volume;
 				s.source.clip = s.clip;
 				s.source.loop = s.loop;
