@@ -234,13 +234,15 @@ MonoBehaviour:
   - {fileID: 108298360}
   - {fileID: 2048642224}
   foots_rotation_speed: 20
-  stepSize: 1.4
+  initialStepSize: 2
   step_smoothness: 20
   stepHeight: 0.75
   bodyOrientation: 0
   torsoController: {fileID: 16552636}
   shakeHeight: 0.02
   shakeTorso: 1
+  torsoBalanceDelta: 0.3
+  considerTorsoBalance: 1
   raycastRange: 2
   layerMask:
     serializedVersion: 2
@@ -258,7 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxY: 0.3
-  minY: -1.4
+  minY: -1.1
   speed: 0.5
   dropSpeed: 1.4
   walkerTorsoBottomDropHeight: 1.7
@@ -1335,7 +1337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 243864386}
   - component: {fileID: 243864387}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3318,7 +3320,7 @@ GameObject:
   - component: {fileID: 897907673}
   - component: {fileID: 897907672}
   - component: {fileID: 897907674}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Backgroundlayer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4908,7 +4910,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1277631244}
   - component: {fileID: 1277631245}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5571,7 +5573,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1437267418}
   - component: {fileID: 1437267419}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

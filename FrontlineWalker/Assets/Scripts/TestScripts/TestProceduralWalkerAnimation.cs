@@ -10,7 +10,8 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     public GameObject[] foots;
     public Transform[] legTargets;
     public float foots_rotation_speed = 5f; 
-    public float stepSize = 1.3f;
+    public float initialStepSize = 1.3f;
+    private float stepSize; 
     public int step_smoothness = 20;
     public float stepHeight = 0.5f;
     public bool bodyOrientation = true;
@@ -18,6 +19,8 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     public TestTorsoController torsoController;
     public float shakeHeight = 0.01f;
     public bool shakeTorso = true;
+    public float torsoBalanceDelta = 0.3f;
+    public bool considerTorsoBalance = true;
 
     [Header("Calculations")]
     public float raycastRange = 1.5f;
@@ -26,7 +29,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     private Vector2[] _defaultLegPositions;
     private Vector2[] _lastLegPositions;
     private Vector2[] _lastLocalLegTargetPositions;
-    private Vector2[] _foots_normals;
+    private Vector2[] _footsNormals;
     private Vector2 _lastBodyUp;
     private bool _stepCooled;
     private int _nbLegs;
@@ -35,7 +38,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     private Vector2 _lastVelocity;
     private Vector2 _lastBodyPos;
 
-    private float _velocityMultiplier = 7f;
+    private float _velocityMultiplier = 14f;
 
     private bool _animate;
 
@@ -68,10 +71,10 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
             foots = Array.Empty<GameObject>();
         }
 
-        _foots_normals = new Vector2[foots.Length];
-        for (int i = 0; i < _foots_normals.Length; i++) 
+        _footsNormals = new Vector2[foots.Length];
+        for (int i = 0; i < _footsNormals.Length; i++) 
         {
-            _foots_normals[i] = new Vector2(0, 1);
+            _footsNormals[i] = new Vector2(0, 1);
         }
         
         _lastBodyUp = transform.up;
@@ -87,6 +90,8 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
             _lastLegPositions[i] = legTargets[i].position;
         }
         _lastBodyPos = transform.position;
+
+        stepSize = initialStepSize;
     }
 
     IEnumerator PerformStep(int index, Vector3 targetPoint)
@@ -115,6 +120,8 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
 
     void FixedUpdate()
     {
+        stepSize = initialStepSize * (1.7f - torsoController.GetCurrentYRatio());
+        
         if (_animate)
         {
             _velocity = (Vector2) transform.position - _lastBodyPos;
@@ -139,13 +146,50 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
                     indexToMove = i;
                 }
             }
+
+            if (considerTorsoBalance)
+            {
+                var max = float.MinValue;
+                var min = float.MaxValue;
+                var minIndex = -1;
+                var maxIndex = -1;
+                for (int i = 0; i < _nbLegs; ++i)
+                {
+                    var positionX = foots[i].transform.position.x; 
+                    if (positionX < min)
+                    {
+                        min = positionX;
+                        minIndex = i;
+                    }
+                
+                    if (positionX > max)
+                    {
+                        max = positionX;
+                        maxIndex = i;
+                    }
+                }
+                            
+                if (transform.position.x < min - torsoBalanceDelta || transform.position.x > max + torsoBalanceDelta)
+                {
+                    if (_velocity.x > 0)
+                    {
+                        indexToMove = minIndex;
+                    }
+                    else
+                    {
+                        indexToMove = maxIndex;
+                    }
+                }
+            }
+            
+            
             for (int i = 0; i < _nbLegs; ++i)
                 if (i != indexToMove)
                     legTargets[i].position = _lastLegPositions[i];
                     
             if (indexToMove != -1 && _stepCooled)
             {
-                Vector2 targetPoint = desiredPositions[indexToMove] + Mathf.Clamp(_velocity.magnitude * _velocityMultiplier, 0.0f, 1.5f) * (desiredPositions[indexToMove] - 
+                Vector2 targetPoint = desiredPositions[indexToMove] + Mathf.Clamp(_velocity.magnitude * _velocityMultiplier, 0.0f, stepSize) * (desiredPositions[indexToMove] - 
                     (Vector2)legTargets[indexToMove].position) + _velocity * _velocityMultiplier;
             
                 Vector2[] positionAndNormalFwd = MatchToSurfaceFromAbove(targetPoint + _velocity * _velocityMultiplier, raycastRange, 
@@ -159,12 +203,12 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
                 if (positionAndNormalFwd[1] == Vector2.zero)
                 {
                     StartCoroutine(PerformStep(indexToMove, positionAndNormalBwd[0]));
-                    _foots_normals[indexToMove] = positionAndNormalBwd[1];
+                    _footsNormals[indexToMove] = positionAndNormalBwd[1];
                 }
                 else
                 {
                     StartCoroutine(PerformStep(indexToMove, positionAndNormalFwd[0]));
-                    _foots_normals[indexToMove] = positionAndNormalFwd[1];
+                    _footsNormals[indexToMove] = positionAndNormalFwd[1];
                 }
             }
                     
@@ -196,15 +240,15 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
                 legTargets[i].position = point;
                 _lastLegPositions[i] = point;
 
-                _foots_normals[i].x = hit.normal.x;
-                _foots_normals[i].y = hit.normal.y;
+                _footsNormals[i].x = hit.normal.x;
+                _footsNormals[i].y = hit.normal.y;
             }
         }
         
         //rotating foot
         for (int i = 0; i < foots.Length; i++)
         {
-            var _forward = new Vector2(_foots_normals[i].y, -_foots_normals[i].x);
+            var _forward = new Vector2(_footsNormals[i].y, -_footsNormals[i].x);
             var _new_z = -Vector2.SignedAngle(_forward, new Vector2(1,0));
             var target_rotation = Quaternion.Euler(0,0, _new_z);
             foots[i].transform.rotation = Quaternion.Lerp(foots[i].transform.rotation, target_rotation, foots_rotation_speed * Time.deltaTime);
