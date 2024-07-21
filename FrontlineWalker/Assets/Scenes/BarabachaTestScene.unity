@@ -7717,6 +7717,10 @@ PrefabInstance:
       propertyPath: fuelObject
       value: 
       objectReference: {fileID: 1140179342}
+    - target: {fileID: 2082332815828632674, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_text
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2214807284659423854, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: cameraObject
       value: 
@@ -7745,6 +7749,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4143639568552984371, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 5379716493091149266, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 140
+      objectReference: {fileID: 0}
     - target: {fileID: 5490234814308570375, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: cameraObject
       value: 
@@ -7753,13 +7765,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 5697433256497142394, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: cameraObject
-      value: 
-      objectReference: {fileID: 1547253694466316769}
-    - target: {fileID: 6430312647499199619, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+    - target: {fileID: 6275651075814414673, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: m_text
+      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 7014262969323979051, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: mainCannon
@@ -7850,33 +7858,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1803748370}
     - target: {fileID: 8072919569676070541, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8072919569676070541, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8072919569676070541, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1113740530}
-    - target: {fileID: 8072919569676070541, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8072919569676070541, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReceiveTerminationMessage
-      objectReference: {fileID: 0}
-    - target: {fileID: 8072919569676070541, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8072919569676070541, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 8670913119977178525, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7886,9 +7870,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1803748377}
     - target: {fileID: 8881029429973246758, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: GO_gun
+      value: 
+      objectReference: {fileID: 1803748366}
+    - target: {fileID: 8881029429973246758, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: GO_body
       value: 
       objectReference: {fileID: 16552631}
+    - target: {fileID: 8881029429973246758, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: GO_fuel
+      value: 
+      objectReference: {fileID: 1210667443}
     - target: {fileID: 8881029429973246758, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: GO_cannon
       value: 
@@ -7918,8 +7910,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 144286798}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 7586736570727285724, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
