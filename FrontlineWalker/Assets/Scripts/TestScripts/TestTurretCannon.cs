@@ -57,7 +57,7 @@ public class TestTurretCannon : TestMessageReceiver
             cannon.AddComponent(typeof(Rigidbody2D));
             cannon.GetComponent<Rigidbody2D>().AddForce(Vector2.up + Random.Range(-0.5f, 0.5f) * Vector2.right, ForceMode2D.Impulse);
             
-            Instantiate(visualEffect, turningPoint.position + new Vector3(0,0,1), Quaternion.Euler(new Vector3(-90, 0, 0)));
+            Instantiate(visualEffect, turningPoint.position + new Vector3(0,0,1), Quaternion.Euler(new Vector3(0, 0, 0)));
         }
     }
 }

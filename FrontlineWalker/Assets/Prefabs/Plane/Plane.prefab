@@ -44,6 +44,7 @@ Transform:
   m_Children:
   - {fileID: 7587336391360448293}
   - {fileID: 8684211863598110334}
+  - {fileID: 2436019098781006542}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 245.736}
 --- !u!212 &3960991623716007405
@@ -350,6 +351,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ef5c56566efe741911763c94618805, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageReceiver: {fileID: 0}
+  fireEffect: {fileID: 8072964949216817133, guid: bcc71ede939d50748929853f55a345ba, type: 3}
+  fireEffectTransform: {fileID: 2436019098781006542}
 --- !u!114 &999061708283316506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,6 +534,37 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.26}
   m_Size: {x: 10.73, y: 1.89}
   m_Direction: 1
+--- !u!1 &5497312893736072104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2436019098781006542}
+  m_Layer: 0
+  m_Name: ParticleSystemPlace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2436019098781006542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5497312893736072104}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.57, y: -0.28, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6577850376351726679}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4496237734575379107
 PrefabInstance:
   m_ObjectHideFlags: 0
