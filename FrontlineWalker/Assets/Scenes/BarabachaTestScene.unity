@@ -234,7 +234,7 @@ MonoBehaviour:
   - {fileID: 108298360}
   - {fileID: 2048642224}
   foots_rotation_speed: 20
-  initialStepSize: 2
+  initialStepSize: 2.2
   step_smoothness: 20
   stepHeight: 0.75
   bodyOrientation: 0
