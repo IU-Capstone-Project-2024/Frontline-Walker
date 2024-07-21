@@ -15,12 +15,24 @@ public class TestProjectileShooter : MonoBehaviour
     [SerializeField] private Rigidbody2D _rigidbody;
 
     [Header("Sound")] public AudioManager audioManager;
+    [Header("VisualEffect")] public GameObject visualEffect;
+    public Vector3 rotation;
+    public float size;
+    public float lifetime;
     
     public void Shoot()
     {
         if (audioManager != null)
         {
             audioManager.Play("fire");
+        }
+
+        if (visualEffect != null)
+        {
+            var effect = Instantiate(visualEffect, _shootingPoint.position, Quaternion.Euler(rotation));
+            effect.gameObject.transform.parent = gameObject.transform;
+            effect.gameObject.transform.localScale = new Vector3(size, size, effect.gameObject.transform.localScale.z);
+            Destroy(effect, lifetime);
         }
         
         Projectile newProjectile = Instantiate(_usedProjectile, _shootingPoint.position, _shootingPoint.rotation);

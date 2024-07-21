@@ -189,7 +189,7 @@ Transform:
   m_GameObject: {fileID: 1980969934861138366}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.7071065, w: 0.7071071}
-  m_LocalPosition: {x: 0.478, y: 0, z: 0}
+  m_LocalPosition: {x: 5.32, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -303,6 +303,10 @@ MonoBehaviour:
   _shootingPoint: {fileID: 3604042261869105398}
   _rigidbody: {fileID: 0}
   audioManager: {fileID: 2906535874755924157}
+  visualEffect: {fileID: 8072964949216817133, guid: b6c89a312802008489545e712b2875fb, type: 3}
+  rotation: {x: 0, y: 0, z: 0}
+  size: 1
+  lifetime: 7
 --- !u!61 &474728432391465921
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -711,3 +715,6 @@ MonoBehaviour:
   turrelAim: {fileID: 4266626142362183444}
   projectileShooter: {fileID: 209021125179841614}
   reloadTime: 1
+  cannon: {fileID: 4013868465249932336}
+  turningPoint: {fileID: 7052818904573142024}
+  visualEffect: {fileID: 8072964949216817133, guid: bcc71ede939d50748929853f55a345ba, type: 3}

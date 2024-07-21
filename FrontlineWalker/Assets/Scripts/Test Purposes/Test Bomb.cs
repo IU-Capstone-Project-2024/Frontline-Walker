@@ -9,6 +9,8 @@ using UnityEngine.TextCore.Text;
 [RequireComponent(typeof(TestAppliesDamage))]
 public class TestBomb : Projectile
 {
+    [Header("VisualEffect")] [SerializeField]
+    private GameObject visualEffect;  
     [Header("Sound")]
     
     [SerializeField] private GameObject explosionSoundEffect;
@@ -42,6 +44,7 @@ public class TestBomb : Projectile
         if (showDebugLog) Debug.Log("Explosion");
         Explode();
         Instantiate(explosionSoundEffect, transform.position, Quaternion.identity);
+        Instantiate(visualEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

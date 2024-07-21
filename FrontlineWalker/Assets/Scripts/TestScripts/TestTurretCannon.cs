@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class TestTurretCannon : TestMessageReceiver
 {
@@ -10,6 +11,12 @@ public class TestTurretCannon : TestMessageReceiver
     public TestProjectileShooter projectileShooter;
     public float reloadTime = 1f;
 
+    [Header("OnDeathEffects")]
+    public GameObject cannon;
+    public Transform turningPoint;
+    public GameObject visualEffect;
+    private bool alive = true;
+    
     private bool _readyToFire;
     private bool _working;
 
@@ -41,6 +48,16 @@ public class TestTurretCannon : TestMessageReceiver
     
     public override void ReceiveTerminationMessage()
     {
-        Destroy(gameObject);
+        if (alive)
+        {
+            alive = false;
+            _working = false;
+            
+            cannon.transform.parent = null;
+            cannon.AddComponent(typeof(Rigidbody2D));
+            cannon.GetComponent<Rigidbody2D>().AddForce(Vector2.up + Random.Range(-0.5f, 0.5f) * Vector2.right, ForceMode2D.Impulse);
+            
+            Instantiate(visualEffect, turningPoint.position + new Vector3(0,0,1), Quaternion.Euler(new Vector3(-90, 0, 0)));
+        }
     }
 }

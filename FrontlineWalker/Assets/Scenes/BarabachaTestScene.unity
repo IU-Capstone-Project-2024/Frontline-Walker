@@ -1923,6 +1923,10 @@ MonoBehaviour:
   _shootingPoint: {fileID: 382056597}
   _rigidbody: {fileID: 1140179347}
   audioManager: {fileID: 790405734}
+  visualEffect: {fileID: 8072964949216817133, guid: b6c89a312802008489545e712b2875fb, type: 3}
+  rotation: {x: 0, y: 0, z: 0}
+  size: 1
+  lifetime: 7
 --- !u!114 &602648282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6703,6 +6707,10 @@ MonoBehaviour:
   _shootingPoint: {fileID: 473892471}
   _rigidbody: {fileID: 1140179347}
   audioManager: {fileID: 72266555}
+  visualEffect: {fileID: 8072964949216817133, guid: 88e845a52643ef64cb2fe84b17a13d05, type: 3}
+  rotation: {x: 0, y: 0, z: 0}
+  size: 0.3
+  lifetime: 2
 --- !u!114 &1803748374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7222,6 +7230,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 16552632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2100348963 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4013868465249932336, guid: 8383793b4fdc98b49b3b581c8b13a5f0, type: 3}
+  m_PrefabInstance: {fileID: 7455924406781379391}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2142242907
 GameObject:
   m_ObjectHideFlags: 0
@@ -7895,6 +7908,14 @@ PrefabInstance:
     - target: {fileID: 891219085533577926, guid: 8383793b4fdc98b49b3b581c8b13a5f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716623976728826208, guid: 8383793b4fdc98b49b3b581c8b13a5f0, type: 3}
+      propertyPath: cannon
+      value: 
+      objectReference: {fileID: 2100348963}
+    - target: {fileID: 3604042261869105398, guid: 8383793b4fdc98b49b3b581c8b13a5f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.29
       objectReference: {fileID: 0}
     - target: {fileID: 7112569830541786167, guid: 8383793b4fdc98b49b3b581c8b13a5f0, type: 3}
       propertyPath: m_Name
