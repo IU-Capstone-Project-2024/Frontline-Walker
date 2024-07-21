@@ -5,9 +5,9 @@ using Audio;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class SetControllerData : MonoBehaviour
+public class SceneControllerData : MonoBehaviour
 {
-    public static SetControllerData instance;
+    public static SceneControllerData instance;
 
     public float initialVolume;
     public int masterVolume;

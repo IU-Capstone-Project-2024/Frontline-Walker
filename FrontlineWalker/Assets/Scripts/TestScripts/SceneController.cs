@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Audio;
@@ -17,22 +18,17 @@ public class SceneController : TestMessageReceiver
     private AudioSource _audioSource;
     private float _initialVolume;
 
-    private SetControllerData setControllerData;
+    private SceneControllerData setControllerData;
     
     // Start is called before the first frame update
     void Awake()
     {
-        setControllerData = FindObjectOfType<SetControllerData>().GetComponent<SetControllerData>();
+        setControllerData = FindObjectOfType<SceneControllerData>().GetComponent<SceneControllerData>();
 
         masterVolume = setControllerData.masterVolume;
         musicVolume = setControllerData.musicVolume;
         soundVolume = setControllerData.soundVolume;
         _initialVolume = setControllerData.initialVolume;
-        
-        if (_audioSource == null)
-        {
-            _audioSource = setControllerData.audioSource;
-        }
         
         if (instance == null)
         {
@@ -47,6 +43,14 @@ public class SceneController : TestMessageReceiver
         _volumeManager.GA_masterVolume.GetComponent<RadialSlider>().currentValue = masterVolume;
         _volumeManager.GA_musicVolume.GetComponent<RadialSlider>().currentValue = musicVolume;
         _volumeManager.GA_soundVolume.GetComponent<RadialSlider>().currentValue = soundVolume;
+    }
+
+    private void Start()
+    {
+        if (_audioSource == null)
+        {
+            _audioSource = setControllerData.audioSource;
+        }
     }
 
     // Update is called once per frame
