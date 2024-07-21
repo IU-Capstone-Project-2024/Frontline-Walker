@@ -157,4 +157,4 @@ MonoBehaviour:
   maxVolume: 1
   minDist: 1
   maxDist: 100
-  showDebugLog: 1
+  showDebugLog: 0
