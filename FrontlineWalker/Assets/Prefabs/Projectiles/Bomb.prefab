@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionSoundEffect: {fileID: 3264693995686976320, guid: 29fefcc283fc4f74ab455bd1497ffa40, type: 3}
-  explosionForce: 0.6
+  explosionForce: 0.3
   explosionRadius: 5
   hit_layer:
     serializedVersion: 2
@@ -84,8 +84,9 @@ MonoBehaviour:
   wall_layer:
     serializedVersion: 2
     m_Bits: 264
-  presicionAngle: 3
-  _damagePerRay: 0.1
+  presicionAngle: 6
+  _damagePerRay: 0.05
+  showDebugLog: 0
 --- !u!114 &7662504913543077551
 MonoBehaviour:
   m_ObjectHideFlags: 0
