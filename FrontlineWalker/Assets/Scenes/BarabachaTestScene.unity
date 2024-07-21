@@ -4935,10 +4935,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bc3671e2a567746a010a1ff8756464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolume: 0
-  musicVolume: 0
-  soundVolume: 0
-  audioManager: {fileID: 0}
+  initialVolume: 1
+  masterVolume: 100
+  musicVolume: 100
+  soundVolume: 100
+  audioSource: {fileID: 0}
 --- !u!114 &1237903369
 MonoBehaviour:
   m_ObjectHideFlags: 0
