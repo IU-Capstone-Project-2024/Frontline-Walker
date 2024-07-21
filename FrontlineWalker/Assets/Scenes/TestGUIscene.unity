@@ -7660,6 +7660,10 @@ MonoBehaviour:
   returnSpeed: 10
   activationMoveDistance: 15
   activationMoveDuration: 0.3
+  maxX: 30
+  minX: -30
+  maxY: 20
+  minY: -8
   maxZoom: 30
   minZoom: 20
   zoomPerOne: 0
@@ -7710,46 +7714,10 @@ PrefabInstance:
       propertyPath: fuelObject
       value: 
       objectReference: {fileID: 1140179342}
-    - target: {fileID: 2082332815828632674, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_text
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 2214807284659423854, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 1547253694466316769}
-    - target: {fileID: 2483069137552570865, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2483069137552570865, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2483069137552570865, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204633030934634575, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204633030934634575, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204633030934634575, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143639568552984371, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 140
-      objectReference: {fileID: 0}
-    - target: {fileID: 5379716493091149266, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 140
-      objectReference: {fileID: 0}
     - target: {fileID: 5490234814308570375, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: cameraObject
       value: 
@@ -7757,10 +7725,6 @@ PrefabInstance:
     - target: {fileID: 5562663535525780869, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_Name
       value: HUD Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6275651075814414673, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_text
-      value: 51
       objectReference: {fileID: 0}
     - target: {fileID: 7014262969323979051, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: mainCannon

@@ -13,6 +13,10 @@ public class binoculars : MonoBehaviour
     public float returnSpeed = 10f; // End zooming speed
     public float activationMoveDistance = 5f;
     public float activationMoveDuration = 2f;
+    public float maxX = 30f;
+    public float minX = -30f;
+    public float maxY = 20f;
+    public float minY = -8f;
     public float maxZoom = 30f;
     public float minZoom = 20f;
     public float zoomPerOne;
@@ -99,6 +103,17 @@ public class binoculars : MonoBehaviour
                 binocularsStick.SetActive(true);
                 backButton.SetActive(true);
                 Vector2 moveDirection = moveActionToUse.action.ReadValue<Vector2>();
+
+                if ((moveDirection.x > 0 && transform.localPosition.x >= maxX) || (moveDirection.x < 0 && transform.localPosition.x <= minX))
+                {
+                    moveDirection.x = 0;
+                }
+
+                if ((moveDirection.y > 0 && transform.localPosition.y >= maxY) || (moveDirection.y < 0 && transform.localPosition.y <= minY))
+                {
+                    moveDirection.y = 0;
+                }
+
                 transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
 
                 if (buttonHandler.backBinoculars)
