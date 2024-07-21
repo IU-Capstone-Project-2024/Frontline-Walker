@@ -31,16 +31,17 @@ public class shellsManager : MonoBehaviour
         Vector2 scale = shellsSprites.sizeDelta;
         shellsSprites.sizeDelta = new Vector2(23 * 6, scale.y);
         shellsSprites.anchoredPosition = new Vector2(xZero + (11.5f * 6), position.y);
+
+        shellsTextGameObject.SetActive(true);
     }
 
     void Update()
     {
-        shellsText.text = "+" + (mainCannon.GetNumberOfRemainingShells() - 5).ToString();
+        shellsText.text = mainCannon.GetNumberOfRemainingShells().ToString();
         if (mainCannon.GetNumberOfRemainingShells() < 6)
         {
-            shellsTextGameObject.SetActive(false);
             Vector2 position = shellsSprites.anchoredPosition;
-            Vector2 targetPosition = new Vector2(xZero + (23f * (-3f + mainCannon.GetNumberOfRemainingShells())), position.y) * Time.timeScale;
+            Vector2 targetPosition = new Vector2(xZero + (23f * (mainCannon.GetNumberOfRemainingShells() - 4)), position.y) * Time.timeScale;
 
             if (!mainCannon.ReadyToFire())
             {
@@ -48,15 +49,15 @@ public class shellsManager : MonoBehaviour
             }
             else
             {
-                shellsSprites.anchoredPosition = new Vector2(xZero + (23f * (-3f + mainCannon.GetNumberOfRemainingShells())), position.y);
+                shellsSprites.anchoredPosition = new Vector2(xZero + (23f * (mainCannon.GetNumberOfRemainingShells() - 4)), position.y);
             }
         }
         else
         {
-            shellsTextGameObject.SetActive(true);
             Vector2 position = shellsSprites.anchoredPosition;
+            
             Vector2 targetPosition = new Vector2(xZero + (23f * 2), position.y) * Time.timeScale;
-
+            
             if (!mainCannon.ReadyToFire())
             {
                 shellsSprites.anchoredPosition = Vector2.MoveTowards(shellsSprites.anchoredPosition, targetPosition, speed * Time.deltaTime);
@@ -64,6 +65,10 @@ public class shellsManager : MonoBehaviour
             else
             {
                 shellsSprites.anchoredPosition = new Vector2(xZero + (23f * 3), position.y);
+                if (mainCannon.GetNumberOfRemainingShells() == 6)
+                {
+                    shellsSprites.anchoredPosition = new Vector2(xZero + (23f * 2), position.y);
+                }
             }
         }
     }

@@ -47,6 +47,7 @@ public class TestWalkerPartsObserver : TestMessageReceiver
     [Header("Message receivers")] 
     public TestMessageReceiver controller;
     public TestMessageReceiver torsoController;
+    public SceneController sceneController;
 
     private float _currentMovementPenalty;
     private float _currentTorsoMovementPenalty;
@@ -61,6 +62,7 @@ public class TestWalkerPartsObserver : TestMessageReceiver
         _currentTorsoMovementPenalty = 0;
         _currentFrictionPenalty = 0;
 
+        sceneController = SceneController.instance;
     }
 
     private void ClampPenalties()
@@ -133,7 +135,6 @@ public class TestWalkerPartsObserver : TestMessageReceiver
 
     public override void ReceiveTerminationMessage()
     {
-        if (showDebugLog) Debug.Log("Walker destroyed");
-        SceneManager.LoadScene("Scenes/BarabachaTestScene");
+        sceneController.ReceiveTerminationMessage();
     }
 }

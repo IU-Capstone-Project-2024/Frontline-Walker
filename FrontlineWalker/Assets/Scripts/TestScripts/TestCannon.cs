@@ -114,7 +114,7 @@ public class TestCannon : MonoBehaviour
             _readyToFire = true;
         }
 
-        if (PerRoundReload)
+        if (PerRoundReload && _remainingShells > 0)
         {
             audioManager.Stop("reload");
         }

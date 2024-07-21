@@ -31,4 +31,6 @@ public class volumeManager : MonoBehaviour
         soundVolume = (180 - RS_soundVolume.currentValue) * 100 / 180;
         masterVolume = (180 - RS_masterVolume.currentValue) * 100 / 180;
     }
+    
+    
 }
