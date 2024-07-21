@@ -20,7 +20,6 @@ GameObject:
   - component: {fileID: 964097872996340383}
   - component: {fileID: 999061708283316506}
   - component: {fileID: 3282035600626535559}
-  - component: {fileID: 411752134290488087}
   - component: {fileID: 4552012633528987593}
   - component: {fileID: 5882580993361646879}
   m_Layer: 0
@@ -235,6 +234,14 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: crush
+    clip: {fileID: 8300000, guid: d12c5ec13d1fb244c8b46473cbe615c2, type: 3}
+    volume: 1
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
 --- !u!82 &7738881412414669052
 AudioSource:
   m_ObjectHideFlags: 0
@@ -375,18 +382,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 0}
---- !u!114 &411752134290488087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767864807867052932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c25ca7573bd3cc94399a08bafa3ef7db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4552012633528987593
 MonoBehaviour:
   m_ObjectHideFlags: 0

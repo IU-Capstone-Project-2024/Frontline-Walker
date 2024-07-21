@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BombHolder : MonoBehaviour
+public class BombHolder : TestMessageReceiver
 {
     [SerializeField] private TestBomb bomb;
     private Vector2 _prevPos;
@@ -42,5 +42,10 @@ public class BombHolder : MonoBehaviour
     {
         _delayPos = _prevPos;
         _prevPos = transform.position;
+    }
+
+    public override void ReceiveMessage()
+    {
+        Release();
     }
 }

@@ -20,6 +20,7 @@ public class TestReceiveDamageOnCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        Debug.Log("CollisionDetected");
         if ((hitMask.value & 1 << other.gameObject.layer) == 1 << other.gameObject.layer)
         {
             _characterPart.TakeDamage(appliedDamage);

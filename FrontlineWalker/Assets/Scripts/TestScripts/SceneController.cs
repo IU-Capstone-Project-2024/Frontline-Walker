@@ -55,5 +55,6 @@ public class SceneController : TestMessageReceiver
     {
         Debug.Log("Receive termination message");
         LoadLevel1();
+        Time.timeScale = 1;
     }
 }
