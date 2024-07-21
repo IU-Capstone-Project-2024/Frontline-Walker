@@ -30,8 +30,8 @@ public class healthbar : MonoBehaviour
     [Header("Walker Parts")]
 
     public GameObject GO_body;
-    //public GameObject GO_fuel;
-    //public GameObject GO_gun;
+    public GameObject GO_fuel;
+    public GameObject GO_gun;
     public GameObject GO_cannon;
     public GameObject GO_rightUpLeg;
     public GameObject GO_rightDownLeg;
@@ -41,8 +41,8 @@ public class healthbar : MonoBehaviour
     public GameObject GO_leftStep;
 
     private TestCharacterPart TCP_body;
-    //private TestCharacterPart TCP_fuel;
-    //private TestCharacterPart TCP_gun;
+    private TestCharacterPart TCP_fuel;
+    private TestCharacterPart TCP_gun;
     private TestCharacterPart TCP_cannon;
     private TestCharacterPart TCP_rightUpLeg;
     private TestCharacterPart TCP_rightDownLeg;
@@ -51,7 +51,6 @@ public class healthbar : MonoBehaviour
     private TestCharacterPart TCP_leftDownLeg;
     private TestCharacterPart TCP_leftStep;
 
-    // Start is called before the first frame update
     void Start()
     {
         fuel.color = fuelColor;
@@ -69,8 +68,8 @@ public class healthbar : MonoBehaviour
         leftStep.color = backLegColor;
 
         TCP_body = GO_body.GetComponent<TestCharacterPart>();
-        //TCP_fuel = GO_fuel.GetComponent<TestCharacterPart>();
-        //TCP_gun = GO_gun.GetComponent<TestCharacterPart>();
+        TCP_fuel = GO_fuel.GetComponent<TestCharacterPart>();
+        TCP_gun = GO_gun.GetComponent<TestCharacterPart>();
         TCP_cannon = GO_cannon.GetComponent<TestCharacterPart>();
         TCP_rightUpLeg = GO_rightUpLeg.GetComponent<TestCharacterPart>();
         TCP_rightDownLeg = GO_rightDownLeg.GetComponent<TestCharacterPart>();
@@ -81,13 +80,12 @@ public class healthbar : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Coloring(fuel, TCP_fuel, fuelColor, damageColor, criticalColor);
+        Coloring(fuel, TCP_fuel, fuelColor, damageColor, notWorkingColor);
 
         Coloring(body, TCP_body, bodyColor, damageColor, notWorkingColor);
-        // Coloring(gun, TCP_gun, bodyColor, damageColor, criticalColor);
+        Coloring(gun, TCP_gun, bodyColor, damageColor, notWorkingColor);
         Coloring(cannon, TCP_cannon, bodyColor, damageColor, notWorkingColor);
         Coloring(rightUpLeg, TCP_rightUpLeg, bodyColor, damageColor, notWorkingColor);
         Coloring(rightDownLeg, TCP_rightDownLeg, bodyColor, damageColor, notWorkingColor);

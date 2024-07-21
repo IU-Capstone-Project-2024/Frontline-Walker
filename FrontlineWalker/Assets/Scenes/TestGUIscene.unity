@@ -234,13 +234,15 @@ MonoBehaviour:
   - {fileID: 108298360}
   - {fileID: 2048642224}
   foots_rotation_speed: 20
-  stepSize: 1.5
+  initialStepSize: 1.3
   step_smoothness: 20
   stepHeight: 0.75
   bodyOrientation: 0
   torsoController: {fileID: 16552636}
   shakeHeight: 0.02
   shakeTorso: 1
+  torsoBalanceDelta: 0.3
+  considerTorsoBalance: 1
   raycastRange: 2
   layerMask:
     serializedVersion: 2
@@ -4133,6 +4135,7 @@ MonoBehaviour:
   fuelLossMultiplier: 2
   controller: {fileID: 1140179346}
   torsoController: {fileID: 16552636}
+  sceneController: {fileID: 0}
   showDebugLog: 1
 --- !u!81 &1140179356
 AudioListener:
@@ -7288,30 +7291,10 @@ PrefabInstance:
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 1547253694466316769}
-    - target: {fileID: 2483069137552570865, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2483069137552570865, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2483069137552570865, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204633030934634575, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204633030934634575, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3204633030934634575, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 5490234814308570375, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 1547253694466316769}
     - target: {fileID: 5562663535525780869, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: m_Name
       value: HUD Canvas
@@ -7320,10 +7303,6 @@ PrefabInstance:
       propertyPath: cameraObject
       value: 
       objectReference: {fileID: 1547253694466316769}
-    - target: {fileID: 6430312647499199619, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7014262969323979051, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: mainCannon
       value: 
@@ -7421,9 +7400,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1803748377}
     - target: {fileID: 8881029429973246758, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: GO_gun
+      value: 
+      objectReference: {fileID: 1803748366}
+    - target: {fileID: 8881029429973246758, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: GO_body
       value: 
       objectReference: {fileID: 16552631}
+    - target: {fileID: 8881029429973246758, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
+      propertyPath: GO_fuel
+      value: 
+      objectReference: {fileID: 1210667443}
     - target: {fileID: 8881029429973246758, guid: 25ddc0e812e4ab34db6e4638c9ce468b, type: 3}
       propertyPath: GO_cannon
       value: 
