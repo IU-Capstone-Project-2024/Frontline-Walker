@@ -189,4 +189,13 @@ public class TestController : TestMessageReceiver
             motorSoundPlay = false;
         }
     }
+
+    public void ReceiveResupply()
+    {
+        Refuel(tankCapacity / 4f);
+        AAMachineGunController.ResupplyShells(AAMachineGunController.maxShells / 4);
+        mainCannonController.ResupplyShells(mainCannonController.maxShells / 4);
+        
+        partsObserver.ResupplyFix();
+    }
 }

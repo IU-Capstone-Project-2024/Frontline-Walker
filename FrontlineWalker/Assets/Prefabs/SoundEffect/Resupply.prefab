@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1835044331691047415}
   - component: {fileID: 4085083204184797706}
   - component: {fileID: 7860091255797890382}
-  - component: {fileID: -6524425022516497595}
+  - component: {fileID: -2773958082460495303}
   m_Layer: 0
-  m_Name: MainCannonFireSoundEffect
+  m_Name: Resupply
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bae85a357ba19c344a9aa335dbd33ac1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ce9fccf4ee47a7f4aab2da94ce615d0d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ad0d0bd0a07364da06826f9b75f988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-6524425022516497595
+--- !u!114 &-2773958082460495303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

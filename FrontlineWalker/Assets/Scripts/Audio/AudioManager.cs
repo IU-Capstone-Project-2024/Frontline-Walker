@@ -87,5 +87,13 @@ namespace Audio
 				sound.source.Pause();
 			}
 		}
+
+		private void Update()
+		{
+			foreach (var sound in sounds)
+			{
+				sound.source.volume = sound.volume * SceneController.instance.soundVolume / 100f * SceneController.instance.masterVolume / 100f;
+			}
+		}
 	}
 }

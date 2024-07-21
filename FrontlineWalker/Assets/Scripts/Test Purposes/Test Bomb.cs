@@ -45,7 +45,7 @@ public class TestBomb : Projectile
         Destroy(gameObject);
     }
 
-    private void Explode()
+    public void Explode()
     {
         var allHits = new List<RaycastHit2D>();
         var origin = (Vector2)transform.position;
@@ -78,6 +78,8 @@ public class TestBomb : Projectile
                 _characterPart.TakeDamage(_damagePerRay);
             }
         }
+        
+        Destroy(gameObject);
     }
 
     public TestAppliesDamage GetDamage()

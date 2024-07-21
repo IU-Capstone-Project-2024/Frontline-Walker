@@ -16,7 +16,7 @@ public class SceneController : TestMessageReceiver
     // Start is called before the first frame update
     void Awake()
     {
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
 
         if (instance == null)
         {
@@ -37,8 +37,8 @@ public class SceneController : TestMessageReceiver
     void Update()
     {
         masterVolume = _volumeManager.masterVolume;
-        musicVolume = _volumeManager.masterVolume;
-        soundVolume = _volumeManager.masterVolume;
+        musicVolume = _volumeManager.musicVolume;
+        soundVolume = _volumeManager.soundVolume;
     }
 
     public void LoadLevel1()

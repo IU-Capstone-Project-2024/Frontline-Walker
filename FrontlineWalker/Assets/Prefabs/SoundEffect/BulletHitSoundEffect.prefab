@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4085083204184797706}
   - component: {fileID: 7860091255797890382}
   - component: {fileID: 6577632767822360328}
+  - component: {fileID: -305095316760910322}
   m_Layer: 0
   m_Name: BulletHitSoundEffect
   m_TagString: Untagged
@@ -158,3 +159,15 @@ MonoBehaviour:
   minDist: 1
   maxDist: 100
   showDebugLog: 0
+--- !u!114 &-305095316760910322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3264693995686976320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca82b9c57ff1444ebd21a781182ced5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

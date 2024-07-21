@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Animation;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -18,6 +19,8 @@ public class TestWalkerPartsObserver : TestMessageReceiver
     public TestCharacterPart lowerLeftLeg;
     public TestCharacterPart rightFoot;
     public TestCharacterPart leftFoot;
+
+    private List<TestCharacterPart> parts;
 
     [Header("Movement penalty")] 
     [Range(0,1)]
@@ -56,8 +59,26 @@ public class TestWalkerPartsObserver : TestMessageReceiver
     [Header("Debug")] 
     public bool showDebugLog = true;
 
+    private void addAllParts()
+    {
+        if (parts == null) parts = new List<TestCharacterPart>();
+        
+        parts.Add(AAmachineGun);
+        parts.Add(mainCannon);
+        parts.Add(torso);
+        parts.Add(fuelTank);
+        parts.Add(upperRightLeg);
+        parts.Add(upperLeftLeg);
+        parts.Add(lowerRightLeg);
+        parts.Add(lowerLeftLeg);
+        parts.Add(rightFoot);
+        parts.Add(leftFoot);
+    }
+    
     private void Start()
     {
+        addAllParts();
+        
         _currentMovementPenalty = 0;
         _currentTorsoMovementPenalty = 0;
         _currentFrictionPenalty = 0;
@@ -136,5 +157,17 @@ public class TestWalkerPartsObserver : TestMessageReceiver
     public override void ReceiveTerminationMessage()
     {
         sceneController.ReceiveTerminationMessage();
+    }
+
+    public void ResupplyFix()
+    {
+        foreach (var part in parts)
+        {
+            if (part != null)
+            {
+                part.FixHealth(Mathf.Max(1, part.GetMaxHealth()));
+                CalculatePenalties();
+            }
+        }
     }
 }

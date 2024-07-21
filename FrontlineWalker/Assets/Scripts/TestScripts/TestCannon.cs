@@ -132,6 +132,15 @@ public class TestCannon : MonoBehaviour
 
     public void ResupplyShells(int resupply)
     {
+        if (_remainingShells == 0)
+        {
+            Invoke("Reload", reloadTime);
+            if (PerRoundReload)
+            {
+                Invoke("PlayReloadSound", PerRoundReloasDelay);
+            }
+        }
+        
         if (resupply > 0)
         {
             _remainingShells += resupply;

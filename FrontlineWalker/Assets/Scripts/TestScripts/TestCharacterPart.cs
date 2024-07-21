@@ -115,6 +115,10 @@ public class TestCharacterPart : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.gameObject == gameObject)
+        {
+            return;
+        }
         //Debug.Log("Collision detected");
         var appliedDamage = other.gameObject.GetComponent<TestAppliesDamage>();
         if (appliedDamage != null)
