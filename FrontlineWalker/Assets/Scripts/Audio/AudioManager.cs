@@ -66,8 +66,6 @@ namespace Audio
 				Debug.LogWarning("Sound: " + name + " not found!");
 				return null;
 			}
-			
-			Debug.Log(s.name);
 
 			return s;
 		}

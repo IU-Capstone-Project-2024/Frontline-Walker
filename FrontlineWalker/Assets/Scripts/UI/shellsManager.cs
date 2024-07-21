@@ -26,7 +26,6 @@ public class shellsManager : MonoBehaviour
         xZero = position.x - (11.5f * 6f);
         Vector2 targetPosition = new Vector2(xZero + (23f * 6), position.y) * Time.timeScale;
         speed = (targetPosition.magnitude - position.magnitude) / _reloadTime;
-        Debug.Log("Speed:" + speed);
         
         Vector2 scale = shellsSprites.sizeDelta;
         shellsSprites.sizeDelta = new Vector2(23 * 6, scale.y);
