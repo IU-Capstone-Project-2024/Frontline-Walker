@@ -20,6 +20,7 @@ public class TestController : TestMessageReceiver
     public float backward_force = 50f;
     public float distabilization_speed = 3f;
     public float initialFriction = 1;
+    public float downForce = 10f;
     [Header("Normals")]
     public LayerMask groundLayers;
 
@@ -69,6 +70,8 @@ public class TestController : TestMessageReceiver
 
     private void FixedUpdate()
     {
+        
+        _rb.AddForce(Vector2.down * downForce);
         
         //Debug.Log(_rb.velocity.magnitude);
         if (_rb.velocity.magnitude > distabilization_speed)

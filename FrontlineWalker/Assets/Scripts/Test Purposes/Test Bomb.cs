@@ -43,8 +43,16 @@ public class TestBomb : Projectile
     {
         if (showDebugLog) Debug.Log("Explosion");
         Explode();
-        Instantiate(explosionSoundEffect, transform.position, Quaternion.identity);
-        Instantiate(visualEffect, transform.position, Quaternion.identity);
+        if (explosionSoundEffect != null)
+        {
+            Instantiate(explosionSoundEffect, transform.position, Quaternion.identity);
+        }
+
+        if (visualEffect != null)
+        {
+            Instantiate(visualEffect, transform.position, Quaternion.identity);
+        }
+        
         Destroy(gameObject);
     }
 

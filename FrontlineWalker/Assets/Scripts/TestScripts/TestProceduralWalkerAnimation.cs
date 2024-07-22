@@ -8,6 +8,9 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
 {
     [Header("limbs")]
     public GameObject[] foots;
+    public float maxFootAngle = 60;
+    public float minFootAngle = -240;
+    
     public Transform[] legTargets;
     public float foots_rotation_speed = 5f; 
     public float initialStepSize = 1.3f;
@@ -271,6 +274,10 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
         {
             var _forward = new Vector2(_footsNormals[i].y, -_footsNormals[i].x);
             var _new_z = -Vector2.SignedAngle(_forward, new Vector2(1,0));
+
+            if (_new_z > maxFootAngle) _new_z = maxFootAngle;
+            if (_new_z < minFootAngle) _new_z = minFootAngle;
+            
             var target_rotation = Quaternion.Euler(0,0, _new_z);
             foots[i].transform.rotation = Quaternion.Lerp(foots[i].transform.rotation, target_rotation, foots_rotation_speed * Time.deltaTime);
         }
