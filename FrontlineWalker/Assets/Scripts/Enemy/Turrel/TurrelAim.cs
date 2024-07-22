@@ -23,7 +23,11 @@ public class TurrelAim : TestMessageReceiver
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            _target = col.transform;
+            if (col.transform.childCount != 0)
+            {
+                _target = col.transform.GetChild(0);
+            }
+            else _target = col.transform;
         }
     }
     

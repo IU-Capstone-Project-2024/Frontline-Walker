@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 995839794487202128}
   - component: {fileID: 3319433892553855368}
   m_Layer: 12
-  m_Name: Turrel Base
+  m_Name: Turret Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,6 +103,8 @@ MonoBehaviour:
   maxHealth: 2
   isCritical: 1
   messanger: {fileID: 995839794487202128}
+  criticalDamageVisualEffect: {fileID: 0}
+  placeForVisualEffect: []
   alwaysSendMessage: 1
   showDebugLog: 1
   _isWorking: 0
@@ -212,7 +214,7 @@ GameObject:
   - component: {fileID: 426434816838279305}
   - component: {fileID: 2906535874755924157}
   m_Layer: 12
-  m_Name: Turrel Gun
+  m_Name: Turret Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -232,6 +234,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3604042261869105398}
+  - {fileID: 3294919278600760285}
   m_Father: {fileID: 7052818904573142024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7480378686120104149
@@ -368,6 +371,9 @@ MonoBehaviour:
   maxHealth: 2
   isCritical: 0
   messanger: {fileID: 5589036417285792722}
+  criticalDamageVisualEffect: {fileID: 8072964949216817133, guid: 07c230893dce47a479420d7929121315, type: 3}
+  placeForVisualEffect:
+  - {fileID: 3294919278600760285}
   alwaysSendMessage: 1
   showDebugLog: 1
   _isWorking: 0
@@ -502,6 +508,37 @@ MonoBehaviour:
     loop: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+--- !u!1 &4858556626189558925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3294919278600760285}
+  m_Layer: 12
+  m_Name: placeForVisualEffect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3294919278600760285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4858556626189558925}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.65, y: 1.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2633664067237969423}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5132959953331808071
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +553,7 @@ GameObject:
   - component: {fileID: 5093372763163656878}
   - component: {fileID: 6518408203179121124}
   m_Layer: 12
-  m_Name: Turrel Turning Point
+  m_Name: Turret Turning Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -677,7 +714,7 @@ GameObject:
   - component: {fileID: 891219085533577926}
   - component: {fileID: 1716623976728826208}
   m_Layer: 12
-  m_Name: Turrel
+  m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

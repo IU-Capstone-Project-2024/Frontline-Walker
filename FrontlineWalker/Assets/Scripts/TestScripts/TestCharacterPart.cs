@@ -11,6 +11,12 @@ public class TestCharacterPart : MonoBehaviour
     [SerializeField] private float maxHealth = 10;
     [SerializeField] private bool isCritical;
     public TestMessangeSender messanger;
+
+    [Header("SFX,VFX")] 
+    public GameObject criticalDamageVisualEffect;
+    public Transform[] placeForVisualEffect;
+    private GameObject[] _visualEffectsObjects;
+    
     [Header("Debug")] 
     public bool alwaysSendMessage = true;
     public bool showDebugLog = true;
@@ -61,6 +67,24 @@ public class TestCharacterPart : MonoBehaviour
                 if (showDebugLog) Debug.Log(name + " was critical part");
                 messanger.SendTerminationMessage();
             }
+
+            if (criticalDamageVisualEffect != null)
+            {
+                if (_visualEffectsObjects == null)
+                {
+                    _visualEffectsObjects = new GameObject[placeForVisualEffect.Length];
+                    
+                    for (int i = 0; i < placeForVisualEffect.Length; i++)
+                    {
+                        _visualEffectsObjects[i] = Instantiate(criticalDamageVisualEffect, placeForVisualEffect[i].position,
+                            placeForVisualEffect[i].rotation);
+                        _visualEffectsObjects[i].transform.parent = gameObject.transform;
+                        
+                        //TODO: apply velocity of the parent object
+                    }
+                }
+                
+            }
         }
     }
      
@@ -76,6 +100,17 @@ public class TestCharacterPart : MonoBehaviour
 
     public void FixHealth(float _fixAmount)
     {
+
+        if (_visualEffectsObjects != null)
+        {
+            foreach (var visualObject in _visualEffectsObjects)
+            {
+                Destroy(visualObject);
+            }
+
+            _visualEffectsObjects = null;
+        }
+        
         if (_fixAmount < 0)
         {
             throw new Exception("Amount of fix can not be negative!");

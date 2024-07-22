@@ -264,7 +264,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
             {
                 RaycastHit2D hit;
                 Vector2 original = new Vector2(legTargets[i].position.x, legTargets[i].position.y);
-                hit = Physics2D.Raycast(original + Vector2.up * 0.3f, Vector2.down, 2f, layerMask);
+                hit = Physics2D.Raycast(original + Vector2.up * 0.7f, Vector2.down, 2f, layerMask);
                 legTargets[i].position = hit.point;
             }
         }
