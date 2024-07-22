@@ -22,6 +22,6 @@ public class MoveBackgroundWithPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = new Vector3(_initialX + _playerInitialX - _player.position.x * movementMultiplier, transform.position.y, transform.position.z);
+        transform.position = new Vector3(_initialX + (_playerInitialX - _player.position.x) * movementMultiplier, transform.position.y, transform.position.z);
     }
 }

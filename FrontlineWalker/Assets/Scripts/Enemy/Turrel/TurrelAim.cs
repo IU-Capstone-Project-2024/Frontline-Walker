@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class TurrelAim : TestMessageReceiver
 {
-    
+
+    public float minAngle = -270;
+    public float maxAngle = -170; 
     public float rotationSpeed = 200.0f;
     public float angleOfStartingFire = 5f;
     
@@ -40,6 +42,8 @@ public class TurrelAim : TestMessageReceiver
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             _targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
             transform.rotation = Quaternion.RotateTowards(transform.rotation, _targetRotation, rotationSpeed * Time.deltaTime);
+            
+            ClampAngle();
         }
     }
 
@@ -69,5 +73,17 @@ public class TurrelAim : TestMessageReceiver
     public override void ReceiveMessage()
     {
         _ableToRotate = false;
+    }
+
+    public void ClampAngle()
+    {
+        if (transform.rotation.z > maxAngle)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, maxAngle);
+        }
+        if (transform.rotation.z < minAngle)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, minAngle);
+        }
     }
 }
