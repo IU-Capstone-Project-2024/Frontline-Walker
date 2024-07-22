@@ -17,8 +17,8 @@ GameObject:
   - component: {fileID: 396340917262324175}
   - component: {fileID: 2514946992264998842}
   - component: {fileID: 8344883368109596010}
-  m_Layer: 13
-  m_Name: MachineGunBullet
+  m_Layer: 11
+  m_Name: EnemyMachineGunBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 4096
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

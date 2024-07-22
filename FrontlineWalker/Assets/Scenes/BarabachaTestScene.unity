@@ -2175,7 +2175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadTime: 6.5
   maxShells: 10
-  recoilForce: 800
+  recoilForce: 30000
   forceReceiver: {fileID: 1140179353}
   maxAimingDelta: 0
   audioManager: {fileID: 602648286}
@@ -2990,6 +2990,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &800685597
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 891219085533577926, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -50.211075
+      objectReference: {fileID: 0}
+    - target: {fileID: 891219085533577926, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.275
+      objectReference: {fileID: 0}
+    - target: {fileID: 891219085533577926, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891219085533577926, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 891219085533577926, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891219085533577926, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891219085533577926, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891219085533577926, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891219085533577926, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 891219085533577926, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716623976728826208, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: reloadTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7112569830541786167, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_Name
+      value: Machine Gun Turret
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
 --- !u!1001 &819443522
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4557,8 +4618,8 @@ MonoBehaviour:
   partsObserver: {fileID: 1140179355}
   forward_speed: 2
   backward_speed: 1
-  forward_force: 260
-  backward_force: 260
+  forward_force: 8600
+  backward_force: 8600
   distabilization_speed: 5
   initialFriction: 1
   downForce: 10
@@ -4566,7 +4627,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 320
   fuelIsLimited: 1
-  tankCapacity: 1500
+  tankCapacity: 30000
   idleFuelLoss: 0.1
   fuelLossPerForceUnit: 0.1
   audioManager: {fileID: 1140179352}
@@ -4582,7 +4643,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 3
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -9090,3 +9151,4 @@ SceneRoots:
   - {fileID: 819443522}
   - {fileID: 15626530}
   - {fileID: 1603003858946902097}
+  - {fileID: 800685597}

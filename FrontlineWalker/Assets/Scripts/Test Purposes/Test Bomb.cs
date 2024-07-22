@@ -79,8 +79,11 @@ public class TestBomb : Projectile
             var force = (hit.point - origin).normalized * forceValue;
             if (hit.rigidbody)
             {
-                hit.rigidbody.AddForceAtPosition(force, hit.point, ForceMode2D.Impulse);
-                Debug.DrawRay(origin, force.normalized * distance, Color.red, 5);
+                if (forceValue > 0)
+                {
+                    hit.rigidbody.AddForceAtPosition(force, hit.point, ForceMode2D.Impulse);
+                                    Debug.DrawRay(origin, force.normalized * distance, Color.red, 5);
+                }
             }
             
             var _characterPart = hit.collider.gameObject.GetComponent<TestCharacterPart>();
