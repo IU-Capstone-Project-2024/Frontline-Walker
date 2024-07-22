@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7882039690323198418
+--- !u!1 &5602008751636246208
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2622577801510756064}
-  - component: {fileID: 8525303635929520502}
-  - component: {fileID: 7756088040052327408}
-  - component: {fileID: 1156434053745354427}
-  - component: {fileID: 7043129319099318536}
-  - component: {fileID: 5127168397387773919}
-  - component: {fileID: 396340917262324175}
-  - component: {fileID: 2514946992264998842}
-  - component: {fileID: 8344883368109596010}
-  m_Layer: 13
-  m_Name: MachineGunBullet
+  - component: {fileID: 2898139330523824417}
+  - component: {fileID: 458644944465530688}
+  m_Layer: 11
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2622577801510756064
+--- !u!4 &2898139330523824417
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7882039690323198418}
+  m_GameObject: {fileID: 5602008751636246208}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.70710564, w: 0.7071079}
-  m_LocalPosition: {x: -31.952255, y: -2.4468522, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.02, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!212 &8525303635929520502
+  m_Father: {fileID: 2622577801510756064}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &458644944465530688
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7882039690323198418}
+  m_GameObject: {fileID: 5602008751636246208}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -80,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: faedfb5f5be882c44bff6015052ae330, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,6 +84,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7882039690323198418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2622577801510756064}
+  - component: {fileID: 7756088040052327408}
+  - component: {fileID: 1156434053745354427}
+  - component: {fileID: 7043129319099318536}
+  - component: {fileID: 5127168397387773919}
+  - component: {fileID: 396340917262324175}
+  - component: {fileID: 2514946992264998842}
+  - component: {fileID: 8344883368109596010}
+  m_Layer: 13
+  m_Name: MachineGunBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2622577801510756064
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7882039690323198418}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.70710564, w: 0.7071079}
+  m_LocalPosition: {x: -31.952255, y: -2.4468522, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2898139330523824417}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!50 &7756088040052327408
 Rigidbody2D:
   serializedVersion: 4
@@ -164,8 +196,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.9999998, y: 1.9999998}
+  m_Offset: {x: 0.0004383419, y: -0.026906967}
+  m_Size: {x: 0.05537626, y: 0.32487065}
   m_Direction: 0
 --- !u!114 &5127168397387773919
 MonoBehaviour:
@@ -180,7 +212,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualEffect: {fileID: 8072964949216817133, guid: 7994e649302e56c46802cb511cf155e2, type: 3}
-  explosionSoundEffect: {fileID: 3264693995686976320, guid: f572936b01eef8245b58c6cd8e286cbb, type: 3}
+  visualEffectStartSize: 0
+  groundHitSoundEffect: {fileID: 3264693995686976320, guid: f572936b01eef8245b58c6cd8e286cbb, type: 3}
+  characterHitSoundEffect: {fileID: 3264693995686976320, guid: 94a598e74c4339d4b9504e2f0795644a, type: 3}
   explosionForce: 0
   explosionRadius: 0
   hit_layer:

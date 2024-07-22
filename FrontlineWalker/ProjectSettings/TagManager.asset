@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Hoppy_Obstacle
+  - Hoppy_Upperlimit
+  - Enemy
   layers:
   - Default
   - TransparentFX

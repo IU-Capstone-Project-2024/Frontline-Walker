@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 16552642}
   m_Layer: 10
   m_Name: Torso
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -287,8 +287,8 @@ MonoBehaviour:
   foots:
   - {fileID: 1735870168}
   - {fileID: 1549207804}
-  maxFootAngle: 60
-  minFootAngle: -240
+  maxFootAngle: 45
+  minFootAngle: -45
   legTargets:
   - {fileID: 108298360}
   - {fileID: 2048642224}
@@ -345,6 +345,7 @@ MonoBehaviour:
   isCritical: 1
   messanger: {fileID: 16552639}
   criticalDamageVisualEffect: {fileID: 0}
+  visualEffectStartSize: 0.2
   placeForVisualEffect: []
   alwaysSendMessage: 1
   showDebugLog: 1
@@ -540,7 +541,7 @@ GameObject:
   - component: {fileID: 20879765}
   m_Layer: 10
   m_Name: RightLowerLeg
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -623,7 +624,7 @@ GameObject:
   - component: {fileID: 33908330}
   m_Layer: 10
   m_Name: placeForVisualEffect2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -861,7 +862,7 @@ GameObject:
   - component: {fileID: 74075692}
   m_Layer: 10
   m_Name: UpperLegRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -903,6 +904,7 @@ MonoBehaviour:
   isCritical: 0
   messanger: {fileID: 74075691}
   criticalDamageVisualEffect: {fileID: 8072964949216817133, guid: 07c230893dce47a479420d7929121315, type: 3}
+  visualEffectStartSize: 0.2
   placeForVisualEffect:
   - {fileID: 393046485}
   - {fileID: 33908330}
@@ -1011,7 +1013,7 @@ GameObject:
   - component: {fileID: 108298360}
   m_Layer: 10
   m_Name: RightLegTarget
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1045,7 +1047,7 @@ GameObject:
   - component: {fileID: 144286803}
   m_Layer: 10
   m_Name: LowerLegRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1088,6 +1090,7 @@ MonoBehaviour:
   isCritical: 0
   messanger: {fileID: 144286802}
   criticalDamageVisualEffect: {fileID: 8072964949216817133, guid: 07c230893dce47a479420d7929121315, type: 3}
+  visualEffectStartSize: 0.2
   placeForVisualEffect:
   - {fileID: 1215744000}
   - {fileID: 1001073710}
@@ -1165,7 +1168,7 @@ GameObject:
   - component: {fileID: 145838275}
   m_Layer: 10
   m_Name: placeForVisualEffect3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1552,7 +1555,7 @@ GameObject:
   - component: {fileID: 393046485}
   m_Layer: 10
   m_Name: placeForVisualEffect1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1900,7 +1903,7 @@ GameObject:
   - component: {fileID: 481332705}
   m_Layer: 10
   m_Name: LegHint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1932,7 +1935,7 @@ GameObject:
   - component: {fileID: 498188442}
   m_Layer: 10
   m_Name: RightKnee
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2055,7 +2058,7 @@ GameObject:
   - component: {fileID: 602648287}
   m_Layer: 10
   m_Name: MainCannon
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2175,7 +2178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reloadTime: 6.5
   maxShells: 10
-  recoilForce: 30000
+  recoilForce: 28500
   forceReceiver: {fileID: 1140179353}
   maxAimingDelta: 0
   audioManager: {fileID: 602648286}
@@ -2213,6 +2216,7 @@ MonoBehaviour:
   isCritical: 0
   messanger: {fileID: 602648285}
   criticalDamageVisualEffect: {fileID: 8072964949216817133, guid: 07c230893dce47a479420d7929121315, type: 3}
+  visualEffectStartSize: 0.2
   placeForVisualEffect:
   - {fileID: 1046134100}
   - {fileID: 549332302}
@@ -3155,7 +3159,7 @@ GameObject:
   - component: {fileID: 846306901}
   m_Layer: 10
   m_Name: placeForVisualEffect1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3187,7 +3191,7 @@ GameObject:
   - component: {fileID: 867458802}
   m_Layer: 10
   m_Name: LowerTorso
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3631,7 +3635,7 @@ GameObject:
   - component: {fileID: 905696507}
   m_Layer: 10
   m_Name: LeftKnee
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3977,6 +3981,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 767864807867052932, guid: 80427a39eda0fbd4183aa5eedb2f9061, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 964097872996340383, guid: 80427a39eda0fbd4183aa5eedb2f9061, type: 3}
       propertyPath: messageReceiver
       value: 
@@ -4110,7 +4118,7 @@ GameObject:
   - component: {fileID: 946576910}
   m_Layer: 10
   m_Name: LeftLegRig
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4218,7 +4226,7 @@ GameObject:
   - component: {fileID: 1001073710}
   m_Layer: 10
   m_Name: placeForVisualEffect2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4371,7 +4379,7 @@ GameObject:
   - component: {fileID: 1059692654}
   m_Layer: 10
   m_Name: LowerLegLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4414,6 +4422,7 @@ MonoBehaviour:
   isCritical: 0
   messanger: {fileID: 1059692653}
   criticalDamageVisualEffect: {fileID: 8072964949216817133, guid: 07c230893dce47a479420d7929121315, type: 3}
+  visualEffectStartSize: 0.2
   placeForVisualEffect:
   - {fileID: 1925721150}
   - {fileID: 1670091171}
@@ -4658,12 +4667,12 @@ MonoBehaviour:
   backward_force: 8600
   distabilization_speed: 5
   initialFriction: 1
-  downForce: 10
+  downForce: 20
   groundLayers:
     serializedVersion: 2
     m_Bits: 320
   fuelIsLimited: 1
-  tankCapacity: 30000
+  tankCapacity: 75000
   idleFuelLoss: 0.1
   fuelLossPerForceUnit: 0.1
   audioManager: {fileID: 1140179352}
@@ -4980,7 +4989,7 @@ GameObject:
   - component: {fileID: 1210667449}
   m_Layer: 10
   m_Name: FuelTank
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5115,6 +5124,7 @@ MonoBehaviour:
   isCritical: 0
   messanger: {fileID: 1210667448}
   criticalDamageVisualEffect: {fileID: 8072964949216817133, guid: 14ac1430c3a5a62448661c546c83817e, type: 3}
+  visualEffectStartSize: 0.2
   placeForVisualEffect:
   - {fileID: 1001582483}
   - {fileID: 965189409}
@@ -5161,7 +5171,7 @@ GameObject:
   - component: {fileID: 1215744000}
   m_Layer: 10
   m_Name: placeForVisualEffect1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5930,7 +5940,7 @@ GameObject:
   - component: {fileID: 1383515385}
   m_Layer: 10
   m_Name: placeForVisualEffect3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5962,7 +5972,7 @@ GameObject:
   - component: {fileID: 1398219101}
   m_Layer: 10
   m_Name: UpperLegRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6132,7 +6142,7 @@ GameObject:
   - component: {fileID: 1549207808}
   m_Layer: 10
   m_Name: FootLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6218,6 +6228,7 @@ MonoBehaviour:
   isCritical: 0
   messanger: {fileID: 1549207808}
   criticalDamageVisualEffect: {fileID: 8072964949216817133, guid: 07c230893dce47a479420d7929121315, type: 3}
+  visualEffectStartSize: 0.2
   placeForVisualEffect:
   - {fileID: 2078684067}
   - {fileID: 1099569950}
@@ -6249,7 +6260,7 @@ GameObject:
   - component: {fileID: 1553953047}
   m_Layer: 10
   m_Name: UpperLegLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6491,7 +6502,7 @@ GameObject:
   - component: {fileID: 1596077476}
   m_Layer: 10
   m_Name: BodyJoint
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6574,7 +6585,7 @@ GameObject:
   - component: {fileID: 1670091171}
   m_Layer: 10
   m_Name: placeForVisualEffect2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6799,7 +6810,7 @@ GameObject:
   - component: {fileID: 1714437972}
   m_Layer: 10
   m_Name: placeForVisualEffect3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6963,7 +6974,7 @@ GameObject:
   - component: {fileID: 1735870172}
   m_Layer: 10
   m_Name: FootRight
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7049,6 +7060,7 @@ MonoBehaviour:
   isCritical: 0
   messanger: {fileID: 1735870172}
   criticalDamageVisualEffect: {fileID: 8072964949216817133, guid: 07c230893dce47a479420d7929121315, type: 3}
+  visualEffectStartSize: 0.2
   placeForVisualEffect:
   - {fileID: 923324673}
   - {fileID: 955869926}
@@ -7171,7 +7183,7 @@ GameObject:
   - component: {fileID: 1778259607}
   m_Layer: 10
   m_Name: UpperTorso
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7521,7 +7533,7 @@ GameObject:
   - component: {fileID: 1803748378}
   m_Layer: 10
   m_Name: AntiAirCannon
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7763,6 +7775,7 @@ MonoBehaviour:
   isCritical: 0
   messanger: {fileID: 1803748374}
   criticalDamageVisualEffect: {fileID: 8072964949216817133, guid: 07c230893dce47a479420d7929121315, type: 3}
+  visualEffectStartSize: 0.2
   placeForVisualEffect:
   - {fileID: 380797581}
   alwaysSendMessage: 1
@@ -7939,7 +7952,7 @@ GameObject:
   - component: {fileID: 1925721150}
   m_Layer: 10
   m_Name: placeForVisualEffect1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7970,7 +7983,7 @@ GameObject:
   - component: {fileID: 1945080361}
   m_Layer: 10
   m_Name: placeForVisualEffect3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8100,7 +8113,7 @@ GameObject:
   - component: {fileID: 1975239762}
   m_Layer: 10
   m_Name: LeftLowerLeg
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8186,7 +8199,7 @@ GameObject:
   - component: {fileID: 1999480727}
   m_Layer: 10
   m_Name: UpperLegLeft
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8228,6 +8241,7 @@ MonoBehaviour:
   isCritical: 0
   messanger: {fileID: 1999480726}
   criticalDamageVisualEffect: {fileID: 8072964949216817133, guid: 07c230893dce47a479420d7929121315, type: 3}
+  visualEffectStartSize: 0.2
   placeForVisualEffect:
   - {fileID: 846306901}
   - {fileID: 2041416208}
@@ -8305,7 +8319,7 @@ GameObject:
   - component: {fileID: 2041416208}
   m_Layer: 10
   m_Name: placeForVisualEffect2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8336,7 +8350,7 @@ GameObject:
   - component: {fileID: 2048642224}
   m_Layer: 10
   m_Name: LeftLegTarget
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8404,7 +8418,7 @@ GameObject:
   - component: {fileID: 2142242909}
   m_Layer: 10
   m_Name: RightLegRig
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

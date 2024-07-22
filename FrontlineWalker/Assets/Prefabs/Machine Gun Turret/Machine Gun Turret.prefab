@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8261779643542363904}
   m_Layer: 12
   m_Name: Turret Base
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,10 +100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Turrel Base
-  maxHealth: 2
+  maxHealth: 1
   isCritical: 1
   messanger: {fileID: 995839794487202128}
   criticalDamageVisualEffect: {fileID: 0}
+  visualEffectStartSize: 0.2
   placeForVisualEffect: []
   alwaysSendMessage: 1
   showDebugLog: 1
@@ -184,7 +185,7 @@ GameObject:
   - component: {fileID: 3604042261869105398}
   m_Layer: 12
   m_Name: ShootingPoint
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,7 +217,7 @@ GameObject:
   - component: {fileID: 7815157097340024251}
   m_Layer: 12
   m_Name: Turret Tower
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,7 +307,7 @@ GameObject:
   - component: {fileID: 2906535874755924157}
   m_Layer: 12
   m_Name: Turret Gun
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -459,10 +460,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Turrel Gun
-  maxHealth: 2
+  maxHealth: 0.5
   isCritical: 0
   messanger: {fileID: 5589036417285792722}
-  criticalDamageVisualEffect: {fileID: 0}
+  criticalDamageVisualEffect: {fileID: 8072964949216817133, guid: 07c230893dce47a479420d7929121315, type: 3}
+  visualEffectStartSize: 0.05
   placeForVisualEffect:
   - {fileID: 3294919278600760285}
   alwaysSendMessage: 1
@@ -610,7 +612,7 @@ GameObject:
   - component: {fileID: 3294919278600760285}
   m_Layer: 12
   m_Name: placeForVisualEffect
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -645,7 +647,7 @@ GameObject:
   - component: {fileID: 6518408203179121124}
   m_Layer: 12
   m_Name: Turret Turning Point
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -730,6 +732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a85b207ae0640544ba744b94b15727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minAngle: -270
+  maxAngle: -170
   rotationSpeed: 200
   angleOfStartingFire: 5
 --- !u!58 &5093372763163656878
@@ -806,7 +810,7 @@ GameObject:
   - component: {fileID: 1716623976728826208}
   m_Layer: 12
   m_Name: Machine Gun Turret
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

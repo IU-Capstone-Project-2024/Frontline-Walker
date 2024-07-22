@@ -286,7 +286,6 @@ public class TestController : TestMessageReceiver
 
     private void CalculateDirection()
     {
-        Debug.Log("Direction: " + _normal.y + " " + -_normal.x + " " + _collisions.Count);
         _direction = new Vector2(_normal.y, -_normal.x).normalized;
     }
 

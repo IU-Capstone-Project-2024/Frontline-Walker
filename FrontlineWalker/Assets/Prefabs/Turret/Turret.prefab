@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3319433892553855368}
   m_Layer: 12
   m_Name: Turret Base
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +104,7 @@ MonoBehaviour:
   isCritical: 1
   messanger: {fileID: 995839794487202128}
   criticalDamageVisualEffect: {fileID: 0}
+  visualEffectStartSize: 0.2
   placeForVisualEffect: []
   alwaysSendMessage: 1
   showDebugLog: 1
@@ -177,7 +178,7 @@ GameObject:
   - component: {fileID: 3604042261869105398}
   m_Layer: 12
   m_Name: ShootingPoint
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,7 +216,7 @@ GameObject:
   - component: {fileID: 2906535874755924157}
   m_Layer: 12
   m_Name: Turret Gun
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -372,6 +373,7 @@ MonoBehaviour:
   isCritical: 0
   messanger: {fileID: 5589036417285792722}
   criticalDamageVisualEffect: {fileID: 8072964949216817133, guid: 07c230893dce47a479420d7929121315, type: 3}
+  visualEffectStartSize: 0.2
   placeForVisualEffect:
   - {fileID: 3294919278600760285}
   alwaysSendMessage: 1
@@ -519,7 +521,7 @@ GameObject:
   - component: {fileID: 3294919278600760285}
   m_Layer: 12
   m_Name: placeForVisualEffect
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -554,7 +556,7 @@ GameObject:
   - component: {fileID: 6518408203179121124}
   m_Layer: 12
   m_Name: Turret Turning Point
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -639,6 +641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a85b207ae0640544ba744b94b15727d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minAngle: 0
+  maxAngle: 360
   rotationSpeed: 200
   angleOfStartingFire: 5
 --- !u!58 &5093372763163656878
@@ -675,7 +679,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0.5, y: 0}
   serializedVersion: 2
-  m_Radius: 100
+  m_Radius: 60
 --- !u!50 &6518408203179121124
 Rigidbody2D:
   serializedVersion: 4
@@ -715,7 +719,7 @@ GameObject:
   - component: {fileID: 1716623976728826208}
   m_Layer: 12
   m_Name: Turret
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

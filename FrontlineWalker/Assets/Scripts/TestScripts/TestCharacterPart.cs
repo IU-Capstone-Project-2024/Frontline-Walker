@@ -14,6 +14,7 @@ public class TestCharacterPart : MonoBehaviour
 
     [Header("SFX,VFX")] 
     public GameObject criticalDamageVisualEffect;
+    public float visualEffectStartSize = 0.2f;
     public Transform[] placeForVisualEffect;
     private GameObject[] _visualEffectsObjects;
     
@@ -79,6 +80,9 @@ public class TestCharacterPart : MonoBehaviour
                         _visualEffectsObjects[i] = Instantiate(criticalDamageVisualEffect, placeForVisualEffect[i].position,
                             placeForVisualEffect[i].rotation);
                         _visualEffectsObjects[i].transform.parent = gameObject.transform;
+                        
+                        var main = _visualEffectsObjects[i].GetComponent<ParticleSystem>().main;
+                        main.startSize = new ParticleSystem.MinMaxCurve(visualEffectStartSize);
                         
                         //TODO: apply velocity of the parent object
                     }
