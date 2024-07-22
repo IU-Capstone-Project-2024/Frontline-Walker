@@ -10,7 +10,8 @@ using UnityEngine.TextCore.Text;
 public class TestBomb : Projectile
 {
     [Header("VisualEffect")] [SerializeField]
-    private GameObject visualEffect;  
+    private GameObject visualEffect;
+    public float visualEffectStartSize = 0.5f;
     [Header("Sound")]
     
     [SerializeField] private GameObject explosionSoundEffect;
@@ -50,7 +51,9 @@ public class TestBomb : Projectile
 
         if (visualEffect != null)
         {
-            Instantiate(visualEffect, transform.position, Quaternion.identity);
+            var effect = Instantiate(visualEffect, transform.position, Quaternion.identity);
+            //effect.GetComponent<ParticleSystem>().Se =
+                //new ParticleSystem.MinMaxCurve(visualEffectStartSize, visualEffectStartSize);
         }
         
         Destroy(gameObject);

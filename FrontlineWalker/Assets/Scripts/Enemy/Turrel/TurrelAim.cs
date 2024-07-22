@@ -77,11 +77,11 @@ public class TurrelAim : TestMessageReceiver
 
     public void ClampAngle()
     {
-        if (transform.rotation.z > maxAngle)
+        if (transform.rotation.eulerAngles.z > maxAngle)
         {
             transform.rotation = Quaternion.Euler(0, 0, maxAngle);
         }
-        if (transform.rotation.z < minAngle)
+        if (transform.rotation.eulerAngles.z < minAngle)
         {
             transform.rotation = Quaternion.Euler(0, 0, minAngle);
         }

@@ -3046,9 +3046,33 @@ PrefabInstance:
       propertyPath: maxAngle
       value: 210
       objectReference: {fileID: 0}
+    - target: {fileID: 4266626142362183444, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: minAngle
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 6518408203179121124, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052818904573142024, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052818904573142024, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052818904573142024, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052818904573142024, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7052818904573142024, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 7112569830541786167, guid: 763a1bf5d6a258342aef24a0d2871159, type: 3}
       propertyPath: m_Name
