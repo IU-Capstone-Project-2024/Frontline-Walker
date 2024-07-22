@@ -30,6 +30,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     private Vector2[] _lastLegPositions;
     private Vector2[] _lastLocalLegTargetPositions;
     private Vector2[] _footsNormals;
+    private bool[] _movingLegs;
     private Vector2 _lastBodyUp;
     private bool _stepCooled;
     private int _nbLegs;
@@ -69,6 +70,12 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
         {
             Debug.Log("Number of foots doesn't match number of legs!");
             foots = Array.Empty<GameObject>();
+        }
+
+        _movingLegs = new bool[foots.Length];
+        for (int i = 0; i < _movingLegs.Length; i++)
+        {
+            _movingLegs[i] = false;
         }
 
         _footsNormals = new Vector2[foots.Length];
@@ -111,7 +118,8 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
             legTargets[index].position += transform.up * Mathf.Sin(i / (float)(step_smoothness + 1f) * Mathf.PI) * stepHeight;
             yield return new WaitForFixedUpdate();
         }
-        
+
+        _movingLegs[index] = false;
         legTargets[index].position = targetPoint;
         _lastLegPositions[index] = legTargets[index].position;
         _stepCooled = true;
@@ -199,6 +207,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
                     ((Vector2)transform.parent.up + _velocity * 10).normalized);
             
                 _stepCooled = false;
+                _movingLegs[indexToMove] = true;
                         
                 if (positionAndNormalFwd[1] == Vector2.zero)
                 {
@@ -242,6 +251,18 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
 
                 _footsNormals[i].x = hit.normal.x;
                 _footsNormals[i].y = hit.normal.y;
+            }
+        }
+
+        //updating leg targets if floor moved
+        for (int i = 0; i < _movingLegs.Length; i++)
+        {
+            if (!_movingLegs[i])
+            {
+                RaycastHit2D hit;
+                Vector2 original = new Vector2(legTargets[i].position.x, legTargets[i].position.y);
+                hit = Physics2D.Raycast(original + Vector2.up * 0.3f, Vector2.down, 2f, layerMask);
+                legTargets[i].position = hit.point;
             }
         }
         
