@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 386844836062760469}
   - component: {fileID: 4790153404122428509}
   m_Layer: 0
-  m_Name: ParticleBShotSmoke
+  m_Name: BShotSmoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
