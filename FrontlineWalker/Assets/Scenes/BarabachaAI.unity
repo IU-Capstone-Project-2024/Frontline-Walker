@@ -1155,17 +1155,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 7112569830445233459}
   projectileShooter: {fileID: 209021125075064139}
-  projectile: {fileID: -2606586556402958143, guid: 32024d6a1bb74194bb09050d6d322d4e, type: 3}
+  projectile: {fileID: -2606586556402958143, guid: 2700ae6177bcded41930c6ccf0fdf606, type: 3}
   projectileShell: {fileID: 0}
   minAngle: 0
   maxAngle: 360
   rotationSpeed: 200
   angleOfStartingFire: 5
-  reloadTime: 1
+  reloadTime: 3
   cannon: {fileID: 4013868465078017333}
   turningPoint: {fileID: 7052818904745159949}
   visualEffect: {fileID: 8072964949216817133, guid: bcc71ede939d50748929853f55a345ba, type: 3}
-  a: -0.004
+  a: -0.011
   b: 0
   c: 0
 --- !u!1 &7112569830445233458

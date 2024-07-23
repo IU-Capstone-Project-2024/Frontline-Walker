@@ -75,7 +75,8 @@ public class NNTiltCalculatorCannon : TestMessageReceiver
             }
 
             var x = -(transform.position.x -_target.position.x) / 2;
-            var y = a * x * x + b * x + c;
+            var new_c = c * (transform.position.y - _target.position.y);
+            var y = a * x * x + b * x + new_c;
             Vector2 direction = new Vector2(x, -y);
             float angle = 180 - Vector2.SignedAngle(direction, Vector2.left);
             Debug.Log(direction + " " + angle + " " + x + " " + y);
