@@ -131,7 +131,7 @@ MonoBehaviour:
   visualEffectStartSize: 2
   groundHitSoundEffect: {fileID: 3264693995686976320, guid: 201012b92fefa3e44b36698064f9b468, type: 3}
   characterHitSoundEffect: {fileID: 0}
-  explosionForce: 0.4
+  explosionForce: 1.5
   explosionRadius: 2
   hit_layer:
     serializedVersion: 2
