@@ -95,7 +95,7 @@ public class TestCannon : MonoBehaviour
            _blowbackMechanism.Blowback();
            _readyToFire = false;
            Invoke("Reload", reloadTime);
-           if (PerRoundReload)
+           if (PerRoundReload && _remainingShells > 0)
            {
                Invoke("PlayReloadSound", PerRoundReloasDelay);
            }
@@ -112,11 +112,6 @@ public class TestCannon : MonoBehaviour
         if (_remainingShells > 0)
         {
             _readyToFire = true;
-        }
-
-        if (PerRoundReload && _remainingShells > 0)
-        {
-            audioManager.Play("reload");
         }
     }
 
