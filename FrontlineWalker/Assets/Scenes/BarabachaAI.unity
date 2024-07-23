@@ -1167,7 +1167,7 @@ MonoBehaviour:
   visualEffect: {fileID: 8072964949216817133, guid: bcc71ede939d50748929853f55a345ba, type: 3}
   a: -0.011
   b: 0
-  c: 0
+  c: 0.3
 --- !u!1 &7112569830445233458
 GameObject:
   m_ObjectHideFlags: 0
