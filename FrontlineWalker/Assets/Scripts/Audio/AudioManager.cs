@@ -92,7 +92,7 @@ namespace Audio
 			{
 				if (sound.source != null)
 				{
-					sound.source.volume = sound.volume * SceneController.instance.soundVolume / 100f * SceneController.instance.masterVolume / 100f;
+					//sound.source.volume = sound.volume * SceneController.instance.soundVolume / 100f * SceneController.instance.masterVolume / 100f;
 				}
 			}
 		}

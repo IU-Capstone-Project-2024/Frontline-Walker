@@ -19,6 +19,7 @@ public class TakeVolumeFromSceneController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (SceneController.instance != null)
         _audioSource.volume = _initialVolume * SceneController.instance.masterVolume / 100 *
             SceneController.instance.soundVolume / 100;
     }

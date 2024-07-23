@@ -7,9 +7,9 @@ using UnityEngine.Serialization;
 
 public class TestProjectileShooter : MonoBehaviour
 {
-    [Header("Links")]
+    [FormerlySerializedAs("_usedProjectile")] [Header("Links")]
     
-    [SerializeField] private Projectile _usedProjectile;
+    public Projectile usedProjectile;
     [SerializeField] private bool _useInitialVelocity;
     [SerializeField] private Transform _shootingPoint;
     [SerializeField] private Rigidbody2D _rigidbody;
@@ -35,7 +35,7 @@ public class TestProjectileShooter : MonoBehaviour
             Destroy(effect, lifetime);
         }
         
-        Projectile newProjectile = Instantiate(_usedProjectile, _shootingPoint.position, _shootingPoint.rotation);
+        Projectile newProjectile = Instantiate(usedProjectile, _shootingPoint.position, _shootingPoint.rotation);
         if (_rigidbody != null)
         {
             if (newProjectile.GetComponent<Rigidbody2D>() && _useInitialVelocity)
