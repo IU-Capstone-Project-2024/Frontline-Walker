@@ -213,9 +213,9 @@ public class TestController : TestMessageReceiver
 
     public void ReceiveResupply()
     {
-        Refuel(tankCapacity / 3f);
-        AAMachineGunController.ResupplyShells(AAMachineGunController.maxShells / 4);
-        mainCannonController.ResupplyShells(mainCannonController.maxShells / 4);
+        Refuel(Mathf.Max(tankCapacity / 3f, 1));
+        AAMachineGunController.ResupplyShells(Mathf.Max(AAMachineGunController.maxShells / 4, 1));
+        mainCannonController.ResupplyShells(Mathf.Max(mainCannonController.maxShells / 4, 1));
         
         partsObserver.ResupplyFix();
     }
