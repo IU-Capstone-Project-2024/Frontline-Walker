@@ -116,13 +116,16 @@ public class TestCannon : MonoBehaviour
 
         if (PerRoundReload && _remainingShells > 0)
         {
-            audioManager.Stop("reload");
+            audioManager.Play("reload");
         }
     }
 
     public void PlayReloadSound()
     {
-        audioManager.Play("reload");
+        if (_remainingShells > 0)
+        {
+            audioManager.Play("reload");    
+        }
     }
 
     public int GetNumberOfRemainingShells()
