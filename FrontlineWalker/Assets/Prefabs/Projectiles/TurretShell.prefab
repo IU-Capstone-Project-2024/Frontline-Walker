@@ -129,8 +129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visualEffect: {fileID: 8072964949216817133, guid: 9cfde81093626c448a6d5fbdec09749e, type: 3}
   visualEffectStartSize: 2
-  explosionSoundEffect: {fileID: 3264693995686976320, guid: 201012b92fefa3e44b36698064f9b468, type: 3}
-  explosionForce: 0.1
+  groundHitSoundEffect: {fileID: 3264693995686976320, guid: 201012b92fefa3e44b36698064f9b468, type: 3}
+  characterHitSoundEffect: {fileID: 0}
+  explosionForce: 0.4
   explosionRadius: 2
   hit_layer:
     serializedVersion: 2

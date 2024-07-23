@@ -72,6 +72,11 @@ public class TestController : TestMessageReceiver
     {
         
         _rb.AddForce(Vector2.down * downForce);
+
+        if (_rb.velocity.y > 0 && _rb.velocity.magnitude > distabilization_speed)
+        {
+            _rb.velocity = _rb.velocity.normalized * (distabilization_speed - 0.1f);
+        }
         
         //Debug.Log(_rb.velocity.magnitude);
         if (_rb.velocity.magnitude > distabilization_speed)
@@ -278,6 +283,7 @@ public class TestController : TestMessageReceiver
             }
 
             if (_normal == Vector2.zero) _normal = Vector2.up;
+            if (_normal.y < 0) _normal = Vector2.up;
             _normal = _normal.normalized;
         }
         Debug.DrawRay(point, point + _normal, Color.blue);
@@ -293,8 +299,11 @@ public class TestController : TestMessageReceiver
     {
         foreach (var collision in _collisions)
         {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(collision.contacts[0].point, 0.05f);
+            if (collision != null)
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawWireSphere(collision.contacts[0].point, 0.05f);
+            }
         }
         
     }

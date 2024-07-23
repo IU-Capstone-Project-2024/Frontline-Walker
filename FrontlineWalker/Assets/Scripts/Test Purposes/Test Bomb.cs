@@ -57,9 +57,12 @@ public class TestBomb : Projectile
         }
         else
         {
-            if (groundHitSoundEffect != null)
-            { 
-                Instantiate(groundHitSoundEffect, transform.position, Quaternion.identity);
+            if (!other.gameObject.Equals(gameObject))
+            {
+                if (groundHitSoundEffect != null)
+                {
+                    Instantiate(groundHitSoundEffect, transform.position, Quaternion.identity);
+                }
             }
         }
 

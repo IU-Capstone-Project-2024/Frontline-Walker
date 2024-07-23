@@ -20,6 +20,8 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     public int step_smoothness = 20;
     public float stepHeight = 0.5f;
     public bool bodyOrientation = true;
+
+    private float _legTargetBugDistance = 20f;
     [Header("Torso")] 
     public TestTorsoController torsoController;
     public float shakeHeight = 0.01f;
@@ -69,6 +71,7 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
     
     void Start()
     {
+        
         _animate = true;
         
         if (foots.Length != legTargets.Length)
@@ -270,6 +273,15 @@ public class TestProceduralWalkerAnimation : MonoBehaviour
                 legTargets[i].position = hit.point;
             }
         }
+        
+        //checking if leg target position were buged.
+        /*for (int i = 0; i < legTargets.Length; i++)
+        {
+            if ((transform.position - legTargets[i].position).magnitude > _legTargetBugDistance);
+            {
+                legTargets[i].position = Physics2D.Raycast(transform.position, Vector2.down, 10, layerMask).point;
+            }
+        }*/
         
         //rotating foot
         for (int i = 0; i < foots.Length; i++)
